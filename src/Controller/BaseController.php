@@ -13,6 +13,6 @@ class BaseController extends AbstractController
      */
     public function home() : Response
     {
-        return new Response(content:"Branch");
+        return $this->render('base.html.twig');
     }
 }
