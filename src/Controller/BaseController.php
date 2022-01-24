@@ -15,7 +15,6 @@ class BaseController extends AbstractController
     {
         return $this->render('home.html.twig');
     }
-
     /**
      * @Route("/login")
      */
