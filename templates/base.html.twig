@@ -12,7 +12,7 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
               integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
               crossorigin="anonymous">
-        <link rel="stylesheet" href="asset{{ 'style/global.css' }}" type="text/css"/>
+        <link rel="stylesheet" href="{{ asset('style/global.css') }}" type="text/css"/>
     {% endblock %}
     {% block javascripts %}
         <script src="{{ asset('main.js') }}"></script>
@@ -41,7 +41,7 @@
                 <a class="nav-link" aria-current="page" href="/faq">FAQ</a>
             </li>
             <li class="nav-item ml-5 mr-5">
-                <a class="nav-link" aria-current="page" href="/login">LOGIN/REGISTER</a>
+                <a class="nav-link" aria-current="page" href="/index.php/login">LOGIN/REGISTER</a>
             </li>
         </ul>
     </div>
