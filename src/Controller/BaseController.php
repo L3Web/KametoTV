@@ -9,17 +9,12 @@ use Symfony\Component\Routing\Annotation\Route;
 class BaseController extends AbstractController
 {
     /**
-     * @Route("/")
+     * @Route("/", name="app_base_home")
      */
-    public function home() : Response
+    public function home(): Response
     {
-        return $this->render('home.html.twig');
-    }
-    /**
-     * @Route("/login")
-     */
-    public function login() : Response
-    {
-        return $this->render('login.html.twig');
+        return $this->render('home.html.twig', [
+            'message' => 'home'
+        ]);
     }
 }
