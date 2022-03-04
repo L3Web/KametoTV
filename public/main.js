@@ -4,7 +4,7 @@ $(document).ready(function () {
 
         $('.nav li.active').removeClass('active');
 
-        var $parent = $(this).parent();
+        let $parent = $(this).parent();
         $parent.addClass('active');
         e.preventDefault();
     });

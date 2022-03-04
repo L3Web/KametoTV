@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "eb0976792b64837f52625707570706ed",
+    "content-hash": "3129903831473339ae30ac32ee8d4d70",
     "packages": [
         {
             "name": "composer/package-versions-deprecated",
@@ -2301,17 +2301,43 @@
             "time": "2022-01-02T16:55:10+00:00"
         },
         {
-            "name": "symfony/asset",
-            "version": "v6.0.1",
+            "name": "symfony/apache-pack",
+            "version": "v1.0.1",
             "source": {
                 "type": "git",
-                "url": "https://github.com/symfony/asset.git",
-                "reference": "98cc78b2fd6f00191596bc91f72d7301e8ac88dd"
+                "url": "https://github.com/symfony/apache-pack.git",
+                "reference": "3aa5818d73ad2551281fc58a75afd9ca82622e6c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/asset/zipball/98cc78b2fd6f00191596bc91f72d7301e8ac88dd",
-                "reference": "98cc78b2fd6f00191596bc91f72d7301e8ac88dd",
+                "url": "https://api.github.com/repos/symfony/apache-pack/zipball/3aa5818d73ad2551281fc58a75afd9ca82622e6c",
+                "reference": "3aa5818d73ad2551281fc58a75afd9ca82622e6c",
+                "shasum": ""
+            },
+            "type": "symfony-pack",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "A pack for Apache support in Symfony",
+            "support": {
+                "issues": "https://github.com/symfony/apache-pack/issues",
+                "source": "https://github.com/symfony/apache-pack/tree/master"
+            },
+            "time": "2017-12-12T01:46:35+00:00"
+        },
+        {
+            "name": "symfony/asset",
+            "version": "v6.0.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/asset.git",
+                "reference": "a926033206f3644b1289f4eb09dc0989c7080c21"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/asset/zipball/a926033206f3644b1289f4eb09dc0989c7080c21",
+                "reference": "a926033206f3644b1289f4eb09dc0989c7080c21",
                 "shasum": ""
             },
             "require": {
@@ -2354,7 +2380,7 @@
             "description": "Manages URL generation and versioning of web assets such as CSS stylesheets, JavaScript files and image files",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/asset/tree/v6.0.1"
+                "source": "https://github.com/symfony/asset/tree/v6.0.3"
             },
             "funding": [
                 {
@@ -2370,7 +2396,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-12-08T15:13:44+00:00"
+            "time": "2022-01-02T09:55:41+00:00"
         },
         {
             "name": "symfony/cache",
