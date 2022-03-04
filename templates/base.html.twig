@@ -15,8 +15,8 @@
               crossorigin="anonymous">
     {% endblock %}
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    {#  <script src="{{ asset('main.js') }}"></script> #}
     {% block javascripts %}
-        {#  <script src="{{ asset('main.js') }}"></script> #}
         {#  { encore_entry_script_tags('app2') } #}
     {% endblock %}
 </head>
@@ -50,11 +50,11 @@
         </ul>
     </div>
 </nav>
-<body>
+<body class="d-flex flex-column min-vh-100">
 {% block body %}
 {% endblock %}
 
-<footer class="bg-dark text-white fixed-bottom">
+<footer class="bg-dark text-white">
     <div class="text-center p-3">
         © 2021 Copyright KametoTV
     </div>

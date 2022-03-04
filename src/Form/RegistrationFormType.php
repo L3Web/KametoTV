@@ -42,7 +42,7 @@ class RegistrationFormType extends AbstractType
             )
             ->add('first_name', TextType::class)
             ->add('last_name', TextType::class)
-            ->add('submit', SubmitType::class);
+            ->add('register', SubmitType::class);
     }
 
     public function configureOptions(OptionsResolver $resolver): void

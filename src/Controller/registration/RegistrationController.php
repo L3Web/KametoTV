@@ -41,7 +41,6 @@ class RegistrationController extends AbstractController
                 'message'=>'register success'
             ]);
         }
-
         return $this->renderForm('registration/register.html.twig', [
             'formRegister'=>$form
         ]);

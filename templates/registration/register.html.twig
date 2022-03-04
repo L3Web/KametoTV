@@ -1,11 +1,13 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}Register{% endblock %}
-
+{% block stylesheet %}
+    <link rel="stylesheet" href="{{ asset('style/register.css') }}" type="text/css"/>
+{% endblock %}
 {% block body %}
-    <h1>Register</h1>
-
-    <div class="form col d-flex justify-content-center pb-2">
+    <div class="ml-5 mb-3 col-5">
+        <h1>Register</h1>
+        {% form_theme formRegister 'bootstrap_4_layout.html.twig' %}
         {{ form(formRegister) }}
     </div>
 {% endblock %}
