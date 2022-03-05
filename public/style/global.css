@@ -1,12 +1,38 @@
-li.nav-item
-{
+li.nav-item {
     margin-left: 5%;
     margin-right: 5%;
+    padding-top: 1%;
+    padding-bottom: 1%;
 }
 
-a.active {
+.nav-link {
+    font-size: smaller;
+}
+
+@media (max-width: 1100px) {
+    li.nav-item {
+        margin-left: 3%;
+        margin-right: 3%;
+    }
+}
+
+@media (max-width: 900px) {
+    .nav-link{
+        font-size: small;
+    }
+    li.nav-item {
+        margin-left: 1%;
+        margin-right: 1%;
+    }
+}
+
+.active {
+    padding-right: 5%;
+    padding-left: 5%;
+    border: 1px solid #9A9A9A;
+    border-top: none;
+    border-bottom: none;
+    border-radius: 5%;
     background-color: #424242;
-    color: purple;
 }
-
 

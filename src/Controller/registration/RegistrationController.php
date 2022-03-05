@@ -22,8 +22,6 @@ class RegistrationController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $user->setCreatedAt(new \DateTimeImmutable("now"));
-            $user->setModifiedAt(new \DateTimeImmutable("now"));
-            $user->setDeletedAt(new \DateTimeImmutable("now"));
             $user->setStatus("0");
             // encode the plain password
             $user->setPassword(
