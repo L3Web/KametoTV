@@ -5,27 +5,29 @@
         <div class="container align-content-center col-5">
             <h1 class="text-center mb-4">FAQ</h1>
             <div class="accordion mt-3" id="accordionMain">
-                {% for faq in 0..quantity %}
-                    <div class="card text-center">
-                        <div class="card-header" id="heading{{ faq }}">
-                            <h5 class="mb-0">
-                                <button class="btn btn-link collapsed text-decoration-none" type="button"
-                                        data-toggle="collapse"
-                                        data-target="#collapse{{ faq }}" aria-expanded="false"
-                                        aria-controls="collapse{{ faq }}">
-                                    {{ faqAll[faq].getQuestion() }}
-                                </button>
-                            </h5>
-                        </div>
+                {% if quantity > 0 %}
+                    {% for faq in 0..quantity %}
+                        <div class="card text-center">
+                            <div class="card-header" id="heading{{ faq }}">
+                                <h5 class="mb-0">
+                                    <button class="btn btn-link collapsed text-decoration-none" type="button"
+                                            data-toggle="collapse"
+                                            data-target="#collapse{{ faq }}" aria-expanded="false"
+                                            aria-controls="collapse{{ faq }}">
+                                        {{ faqAll[faq].getQuestion() }}
+                                    </button>
+                                </h5>
+                            </div>
 
-                        <div id="collapse{{ faq }}" class="collapse" aria-labelledby="heading{{ faq }}"
-                             data-parent="#accordionMain">
-                            <div class="card-body text-center">
-                                {{ faqAll[faq].getAnswer() }}
+                            <div id="collapse{{ faq }}" class="collapse" aria-labelledby="heading{{ faq }}"
+                                 data-parent="#accordionMain">
+                                <div class="card-body text-center">
+                                    {{ faqAll[faq].getAnswer() }}
+                                </div>
                             </div>
                         </div>
-                    </div>
-                {% endfor %}
+                    {% endfor %}
+                {% endif %}
             </div>
         </div>
     </div>
