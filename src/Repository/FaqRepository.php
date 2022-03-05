@@ -19,6 +19,15 @@ class FaqRepository extends ServiceEntityRepository
         parent::__construct($registry, Faq::class);
     }
 
+    public function getAllFaq()
+    {
+        return $this->createQueryBuilder('getAll')
+            ->orderBy('getAll.id', 'ASC')
+            ->setMaxResults(10)
+            ->getQuery()
+            ->getResult();
+    }
+
     // /**
     //  * @return Faq[] Returns an array of Faq objects
     //  */
