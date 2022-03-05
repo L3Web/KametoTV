@@ -20,19 +20,19 @@ class Product
     private $price;
 
     #[ORM\Column(type: 'integer')]
-    private $product_qt;
-
-    #[ORM\Column(type: 'integer')]
-    private $category_id;
+    private $product_qtt;
 
     #[ORM\Column(type: 'datetime_immutable')]
     private $created_at;
 
-    #[ORM\Column(type: 'datetime_immutable')]
+    #[ORM\Column(type: 'datetime_immutable', nullable: true)]
+    private $deleted_at;
+
+    #[ORM\Column(type: 'datetime_immutable', nullable: true)]
     private $modified_at;
 
-    #[ORM\Column(type: 'datetime_immutable')]
-    private $deleted_at;
+    #[ORM\Column(type: 'integer')]
+    private $category_id;
 
     public function getId(): ?int
     {
@@ -63,26 +63,14 @@ class Product
         return $this;
     }
 
-    public function getProductQt(): ?int
+    public function getProductQtt(): ?int
     {
-        return $this->product_qt;
+        return $this->product_qtt;
     }
 
-    public function setProductQt(int $product_qt): self
+    public function setProductQtt(int $product_qtt): self
     {
-        $this->product_qt = $product_qt;
-
-        return $this;
-    }
-
-    public function getCategoryId(): ?int
-    {
-        return $this->category_id;
-    }
-
-    public function setCategoryId(int $category_id): self
-    {
-        $this->category_id = $category_id;
+        $this->product_qtt = $product_qtt;
 
         return $this;
     }
@@ -99,26 +87,38 @@ class Product
         return $this;
     }
 
+    public function getDeletedAt(): ?\DateTimeImmutable
+    {
+        return $this->deleted_at;
+    }
+
+    public function setDeletedAt(?\DateTimeImmutable $deleted_at): self
+    {
+        $this->deleted_at = $deleted_at;
+
+        return $this;
+    }
+
     public function getModifiedAt(): ?\DateTimeImmutable
     {
         return $this->modified_at;
     }
 
-    public function setModifiedAt(\DateTimeImmutable $modified_at): self
+    public function setModifiedAt(?\DateTimeImmutable $modified_at): self
     {
         $this->modified_at = $modified_at;
 
         return $this;
     }
 
-    public function getDeletedAt(): ?\DateTimeImmutable
+    public function getCategoryId(): ?int
     {
-        return $this->deleted_at;
+        return $this->category_id;
     }
 
-    public function setDeletedAt(\DateTimeImmutable $deleted_at): self
+    public function setCategoryId(int $category_id): self
     {
-        $this->deleted_at = $deleted_at;
+        $this->category_id = $category_id;
 
         return $this;
     }

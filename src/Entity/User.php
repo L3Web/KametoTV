@@ -20,29 +20,29 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(type: 'integer')]
     private $id;
 
-    #[ORM\Column(type: 'string', length: 32)]
+    #[ORM\Column(type: 'string', length: 255)]
     private $username;
 
-    #[ORM\Column(type: 'string', length: 32)]
+    #[ORM\Column(type: 'string', length: 200)]
     private $password;
 
-    #[ORM\Column(type: 'string', length: 32)]
+    #[ORM\Column(type: 'string', length: 255)]
     private $first_name;
 
-    #[ORM\Column(type: 'string', length: 32)]
+    #[ORM\Column(type: 'string', length: 255)]
     private $last_name;
+
+    #[ORM\Column(type: 'integer')]
+    private $status;
 
     #[ORM\Column(type: 'datetime_immutable')]
     private $created_at;
 
-    #[ORM\Column(type: 'datetime_immutable')]
-    private $modified_at;
-
-    #[ORM\Column(type: 'datetime_immutable')]
+    #[ORM\Column(type: 'datetime_immutable', nullable: true)]
     private $deleted_at;
 
-    #[ORM\Column(type: 'integer')]
-    private $status;
+    #[ORM\Column(type: 'datetime_immutable', nullable: true)]
+    private $modified_at;
 
     /**
      * @ORM\Column(type="json")
@@ -102,6 +102,18 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
+    public function getStatus(): ?int
+    {
+        return $this->status;
+    }
+
+    public function setStatus(int $status): self
+    {
+        $this->status = $status;
+
+        return $this;
+    }
+
     public function getCreatedAt(): ?\DateTimeImmutable
     {
         return $this->created_at;
@@ -114,38 +126,26 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
-    public function getModifiedAt(): ?\DateTimeImmutable
-    {
-        return $this->modified_at;
-    }
-
-    public function setModifiedAt(\DateTimeImmutable $modified_at): self
-    {
-        $this->modified_at = $modified_at;
-
-        return $this;
-    }
-
     public function getDeletedAt(): ?\DateTimeImmutable
     {
         return $this->deleted_at;
     }
 
-    public function setDeletedAt(\DateTimeImmutable $deleted_at): self
+    public function setDeletedAt(?\DateTimeImmutable $deleted_at): self
     {
         $this->deleted_at = $deleted_at;
 
         return $this;
     }
 
-    public function getStatus(): ?int
+    public function getModifiedAt(): ?\DateTimeImmutable
     {
-        return $this->status;
+        return $this->modified_at;
     }
 
-    public function setStatus(int $status): self
+    public function setModifiedAt(?\DateTimeImmutable $modified_at): self
     {
-        $this->status = $status;
+        $this->modified_at = $modified_at;
 
         return $this;
     }
