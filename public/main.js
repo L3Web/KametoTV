@@ -1,6 +1,9 @@
 $(document).ready(function () {
     console.log("Document is ready");
     let current = location.pathname;
+    if((current.match(/\//g) || []).length>1) {
+        current=current.substring(0, current.lastIndexOf('/'));
+    }
     if(current!="/") {
         current = "/index.php" + current;
     }
@@ -10,9 +13,8 @@ $(document).ready(function () {
         console.log($this.attr('href') +" is equal to "+current+" ? ");
         console.log($this.attr('href') === current);
         if($this.attr('href') === current){
-            $('.active').removeClass('active');
-            console.log("parent" +$this.parent());
             $this.parent().addClass('active');
+            return false;
         }
     })
 });

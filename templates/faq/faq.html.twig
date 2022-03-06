@@ -31,9 +31,11 @@
             </div>
         </div>
     </div>
-    <div class="mx-auto mb-5">
-        <button class="btn btn-primary">
-            <a href="index.php/faq/add" style="color:white">Ajouter une question/réponse</a>
-        </button>
-    </div>
+    {% if is_granted('ROLE_ADMIN') %}
+        <div class="mx-auto mb-5">
+            <button class="btn btn-primary">
+                <a href="index.php/faq/add" class="text-white">Ajouter une question/réponse</a>
+            </button>
+        </div>
+    {% endif %}
 {% endblock %}
