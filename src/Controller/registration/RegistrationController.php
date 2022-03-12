@@ -31,6 +31,8 @@ class RegistrationController extends AbstractController
                 )
             );
             $user->setRoles(['ROLE_USER']);
+
+            //to be deleted after test
             if ($form['admin']->getData() === true) {
                 $user->addRoles('ROLE_ADMIN');
                 $user->setStatus("1");
