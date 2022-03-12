@@ -1,0 +1,41 @@
+{% extends "base.html.twig" %}
+{% block title %}Role management{% endblock %}
+{% block body %}
+    <table class="table table-bordered table-hover col-9 mx-auto text-center">
+        <thead>
+        <tr>
+            <th scope="col">Username</th>
+            <th scope="col">First Name</th>
+            <th scope="col">Last Name</th>
+            <th scope="col">Roles</th>
+            <th scope="col">Change or details</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% if quantity>0 %}
+            {% for i in 0..quantity %}
+                <tr>
+                    <th scope="row">{{ userList[i].username }}</th>
+                    <td>{{ userList[i].first_name }}</td>
+                    <td>{{ userList[i].last_name }}</td>
+                    <td>{% for role in userList[i].roles %}
+                            {{ role }}<br>
+                        {% endfor %}
+                    </td>
+                    <td>
+
+                        {% if "ROLE_SUPER_ADMIN" in userList[i].roles %}
+                            <button class="btn btn-secondary disabled">Details</button>
+                        {% else %}
+                            <button class="btn btn-secondary">
+                                <a href="{{ path('app_roleDetails', {"id": userList[i].id}) }}"
+                                   class="text-white">Details</a>
+                            </button>
+                        {% endif %}
+                    </td>
+                </tr>
+            {% endfor %}
+        {% endif %}
+        </tbody>
+    </table>
+{% endblock %}

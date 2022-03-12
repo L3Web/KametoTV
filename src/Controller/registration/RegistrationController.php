@@ -30,9 +30,9 @@ class RegistrationController extends AbstractController
                     $form->get('plainPassword')->getData()
                 )
             );
-
+            $user->setRoles(['ROLE_USER']);
             if ($form['admin']->getData() === true) {
-                $user->setRoles(['ROLE_ADMIN']);
+                $user->addRoles('ROLE_ADMIN');
                 $user->setStatus("1");
             }
             $entityManager->persist($user);

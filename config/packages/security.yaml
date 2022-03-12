@@ -39,9 +39,11 @@ security:
         # - { path: ^/admin, roles: ROLE_ADMIN }
         # - { path: ^/profile, roles: ROLE_USER }
         - { path : ^/faq/add, roles: ROLE_ADMIN }
+        - { path : ^/roleManagement, roles : ROLE_SUPER_ADMIN}
     access_denied_url : /login
     role_hierarchy:
         ROLE_ADMIN: ROLE_USER
+        ROLE_SUPER_ADMIN: ROLE_ADMIN
 
 when@test:
     security:

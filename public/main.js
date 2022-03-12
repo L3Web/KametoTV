@@ -4,9 +4,6 @@ $(document).ready(function () {
     if((current.match(/\//g) || []).length>1) {
         current=current.substring(0, current.lastIndexOf('/'));
     }
-    if(current!="/") {
-        current = "/index.php" + current;
-    }
     $('.nav-item a').each(function(){
         let $this = $(this);
         // if the current path is like this link, make it active

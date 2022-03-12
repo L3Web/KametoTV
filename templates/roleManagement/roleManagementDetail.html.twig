@@ -1,0 +1,38 @@
+{% extends "base.html.twig" %}
+{% block title %}Role management{% endblock %}
+{% block stylesheets %} <link rel="stylesheet" href="{{ asset('style/roleManagementDetail.css') }}" type="text/css"/> {% endblock %}
+{% block body %}
+    <table class="table col-2 ml-5 mb-lg-5 text-nowrap">
+    <tbody>
+    <tr>
+        <td>Id :</td>
+        <td>{{ user.id }}</td>
+        <td>Username :</td>
+        <td>{{ user.username }}</td>
+    </tr>
+    <tr>
+        <td>First name :</td>
+        <td>{{ user.firstName }}</td>
+        <td>Last name :</td>
+        <td>{{ user.lastName }}</td>
+    </tr>
+    <tr>
+        <td>Created at :</td>
+        <td>{{ user.createdAt |date("d/m/y") }}</td>
+    </tr>
+    <tr>
+        <td>
+            <select class="form-select " aria-label="Default select example">
+                <option selected>Choose role</option>
+                <option value="1">Add role</option>
+                <option value="2">Two</option>
+                <option value="3">Three</option>
+            </select>
+        </td>
+        <td>
+            <button class="btn btn-primary">Add role</button>
+        </td>
+    </tr>
+    </tbody>
+    </table>
+{% endblock %}

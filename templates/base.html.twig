@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <title>{% block title %} Welcome to Kameto !{% endblock %}</title>
-    <link rel="icon"
-          href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
-    {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
+          integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn"
+          crossorigin="anonymous">{# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
     <link rel="stylesheet" href="{{ asset('style/global.css') }}" type="text/css"/>
     {% block stylesheets %}
         {#  { encore_entry_link_tags('app') } #}
@@ -16,8 +16,12 @@
     {% endblock %}
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+            integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF"
+            crossorigin="anonymous"></script>
     <script src="{{ asset('main.js') }}"></script>
     {% block javascripts %}
         {#  { encore_entry_script_tags('app2') } #}
@@ -37,20 +41,43 @@
                 <a class="nav-link" aria-current="page" href="https://kgames.fr/" target="_blank">KGAMES</a>
             </li>
             <li class="nav-item ml-5 mr-5">
-                <a class="navbar-brand mr-0" href="/">KametoTV</a>
+                <a class="navbar-brand mr-0" href="{{ path('app_base_home') }}">KametoTV</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" aria-current="page" href="/boutique">BOUTIQUE</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="/index.php/faq">FAQ</a>
+                <a class="nav-link" aria-current="page" href="{{ path('app_faq') }}">FAQ</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="/index.php/login">LOGIN</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="/index.php/register">REGISTER</a>
-            </li>
+            {% if app.user %}
+                <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="{{ path('app_logout') }}">LOGOUT</a>
+                </li>
+            {% else %}
+                <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="{{ path('app_login') }}">LOGIN</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="{{ path('app_register') }}">REGISTER</a>
+                </li>
+            {% endif %}
+
+            {% if is_granted('ROLE_SUPER_ADMIN') %}
+                <li class="nav-item">
+                    <div class="dropdown">
+                        <button class="btn btn-secondary btn-dark dropdown-toggle" type="button" id="dropdownMenuButton"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Admin
+                        </button>
+                        <ul class="dropdown-menu pt-0 pb-0" aria-labelledby="dropdownMenuButton">
+                            <li><a class="dropdown-item" aria-current="page"
+                                   href="{{ path('app_roleManagement', {'page':'1'}) }}">Manage roles</a></li>
+                        </ul>
+
+                    </div>
+                </li>
+            {% endif %}
         </ul>
     </div>
 </nav>
