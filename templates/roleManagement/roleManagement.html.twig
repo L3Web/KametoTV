@@ -1,6 +1,9 @@
 {% extends "base.html.twig" %}
 {% block title %}Role management{% endblock %}
 {% block body %}
+    {% if message is defined and message is not null %}
+        <h2 class="ml-5">{{ message }}</h2>
+    {% endif %}
     <table class="table table-bordered table-hover col-9 mx-auto text-center">
         <thead>
         <tr>
@@ -23,15 +26,10 @@
                         {% endfor %}
                     </td>
                     <td>
-
-                        {% if "ROLE_SUPER_ADMIN" in userList[i].roles %}
-                            <button class="btn btn-secondary disabled">Details</button>
-                        {% else %}
-                            <button class="btn btn-secondary">
-                                <a href="{{ path('app_roleDetails', {"id": userList[i].id}) }}"
-                                   class="text-white">Details</a>
-                            </button>
-                        {% endif %}
+                        <button class="btn btn-secondary">
+                            <a href="{{ path('app_roleDetails', {"id": userList[i].id}) }}"
+                               class="text-white">Details</a>
+                        </button>
                     </td>
                 </tr>
             {% endfor %}

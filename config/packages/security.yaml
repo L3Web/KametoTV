@@ -42,8 +42,10 @@ security:
         - { path : ^/roleManagement, roles : ROLE_SUPER_ADMIN}
     access_denied_url : /login
     role_hierarchy:
-        ROLE_ADMIN: ROLE_USER
-        ROLE_SUPER_ADMIN: ROLE_ADMIN
+        ROLE_MANAGER: ['ROLE_USER']
+        ROLE_TESTERS: ['ROLE_USER']
+        ROLE_ADMIN: ['ROLE_MANAGER', 'ROLE_USER']
+        ROLE_SUPER_ADMIN: ['ROLE_MANAGER', 'ROLE_ADMIN', 'ROLE_TESTERS']
 
 when@test:
     security:

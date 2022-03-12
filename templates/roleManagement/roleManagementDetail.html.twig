@@ -1,38 +1,74 @@
 {% extends "base.html.twig" %}
 {% block title %}Role management{% endblock %}
-{% block stylesheets %} <link rel="stylesheet" href="{{ asset('style/roleManagementDetail.css') }}" type="text/css"/> {% endblock %}
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('style/roleManagementDetail.css') }}" type="text/css"/> {% endblock %}
 {% block body %}
-    <table class="table col-2 ml-5 mb-lg-5 text-nowrap">
-    <tbody>
-    <tr>
-        <td>Id :</td>
-        <td>{{ user.id }}</td>
-        <td>Username :</td>
-        <td>{{ user.username }}</td>
-    </tr>
-    <tr>
-        <td>First name :</td>
-        <td>{{ user.firstName }}</td>
-        <td>Last name :</td>
-        <td>{{ user.lastName }}</td>
-    </tr>
-    <tr>
-        <td>Created at :</td>
-        <td>{{ user.createdAt |date("d/m/y") }}</td>
-    </tr>
-    <tr>
-        <td>
-            <select class="form-select " aria-label="Default select example">
-                <option selected>Choose role</option>
-                <option value="1">Add role</option>
-                <option value="2">Two</option>
-                <option value="3">Three</option>
-            </select>
-        </td>
-        <td>
-            <button class="btn btn-primary">Add role</button>
-        </td>
-    </tr>
-    </tbody>
-    </table>
+    <div class="col-6 d-flex justify-content-center align-middle mx-auto my-auto border-2 shadow-lg pt-5 pb-5">
+        <div class="col-6 my-auto align-content-center">
+            <span>Id : {{ user.id }}</span><br>
+            <span>Username : {{ user.username }}</span><br>
+            <span>Last name : {{ user.firstName }}</span><br>
+            <span>First name : {{ user.lastName }}</span><br>
+            <span>Account creation date : {{ user.createdAt |date("d/m/y") }}</span><br>
+            <span>Current roles :
+                {% if user.roles|length>1 %}
+                    {% for i in 0..user.roles|length-2 %}
+                        {{ user.roles[i] }},
+                    {% endfor %}
+                {% endif %}
+                {{ user.roles[(user.roles|length)-1] }}
+
+            </span>
+
+        </div>
+        <div class="col-6 border-left border-secondary">
+            <form method="post" action="{{ path('app_roleForm') }}">
+                <input type="hidden" name="id" value={{ user.id }}>
+                <div id="addRoles" class="form-group dropdown roleManagement">
+                    <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownAddButton"
+                                data-toggle="dropdown" aria-expanded="false">
+                            Add roles
+                        </button>
+                        <div class="dropdown-menu pt-0 pb-0" aria-labelledby="dropdownAddButton">
+                            {% for hierarchy in hierarchyList %}
+                                <div class="dropdown-item form-check">
+                                    <input class="form-check-input" name="add[]" type="checkbox"
+                                           value={{ hierarchy }} id={{ hierarchy }}>
+                                    <label class="form-check-label" for={{ hierarchy }}>
+                                        {{ hierarchy }}
+                                    </label>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+                <div id="removeRoles" class="form-group roleManagement">
+                    <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownRemoveButton"
+                                data-toggle="dropdown" aria-expanded="false">
+                            Remove roles
+                        </button>
+                        <div class="dropdown-menu pt-0 pb-0" aria-labelledby="dropdownRemoveButton">
+                            {% for role in user.roles %}
+                                <div class="dropdown-item form-check">
+                                    {% if (role=="ROLE_USER") or (role=="ROLE_SUPER_ADMIN") %}
+                                        <input class="form-check-input" name="remove[]" type="checkbox"
+                                               value={{ role }} id={{ role }} disabled>
+                                    {% else %}
+                                        <input class="form-check-input" name="remove[]" type="checkbox"
+                                               value={{ role }} id={{ role }}>
+                                    {% endif %}
+                                    <label class="form-check-label" for={{ role }}>
+                                        {{ role }}
+                                    </label>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-secondary">Submit</button>
+            </form>
+        </div>
+    </div>
 {% endblock %}

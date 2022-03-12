@@ -152,14 +152,21 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     {
         $roles = $this->roles;
         // guarantee every user at least has ROLE_USER
-        $roles[] = 'ROLE_USER';
-
+        //$roles[] = 'ROLE_USER';
         return array_unique($roles);
     }
 
-    public function addRoles(String $roles) : self
+    public function addRole(String $role) : self
     {
-        $this->roles[]=$roles;
+        $this->roles[]=$role;
+
+        return $this;
+    }
+
+    public function removeRole(String $role) : self
+    {
+        $key = array_search($role, $this->roles);
+        unset($this->roles[$key]);
 
         return $this;
     }
