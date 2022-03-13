@@ -44,8 +44,8 @@ security:
     role_hierarchy:
         ROLE_MANAGER: ['ROLE_USER']
         ROLE_TESTERS: ['ROLE_USER']
-        ROLE_ADMIN: ['ROLE_MANAGER', 'ROLE_USER']
-        ROLE_SUPER_ADMIN: ['ROLE_MANAGER', 'ROLE_ADMIN', 'ROLE_TESTERS']
+        ROLE_ADMIN: ['ROLE_MANAGER']
+        ROLE_SUPER_ADMIN: ['ROLE_ADMIN', 'ROLE_TESTERS']
 
 when@test:
     security:

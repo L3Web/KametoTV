@@ -4,17 +4,22 @@ namespace App\Controller\registration;
 
 use App\Entity\User;
 use App\Form\RegistrationFormType;
+use App\Services\MailerService;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Mailer\Exception\TransportExceptionInterface;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Symfony\Component\Routing\Annotation\Route;
 
 class RegistrationController extends AbstractController
 {
+    /**
+     * @throws TransportExceptionInterface
+     */
     #[Route('/register', name: 'app_register')]
-    public function register(Request $request, UserPasswordHasherInterface $userPasswordHasher, EntityManagerInterface $entityManager): Response
+    public function register(Request $request, UserPasswordHasherInterface $userPasswordHasher, EntityManagerInterface $entityManager, MailerService $mailerService): Response
     {
         $user = new User();
         $form = $this->createForm(RegistrationFormType::class, $user);
@@ -22,7 +27,6 @@ class RegistrationController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $user->setCreatedAt(new \DateTimeImmutable("now"));
-            $user->setStatus("0");
             // encode the plain password
             $user->setPassword(
             $userPasswordHasher->hashPassword(
@@ -30,17 +34,16 @@ class RegistrationController extends AbstractController
                     $form->get('plainPassword')->getData()
                 )
             );
-            $user->setRoles(['ROLE_USER']);
-
             //to be deleted after test
             if ($form['admin']->getData() === true) {
-                $user->addRoles('ROLE_ADMIN');
-                $user->setStatus("1");
+                $user->addRole('ROLE_ADMIN');
             }
             $entityManager->persist($user);
             $entityManager->flush();
             // do anything else you need here, like send an email
-
+            $mailerService->sendEmail("Welcome", $user->getEmail(), "emails/signUp.html.twig", [
+                "user"=>$user
+            ]);
             return $this->render('home.html.twig', [
                 'message'=>'register success'
             ]);
