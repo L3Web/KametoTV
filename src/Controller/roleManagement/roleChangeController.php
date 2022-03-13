@@ -14,7 +14,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class roleChangeController extends AbstractController
 {
     /**
-     * @Route("/roleManagement/submit", methods={"POST"}, name="app_roleForm")
+     * @Route("", methods={"POST"}, name="app_roleForm")
      * @throws NonUniqueResultException
      */
     public function changeRoles(Request $request, ManagerRegistry $registry, EntityManagerInterface $entityManager): Response

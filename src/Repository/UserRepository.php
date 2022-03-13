@@ -4,7 +4,9 @@ namespace App\Repository;
 
 use App\Entity\User;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\NonUniqueResultException;
+use Doctrine\ORM\Query\Parameter;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
@@ -39,6 +41,20 @@ class UserRepository extends ServiceEntityRepository
         return $this->createQueryBuilder('u')
             ->andWhere('u.id = :id')
             ->setParameter('id', $id)
+            ->getQuery()
+            ->getOneOrNullResult();
+    }
+
+    /**
+     * @throws NonUniqueResultException
+     */
+    public function findByUsernameMail(String $username, String $email) : User
+    {
+        return $this->createQueryBuilder('u')
+            ->andWhere('u.username = :username and u.email=:email')
+            ->setParameters(new ArrayCollection(array(
+                new Parameter(':username', $username),
+                new Parameter(':email', $email))))
             ->getQuery()
             ->getOneOrNullResult();
     }
