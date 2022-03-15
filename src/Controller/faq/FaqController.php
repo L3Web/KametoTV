@@ -2,7 +2,9 @@
 
 namespace App\Controller\faq;
 
+use App\Entity\Faq;
 use App\Repository\FaqRepository;
+use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -22,6 +24,15 @@ class FaqController extends AbstractController
             "faqAll"=>$res,
             "quantity"=>count($res)-1
         ]);
+    }
+
+    #[Route('/faq/{id}', name: 'app_faqDel')]
+    public function deleteFaq(Faq $faq, EntityManagerInterface $entityManager): Response
+    {
+        $entityManager->remove($faq);
+        $entityManager->flush();
+
+        return $this->redirectToRoute('app_faq');
     }
 
 }

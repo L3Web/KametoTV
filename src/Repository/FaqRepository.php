@@ -28,6 +28,7 @@ class FaqRepository extends ServiceEntityRepository
             ->getResult();
     }
 
+
     // /**
     //  * @return Faq[] Returns an array of Faq objects
     //  */
