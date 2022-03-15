@@ -18,6 +18,7 @@ class FaqController extends AbstractController
     {
         $faqRepository = new FaqRepository($doctrine);
         $res = $faqRepository->getAllFaq();
+        var_dump($res);
         return $this->render('faq/faq.html.twig', [
             "faqAll"=>$res,
             "quantity"=>count($res)-1

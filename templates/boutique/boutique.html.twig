@@ -3,17 +3,16 @@
 {% block title %}Boutique !{% endblock %}
 
 {% block body %}
-   <div class="card" style="width: 18rem; height: 20rem; display: inline-block; margin-bottom: 1rem;">
-      <img class="card-img-top" alt="Card image cap" src={{asset(  'media/tote_bag_karmine.jpg')}} >
-      <p class="card-text" style="text-align: center"> Tote Bag Karmine -  10€</p>
-   </div>
+   {% if quantity >0 %}
+      {% for product in ProductAll %}
 
-   <div class="card" style="width: 18rem; height: 20rem; display: inline-block; margin-bottom: 1rem;">
-      <img class="card-img-top" alt="Card image cap" src={{asset(  'media/gourde_karmine.jpg')}} >
-      <p class="card-text" style="text-align: center"> Tote Bag Karmine -  20€</p>
-   </div>
+      <div class="card display-inline mb-1" style="width: 18rem; height: 20rem; display: inline-block; margin-bottom: 1rem;">
+         <img class="card-img-top" alt="Card image cap" src='{{ product.Image }}' >
+         <p class="card-text" style="text-align: center"> {{ product.productName }} -  {{ product.price }}€</p>
+      </div>
 
+      {% endfor %}
+   {% endif %}
 
-  
 
 {% endblock %}
