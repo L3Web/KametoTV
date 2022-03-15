@@ -2,15 +2,14 @@
 
 namespace App\Controller\faq;
 
+use App\Controller\Controller;
 use App\Entity\Faq;
 use App\Repository\FaqRepository;
-use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\Persistence\ManagerRegistry;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-class FaqController extends AbstractController
+class FaqController extends Controller
 {
     /**
      * @Route("/faq", name="app_faq")
@@ -27,10 +26,10 @@ class FaqController extends AbstractController
     }
 
     #[Route('/faq/{id}', name: 'app_faqDel')]
-    public function deleteFaq(Faq $faq, EntityManagerInterface $entityManager): Response
+    public function deleteFaq(Faq $faq): Response
     {
-        $entityManager->remove($faq);
-        $entityManager->flush();
+        $this->entityManager->remove($faq);
+        $this->entityManager->flush();
 
         return $this->redirectToRoute('app_faq');
     }

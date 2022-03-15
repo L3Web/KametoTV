@@ -136,6 +136,9 @@ class ResetPasswordController extends AbstractController
     private function processSendingPasswordResetEmail(string $emailFormData, string $usernameFormData, MailerService $mailer): RedirectResponse
     {
         $user = $this->entityManager->getRepository(User::class)->findByUsernameMail($usernameFormData, $emailFormData);
+        if($user===null) {
+            throw $this->createNotFoundException("User don't exist");
+        }
         // Do not reveal whether a user account was found or not.
 
         try {
