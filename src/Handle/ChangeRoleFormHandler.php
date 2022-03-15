@@ -36,6 +36,7 @@ class ChangeRoleFormHandler
                 foreach ($this->request->get("remove") as $value) {
                     $user->removeRole($value);
                 }
+                $user->setRoles(array_values($user->getRoles()));
             }
             $this->entityManager->persist($user);
             $this->entityManager->flush();

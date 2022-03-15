@@ -4,9 +4,7 @@ namespace App\Controller\roleManagement;
 
 use App\Entity\User;
 use App\Handle\ChangeRoleFormHandler;
-use App\Repository\UserRepository;
 use Doctrine\ORM\EntityManagerInterface;
-use Doctrine\ORM\NonUniqueResultException;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;

@@ -8,16 +8,18 @@ use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Security\Core\Role\RoleHierarchyInterface;
 
 class RoleDetailController extends AbstractController
 {
 
     private array $hierarchy;
 
-    public function __construct()
+    public function __construct(RoleHierarchyInterface $roleHierarchy)
     {
-        $this->hierarchy = $this->getParameter('security.role_hierarchy.roles');
-        unset($this->hierarchy["ROLE_SUPER_ADMIN"]);
+        $this->hierarchy = $roleHierarchy->getReachableRoleNames(["ROLE_SUPER_ADMIN"]);
+        $key = array_search("ROLE_SUPER_ADMIN", $this->hierarchy);
+        unset($this->hierarchy[$key]);
     }
 
     /**
@@ -33,17 +35,18 @@ class RoleDetailController extends AbstractController
         $this->sortRoles($user);
         return $this->render('roleManagement/roleManagementDetail.html.twig', [
             "user" => $user,
-            "hierarchyList" => array_keys($this->hierarchy)
+            "hierarchyList" => $this->hierarchy
         ]);
     }
 
-    private function sortRoles($user) : void
+    private function sortRoles($user): void
     {
         //A modifier
         foreach ($user->getRoles() as $value) {
-            if (key_exists($value, $this->hierarchy)) {
-                unset($this->hierarchy[$value]);
+            if (($key = array_search($value, $this->hierarchy)) != false) {
+                unset($this->hierarchy[$key]);
             }
         }
+        $this->hierarchy = array_values($this->hierarchy);
     }
 }
