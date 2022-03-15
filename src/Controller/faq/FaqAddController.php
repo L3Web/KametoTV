@@ -5,7 +5,7 @@ namespace App\Controller\faq;
 use App\Controller\Controller;
 use App\Entity\Faq;
 use App\Form\AddFaqFormType;
-use App\Handle\FaqFormHandler;
+use App\Handler\FaqFormHandler;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;

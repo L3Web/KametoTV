@@ -17,7 +17,8 @@
                                         {{ faqAll[faq].getQuestion() }}
                                     </button>
                                     {% if is_granted('ROLE_ADMIN') %}
-                                        <a class="h6 float-right" href="{{ path('app_faq_del', {'id': faqAll[faq].getId}) }}"> Supprimer </a>
+                                        <a class="h6 float-right"
+                                           href="{{ path('app_faq_del', {'id': faqAll[faq].getId}) }}"> Supprimer </a>
                                     {% endif %}
                                 </h5>
                             </div>
@@ -38,9 +39,7 @@
 
     {% if is_granted('ROLE_ADMIN') %}
         <div class="mx-auto mb-2">
-            <button class="btn btn-primary">
-                <a href="{{ path('app_faqAdd') }}" class="text-white">Ajouter une question/réponse</a>
-            </button>
+            <a href="{{ path('app_faqAdd') }}" class="btn btn-primary text-white">Ajouter une question/réponse</a>
         </div>
     {% endif %}
 

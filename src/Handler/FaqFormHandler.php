@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Handle;
+namespace App\Handler;
 
 use App\Entity\Faq;
 use Doctrine\ORM\EntityManagerInterface;
