@@ -13,7 +13,7 @@ class roleDetailController extends AbstractController
 {
 
     /**
-     * @Route("/roleManagement/details/{id<^[1-9]+$>}", name="app_roleDetails")
+     * @Route("/roleManagement/details/{id<^[0-9]+$>}", name="app_roleDetails")
      * @throws NonUniqueResultException
      */
 
