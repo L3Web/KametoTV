@@ -18,10 +18,9 @@ class BoutiqueController extends AbstractController
 
         $ProductRepository = new ProductRepository($doctrine);
         $res = $ProductRepository->getAllProduct();
-        //var_dump($res);
         return $this->render('boutique/boutique.html.twig', [
             'ProductAll' => $res,
-            "quantity"=>count($res)-1
+
         ]);
     }
 }
