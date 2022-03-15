@@ -22,7 +22,7 @@
 
         </div>
         <div class="col-6 border-left border-secondary">
-            <form method="post" action="/roleSubmit">
+            <form method="post" action="{{ path('app_roleForm') }}">
                 <input type="hidden" name="id" value={{ user.id }}>
                 <div id="addRoles" class="form-group dropdown roleManagement">
                     <div class="dropdown">

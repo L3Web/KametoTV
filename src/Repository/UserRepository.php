@@ -32,19 +32,6 @@ class UserRepository extends ServiceEntityRepository
             ->getQuery()
             ->getResult();
     }
-
-    /**
-     * @throws NonUniqueResultException
-     */
-    public function findById(int $id): ?User
-    {
-        return $this->createQueryBuilder('u')
-            ->andWhere('u.id = :id')
-            ->setParameter('id', $id)
-            ->getQuery()
-            ->getOneOrNullResult();
-    }
-
     /**
      * @throws NonUniqueResultException
      */
