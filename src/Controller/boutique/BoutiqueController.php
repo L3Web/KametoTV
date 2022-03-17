@@ -13,6 +13,7 @@ class BoutiqueController extends AbstractController
     /**
      * @Route("/boutique", name="app_boutique")
      */
+
     public function boutique(ManagerRegistry $doctrine): Response
     {
 

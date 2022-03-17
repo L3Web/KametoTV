@@ -26,10 +26,10 @@
                         {% endfor %}
                     </td>
                     <td>
-                        <button class="btn btn-secondary">
-                            <a href="{{ path('app_roleDetails', {"id": userList[i].id}) }}"
-                               class="text-white">Details</a>
-                        </button>
+                        <a class="btn btn-secondary text-white"
+                           href="{{ path('app_roleDetails', {"id": userList[i].id}) }}">Details</a>
+                        <a class="btn btn-secondary text-white"
+                           href="{{ path('app_roleDelete', {"id": userList[i].id}) }}">Delete</a>
                     </td>
                 </tr>
             {% endfor %}

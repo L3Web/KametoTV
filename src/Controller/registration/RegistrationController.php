@@ -4,6 +4,7 @@ namespace App\Controller\registration;
 
 use App\Entity\User;
 use App\Form\RegistrationFormType;
+use App\Handler\RegistrationFormHandler;
 use App\Services\MailerService;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -23,33 +24,14 @@ class RegistrationController extends AbstractController
     {
         $user = new User();
         $form = $this->createForm(RegistrationFormType::class, $user);
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            $user->setCreatedAt(new \DateTimeImmutable("now"));
-            // encode the plain password
-            $user->setPassword(
-            $userPasswordHasher->hashPassword(
-                    $user,
-                    $form->get('plainPassword')->getData()
-                )
-            );
-            //to be deleted after test
-            if ($form['admin']->getData() === true) {
-                $user->addRole('ROLE_ADMIN');
-            }
-            $entityManager->persist($user);
-            $entityManager->flush();
-            // do anything else you need here, like send an email
-            $mailerService->sendEmail("Welcome", $user->getEmail(), "emails/signUp.html.twig", [
-                "user"=>$user
-            ]);
+        $formHandler = (new RegistrationFormHandler($request, $form, $user, $userPasswordHasher, $entityManager, $mailerService))->process();
+        if ($formHandler) {
             return $this->render('home.html.twig', [
-                'message'=>'register success'
+                'message' => 'register success'
             ]);
         }
         return $this->renderForm('registration/register.html.twig', [
-            'formRegister'=>$form
+            'formRegister' => $form
         ]);
     }
 }

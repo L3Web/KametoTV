@@ -59,8 +59,18 @@ class CartController extends AbstractController
     /**
      * @Route("/panier/add/{id}", name="app_add")
      */
-    public function add($id ,ManagerRegistry $doctrine, SessionInterface $session)
+    public function add($id , SessionInterface $session)
     {
+        $cart = $session->get('panier',[]);
+
+        if(!empty($cart[$id]))
+        {
+            $cart[$id]++;
+        }else
+        {
+            $cart[$id] = 1;
+        }
+        $session->set('panier' , $cart);
         return $this->redirectToRoute('app_cart');
     }
 

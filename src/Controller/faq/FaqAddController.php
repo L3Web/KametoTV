@@ -2,32 +2,28 @@
 
 namespace App\Controller\faq;
 
+use App\Controller\Controller;
 use App\Entity\Faq;
 use App\Form\AddFaqFormType;
+use App\Handler\FaqFormHandler;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-class FaqAddController extends AbstractController
+class FaqAddController extends Controller
 {
 
     #[Route('/faq/add', name: 'app_faqAdd')]
-    public function addFaq(Request $request,EntityManagerInterface $entityManager) : Response
+    public function addFaq(Request $request) : Response
     {
-        $faq = new Faq();
+        $faq= new Faq();
         $form = $this->createForm(AddFaqFormType::class, $faq);
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-
-            $entityManager->persist($faq);
-            $entityManager->flush();
-
-            return $this->redirectToRoute('app_faq');;
+        $formHandler = (new FaqFormHandler($form, $faq, $request, $this->entityManager))->process();
+        if($formHandler) {
+            return $this->redirectToRoute("app_faq");
         }
-
         return $this->renderForm('faq/faqAdd.html.twig',[
             'formFaq'=>$form
         ]);

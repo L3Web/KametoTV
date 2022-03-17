@@ -49,6 +49,10 @@ class RegistrationFormType extends AbstractType
                 'mapped'=>false,
                 'required'=>false
             ])
+            ->add('super_admin',CheckboxType::class, [
+                'mapped'=>false,
+                'required'=>false
+            ])
             ->add('register', SubmitType::class);
     }
 

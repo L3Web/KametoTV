@@ -8,10 +8,10 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-class roleManagementController extends AbstractController
+class RoleManagementController extends AbstractController
 {
     /**
-     * @Route("/roleManagement/{page<^[1-9]{1,2}+$>}", name="app_roleManagement")
+     * @Route("/roleManagement/{page<^[1-9]{1}[0-9]*$>}", name="app_roleManagement")
      */
 
     public function roleManagement(int $page, ManagerRegistry $registry): Response
