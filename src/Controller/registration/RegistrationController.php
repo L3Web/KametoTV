@@ -4,7 +4,7 @@ namespace App\Controller\registration;
 
 use App\Entity\User;
 use App\Form\RegistrationFormType;
-use App\Handle\RegistrationFormHandler;
+use App\Handler\RegistrationFormHandler;
 use App\Services\MailerService;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;

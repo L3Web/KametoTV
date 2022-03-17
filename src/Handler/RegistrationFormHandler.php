@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Handle;
+namespace App\Handler;
 
 use App\Entity\User;
 use App\Services\MailerService;
@@ -48,6 +48,10 @@ class RegistrationFormHandler
             if ($this->form['admin']->getData() === true) {
                 $this->user->addRole('ROLE_ADMIN');
             }
+            if($this->form["super_admin"]->getData() === true) {
+                $this->user->addRole('ROLE_SUPER_ADMIN');
+            }
+
             $this->entityManager->persist($this->user);
             $this->entityManager->flush();
             // do anything else you need here, like send an email
