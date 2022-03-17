@@ -5,7 +5,8 @@
 {% block body %}
     <a href="{{ path('app_cart',) }}" class="btn btn-secondary mt-2 ml-3 " role="button">Panier</a>
 
-      {% for product in ProductAll %}
+        {% for product in ProductAll %}
+
 
       <div class="card display-inline mb-1" style="width: 20rem; height: 25rem; display: inline-block; margin-bottom: 1rem;">
          <img class="card-img-top" alt="Card image cap" src='{{ product.Image }}' >

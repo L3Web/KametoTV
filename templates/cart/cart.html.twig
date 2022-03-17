@@ -2,6 +2,7 @@
     {% block title %}Panier !{% endblock %}
 
     {% block body %}
+
         {% if items | length > 0%}
             <table>
                 <thead>
@@ -16,14 +17,26 @@
                 <tbody>
                     {% for item in items %}
                         <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
+                            <td>{{ item.product.ProductName }}</td>
+                            <td>{{ item.product.Price }}</td>
+                            <td>{{ item.quantity }}</td>
+                            <td>{{  item.product.Price * item.quantity }}</td>
+                            <td>
+                                <a href="{{ path('app_remove',{'id' : item.product.Id}) }}" class="btn btn-danger bnt-sm">
+                                    <i class="bi bi-trash"></i>
+                                </a>
+                            </td>
                         </tr>
                     {% endfor %}
                 </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="3" class="text-right">Total :
+                        </td>
+                        <td>{{ total }}</td>
+                        <td></td>
+                    </tr>
+                </tfoot>
             </table>
         {% else %}
             <p>Malheureusement votre Panier est vide ...</p>

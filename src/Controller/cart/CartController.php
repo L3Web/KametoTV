@@ -2,12 +2,13 @@
 
 namespace App\Controller\cart;
 
+
+use App\Entity\Cart;
 use App\Repository\ProductRepository;
+use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\Routing\Annotation\Route;
-use function PHPUnit\Framework\isEmpty;
 
 class CartController extends AbstractController
 {
@@ -27,30 +28,55 @@ class CartController extends AbstractController
                 'quantity' => $quantity
             ];
         }
-        //var_dump($cartData);
+        $total = 0;
+        foreach ($cartData as $item)
+        {
+            $totalItem = $item['product']->getPrice() * $item['quantity'];
+            $total = $total + $totalItem;
+        }
+/*
+        $Cart = new Cart();
+        for ($i = 0; $i < count($cartData ); $i++) {
+            $Cart->setIdProducts($cartData [$i]);
+            $Cart->setIdUser($this->getId());
+
+            $Cart->setProduit($cartData [$i]['product']->getProduit());
+            $Cart->setQuantite($cartData [$i]['quantity']);
+
+            $Cart->setTotal($total);
+            $Cart->setUser($this->getUser());
+            $entitymanager->persist($Cart);
+            $entitymanager->flush();
+        }
+**/
+     //   var_dump($cartData);
         return $this->render('cart/cart.html.twig',[
-            'items' => $cartData
+            'items' => $cartData,
+            'total' => $total
         ]);
     }
 
     /**
      * @Route("/panier/add/{id}", name="app_add")
      */
-    public function add($id , SessionInterface $session)
+    public function add($id ,ManagerRegistry $doctrine, SessionInterface $session)
     {
-        $cart = $session->get('panier',[]);
+        return $this->redirectToRoute('app_cart');
+    }
+
+    /**
+     * @Route("/panier/remove/{id}", name="app_remove")
+     */
+    public function remove ($id , SessionInterface $session)
+    {
+        $cart = $session->get('panier' , []);
 
         if(!empty($cart[$id]))
         {
-            $cart[$id]++;
-        }else
-        {
-            $cart[$id] = 1;
+            unset($cart[$id]);
         }
-
-
         $session->set('panier' , $cart);
 
-        dd($session->get('panier'));
+        return $this->redirectToRoute("app_cart");
     }
 }
