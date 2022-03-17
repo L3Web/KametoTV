@@ -25,7 +25,7 @@ class FaqAddController extends AbstractController
             $entityManager->persist($faq);
             $entityManager->flush();
 
-            return $this->redirectToRoute('app_faq');;
+            return $this->redirectToRoute('app_faq');
         }
 
         return $this->renderForm('faq/faqAdd.html.twig',[
