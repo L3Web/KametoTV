@@ -8,7 +8,11 @@
 
       <div class="card display-inline mb-1" style="width: 18rem; height: 20rem; display: inline-block; margin-bottom: 1rem;">
          <img class="card-img-top" alt="Card image cap" src='media/{{ product.Image }}' >
-         <p class="card-text" style="text-align: center"> {{ product.productName }} -  {{ product.price }}€</p>
+         <p class="card-text" style="text-align: center"> {{ product.productName }} -  {{ product.price }}€
+            {% if is_granted('ROLE_ADMIN') %}
+               <a href="{{ path('app_prodDel', {'id': product.Id}) }}"> Supprimer </a>
+            {% endif %}
+         </p>
       </div>
 
       {% endfor %}

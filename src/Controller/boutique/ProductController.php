@@ -8,6 +8,7 @@ use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\String\Slugger\SluggerInterface;
 
@@ -15,7 +16,7 @@ class ProductController extends AbstractController
 {
 
     #[Route('/boutique/add', name: 'app_addProd')]
-    public function addProd(Request $request, SluggerInterface $slugger, EntityManagerInterface $entityManager)
+    public function addProd(Request $request, SluggerInterface $slugger, EntityManagerInterface $entityManager): Response
     {
         $product = new Product();
         $form = $this->createForm(AddProductFormType::class, $product);
@@ -56,6 +57,13 @@ class ProductController extends AbstractController
             ]);
     }
 
+    #[Route('/boutique/{id}', name: 'app_prodDel')]
+    public function deleteFaq(Product $pro, EntityManagerInterface $entityManager): Response
+    {
+        $entityManager->remove($pro);
+        $entityManager->flush();
 
+        return $this->redirectToRoute('app_boutique');
+    }
 }
 
