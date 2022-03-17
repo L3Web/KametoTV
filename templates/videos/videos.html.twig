@@ -1,0 +1,18 @@
+{% extends "base.html.twig" %}
+{% block body %}
+
+    <h1>Preview de vidéos</h1>
+
+    {% for i in 0..(videoId|length-1) %}
+        <h5>{{ titleId[i] }}</h5>
+        <iframe width="444" height="250" src="https://www.youtube.com/embed/{{videoId[i]}}
+        "frameborder="0" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen>
+        </iframe>
+    {% endfor %}
+
+
+
+
+
+{% endblock %}
