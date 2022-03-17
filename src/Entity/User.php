@@ -8,7 +8,6 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 
-
 /**
  * @UniqueEntity(fields={"username"}, message="There is already an account with this username")
  */
@@ -21,33 +20,36 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private $id;
 
     #[ORM\Column(type: 'string', length: 255)]
-    private $username;
+    private ?string $username;
 
     #[ORM\Column(type: 'string', length: 200)]
-    private $password;
+    private ?string $password;
 
     #[ORM\Column(type: 'string', length: 255)]
-    private $first_name;
+    private string $first_name;
 
     #[ORM\Column(type: 'string', length: 255)]
-    private $last_name;
+    private string $last_name;
 
-    #[ORM\Column(type: 'integer')]
-    private $status;
+    #[ORM\Column(type: 'string', length: 255)]
+    private String $email;
+
+    #[ORM\Column(type: 'json')]
+    private array $roles = [];
 
     #[ORM\Column(type: 'datetime_immutable')]
-    private $created_at;
+    private ?\DateTimeImmutable $created_at;
 
     #[ORM\Column(type: 'datetime_immutable', nullable: true)]
-    private $deleted_at;
+    private ?\DateTimeImmutable $deleted_at;
 
     #[ORM\Column(type: 'datetime_immutable', nullable: true)]
-    private $modified_at;
+    private ?\DateTimeImmutable $modified_at;
 
-    /**
-     * @ORM\Column(type="json")
-     */
-    private $roles = [];
+    public function __construct()
+    {
+        $this->roles[]="ROLE_USER";
+    }
 
     public function getId(): ?int
     {
@@ -90,7 +92,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
-    public function getLastName(): ?string
+    public function getLastName(): string
     {
         return $this->last_name;
     }
@@ -102,17 +104,48 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
-    public function getStatus(): ?int
+    public function getEmail() : string
     {
-        return $this->status;
+        return $this->email;
     }
 
-    public function setStatus(int $status): self
+    public function setEmail(string $email) : self
     {
-        $this->status = $status;
+        $this->email=$email;
 
         return $this;
     }
+
+    public function getRoles(): array
+    {
+        $roles = $this->roles;
+        // guarantee every user at least has ROLE_USER
+        //$roles[] = 'ROLE_USER';
+        return array_unique($roles);
+    }
+
+    public function addRole(String $role) : self
+    {
+        $this->roles[]=$role;
+
+        return $this;
+    }
+
+    public function removeRole(String $role) : self
+    {
+        $key = array_search($role, $this->roles);
+        unset($this->roles[$key]);
+
+        return $this;
+    }
+
+    public function setRoles(array $roles): self
+    {
+        $this->roles = $roles;
+
+        return $this;
+    }
+
 
     public function getCreatedAt(): ?\DateTimeImmutable
     {
@@ -150,14 +183,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
-    public function getRoles(): array
-    {
-        // TODO: Implement getRoles() method.
-        $roles = $this->roles;
-        $roles[] = 'ROLE_USER';
-
-        return array_unique($roles);
-    }
 
     public function eraseCredentials()
     {

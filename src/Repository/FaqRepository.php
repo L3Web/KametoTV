@@ -19,7 +19,7 @@ class FaqRepository extends ServiceEntityRepository
         parent::__construct($registry, Faq::class);
     }
 
-    public function getAllFaq()
+    public function get10FAQ()
     {
         return $this->createQueryBuilder('getAll')
             ->orderBy('getAll.id', 'ASC')
@@ -27,6 +27,7 @@ class FaqRepository extends ServiceEntityRepository
             ->getQuery()
             ->getResult();
     }
+
 
     // /**
     //  * @return Faq[] Returns an array of Faq objects
