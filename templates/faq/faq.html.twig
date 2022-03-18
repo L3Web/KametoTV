@@ -17,8 +17,8 @@
                                         {{ faqAll[faq].getQuestion() }}
                                     </button>
                                     {% if is_granted('ROLE_ADMIN') %}
-                                        <a class="h6 float-right"
-                                           href="{{ path('app_faq_del', {'id': faqAll[faq].getId}) }}"> Remove </a>
+                                        <a class="h6 mb-0 mt-2 float-right"
+                                           href="{{ path('app_faq_del', {'id': faqAll[faq].getId}) }}"> Delete </a>
                                     {% endif %}
                                 </h5>
                             </div>
