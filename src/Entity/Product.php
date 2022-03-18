@@ -7,6 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 use Doctrine\ORM\Query\Expr\Select;
 
 #[ORM\Entity(repositoryClass: ProductRepository::class)]
+#[ORM\HasLifecycleCallbacks()]
 class Product
 {
     #[ORM\Id]
@@ -37,6 +38,12 @@ class Product
 
     #[ORM\Column(type: 'string', length: 255)]
     private $image;
+
+    #[ORM\PrePersist]
+    public function setCreatedAtValue(): void
+    {
+        $this->created_at = new \DateTimeImmutable();
+    }
 
     public function getId(): ?int
     {
@@ -90,6 +97,7 @@ class Product
 
         return $this;
     }
+
 
     public function getDeletedAt(): ?\DateTimeImmutable
     {

@@ -3,25 +3,29 @@
 {% block title %}Boutique !{% endblock %}
 
 {% block body %}
-    <div>
-    <a href="{{ path('app_cart',) }}" class="btn btn-secondary float-right mr-5" role="button">Panier</a>
-    </div>
-    <div class="container  mt-5">
+   {% if quantity >= 0 %}
+      {% for product in ProductAll %}
 
-        {% for product in ProductAll %}
-
-
-      <div class=" ml-5 col-3 card display-inline mb-1" style="width: 20rem; height: 25rem; display: inline-block; margin-bottom: 1rem;">
+       <div class=" ml-5 col-3 card display-inline mb-1" style="width: 20rem; height: 25rem; display: inline-block; margin-bottom: 1rem;">
          <img class="card-img-top" alt="Card image cap" src='media/{{ product.Image }}' >
          <p class="card-text mt-2" style="text-align: center"> {{ product.productName }} -  {{ product.price }}€
-            <a href="{{ path('app_add',{'id':product.Id}) }}" class="btn btn-secondary mt-2 ml-3 " role="button">Ajouter</a>
-
+         <a href="{{ path('app_add',{'id':product.Id}) }}" class="btn btn-secondary mt-2 ml-3 " role="button">Ajouter</a>
+            {% if is_granted('ROLE_ADMIN') %}
+               <a href="{{ path('app_prodDel', {'id': product.Id}) }}"> Supprimer </a>
+            {% endif %}
          </p>
-
-
       </div>
 
       {% endfor %}
-    </div>
+   {% endif %}
+
+   {% if is_granted('ROLE_ADMIN') %}
+      <div class="mx-auto mb-5">
+         <button class="btn btn-primary">
+            <a href="{{ path('app_addProd') }}" class="text-white">Ajouter un produit</a>
+         </button>
+      </div>
+   {% endif %}
+
 
 {% endblock %}
