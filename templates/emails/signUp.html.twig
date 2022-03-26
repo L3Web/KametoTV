@@ -1,7 +1,7 @@
-<h1>Welcome {{ user.firstName }} {{ user.lastName }}!</h1>
+<h1>{% trans %}Welcome {% endtrans %}{{ user.firstName }} {{ user.lastName }}!</h1>
 
 <p>
-    You signed up as {{ user.username }} the following email :
+    {% trans %}You signed up as{% endtrans %} {{ user.username }} {% trans %}the following email{% endtrans %} :
 </p>
 <p><code>{{ user.email }}</code></p>
-<p>Thanks for joining us !</p>
+<p>{% trans %}Thanks for joining us{% endtrans %} !</p>

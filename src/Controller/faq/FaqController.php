@@ -12,7 +12,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class FaqController extends Controller
 {
     /**
-     * @Route("/faq", name="app_faq")
+     * @Route("/{_locale<%app.supported_locales%>}/faq", name="app_faq")
      */
 
     public function faq(ManagerRegistry $doctrine) : Response
@@ -33,7 +33,6 @@ class FaqController extends Controller
     {
         $this->entityManager->remove($faq);
         $this->entityManager->flush();
-
         return $this->redirectToRoute('app_faq');
     }
 

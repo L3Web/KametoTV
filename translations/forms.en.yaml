@@ -1,0 +1,13 @@
+Registration:
+  username: Username
+  password:
+    notRepeat: Password
+    repeat: Repeat password
+    invalidMessage: The two fields must match
+    blank: Please enter a password
+    minMessage:
+      debut: Your password must have
+      fin: characters
+  firstName: First name
+  lastName: Last name
+  register: Register

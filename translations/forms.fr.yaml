@@ -1,0 +1,13 @@
+Registration:
+  username: Nom d'utilisateur
+  password:
+    notRepeat: Mot de passe
+    repeat: Confirmer le mot de passe
+    invalidMessage: Les deux champs doivent être la même
+    blank: Veuillez entrer un mot de passe
+    minMessage:
+      debut: Votre mot de passe doit avoir
+      fin: caractères
+  firstName: Prénom
+  lastName: Nom
+  register: Inscription

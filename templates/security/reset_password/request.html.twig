@@ -9,7 +9,6 @@
         {% endfor %}
         <h1>Reset your password</h1>
 
-        {% form_theme requestForm 'bootstrap_4_layout.html.twig' %}
         {{ form_start(requestForm) }}
         {{ form_row(requestForm.email) }}
         {{ form_row(requestForm.username) }}

@@ -7,7 +7,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class VideosController extends AbstractController
 {
-    #[Route('/videos', name: 'videos')]
+    #[Route('/{_locale<%app.supported_locales%>}/videos', name: 'app_videos')]
     public function showVideos()
     {
         $res = file_get_contents("https://youtube.googleapis.com/youtube/v3/search?part=snippet&channelId=UCiRDO4sVx9dsyMm9F7eWMvw&maxResults=10&order=date&key=AIzaSyDI6w0X2xT8WpRBOX8DJsjZxkN9w9Agfmg");

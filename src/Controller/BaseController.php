@@ -9,7 +9,15 @@ use Symfony\Component\Routing\Annotation\Route;
 class BaseController extends AbstractController
 {
     /**
-     * @Route("/", name="app_base_home")
+     * @Route("/")
+     */
+    public function lang() : Response
+    {
+        return $this->redirectToRoute("app_base_home", ["_locale"=>"en"]);
+    }
+
+    /**
+     * @Route("/{_locale<%app.supported_locales%>}", name="app_base_home")
      */
     public function home(): Response
     {

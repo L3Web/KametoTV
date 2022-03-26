@@ -1,13 +1,14 @@
 <?php
 
-namespace App\Controller\security;
+namespace App\Controller\security\resetPassword;
 
+use App\Controller\Controller;
 use App\Entity\User;
 use App\Form\ChangePasswordFormType;
 use App\Form\ResetPasswordRequestFormType;
 use App\Services\MailerService;
 use Doctrine\ORM\EntityManagerInterface;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use JetBrains\PhpStorm\Pure;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -18,18 +19,17 @@ use SymfonyCasts\Bundle\ResetPassword\Controller\ResetPasswordControllerTrait;
 use SymfonyCasts\Bundle\ResetPassword\Exception\ResetPasswordExceptionInterface;
 use SymfonyCasts\Bundle\ResetPassword\ResetPasswordHelperInterface;
 
-#[Route('/reset-password')]
-class ResetPasswordController extends AbstractController
+#[Route('/{_locale<%app.supported_locales%>}/reset-password')]
+class ResetPasswordController extends Controller
 {
     use ResetPasswordControllerTrait;
 
     private ResetPasswordHelperInterface $resetPasswordHelper;
-    private EntityManagerInterface $entityManager;
 
-    public function __construct(ResetPasswordHelperInterface $resetPasswordHelper, EntityManagerInterface $entityManager)
+    #[Pure] public function __construct(ResetPasswordHelperInterface $resetPasswordHelper, EntityManagerInterface $entityManager)
     {
+        parent::__construct($entityManager);
         $this->resetPasswordHelper = $resetPasswordHelper;
-        $this->entityManager = $entityManager;
     }
 
     /**

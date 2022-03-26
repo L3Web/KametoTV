@@ -23,7 +23,7 @@ class RoleDetailController extends AbstractController
     }
 
     /**
-     * @Route("/roleManagement/details/{id<^[1-9]{1}[0-9]*$>}", name="app_roleDetails")
+     * @Route("/{_locale<%app.supported_locales%>}/roleManagement/details/{id<^[1-9]{1}[0-9]*$>}", name="app_roleDetails")
      */
 
     public function roleDetail(int $id, ManagerRegistry $registry): Response

@@ -7,7 +7,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class StreamController extends AbstractController
 {
-    #[Route('/stream', name: 'stream')]
+    #[Route('/{_locale<%app.supported_locales%>}/stream', name: 'stream')]
     public function showStream()
     {
 
