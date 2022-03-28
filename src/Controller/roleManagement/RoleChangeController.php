@@ -3,9 +3,7 @@
 namespace App\Controller\roleManagement;
 
 use App\Controller\Controller;
-use App\Entity\User;
 use App\Handler\ChangeRoleFormHandler;
-use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;

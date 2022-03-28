@@ -3,7 +3,6 @@
 namespace App\Controller\roleManagement;
 
 use App\Entity\User;
-use Doctrine\ORM\NonUniqueResultException;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -41,7 +40,6 @@ class RoleDetailController extends AbstractController
 
     private function sortRoles($user): void
     {
-        //A modifier
         foreach ($user->getRoles() as $value) {
             if (($key = array_search($value, $this->hierarchy)) != false) {
                 unset($this->hierarchy[$key]);

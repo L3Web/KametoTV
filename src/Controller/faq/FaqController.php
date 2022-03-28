@@ -18,7 +18,7 @@ class FaqController extends Controller
     public function faq(ManagerRegistry $doctrine) : Response
     {
         $faqRepository = new FaqRepository($doctrine);
-        $res = $faqRepository->get10Faq();
+        $res = $faqRepository->get5Faq();
         return $this->render('faq/faq.html.twig', [
             "faqAll"=>$res,
             "quantity"=>count($res)-1
