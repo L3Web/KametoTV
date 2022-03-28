@@ -1,0 +1,26 @@
+{% extends "base.html.twig" %}
+{% block body %}
+
+    <h1 class="mb-5 text-center">Aperçu de vidéos
+        <a class="btn btn-danger text-white col-1">See more</a></h1>
+    <div class="d-flex justify-content-center mb-5">
+        <div class="container">
+            <div class="row d-flex justify-content-center my-auto">
+                {% for i in 0..(videoId|length-1) %}
+                    <div class="col-5 ml-2 mr-2">
+                        <h6 class="mb-3 text-center text-truncate">{{ titleId[i] }}</h6>
+                        <iframe width="444" height="250" src="https://www.youtube.com/embed/{{ videoId[i] }}
+        " frameborder="0" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen>
+                        </iframe>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+{% endblock %}
