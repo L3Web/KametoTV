@@ -24,7 +24,7 @@ class FaqFixtures extends Fixture
                 'answer' => 'C\'est le surnom qu\'on donnait à mon grand père et je l\'ai repris'
             ],
             4 => [
-                'question' => 'Quelles sont tes futurs projets ?',
+                'question' => 'Quels sont tes futurs projets ?',
                 'answer' => 'Aller en LEC et gagner les World'
             ],
         ];
