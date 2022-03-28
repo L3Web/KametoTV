@@ -25,11 +25,13 @@ Le projet a été crée à l'aide de :
 
 ## Installation <a name="installation"></a>
 
-Cloner le projet et lancer les commandes suivantes :
+Cloner le projet et lancer les commandes suivantes dans l'ordre indiqué :
 
     composer install
 
     php bin/console doctrine:migrations:migrate
+
+    php bin/console doctrine:fixtures:load
 
 ## Fonctionnalités <a name="fonctionnalites"></a>
 
