@@ -17,9 +17,10 @@ use Symfony\Component\Routing\Annotation\Route;
 class RegistrationController extends AbstractController
 {
     /**
+     * @Route("/register", name="app_register")
+     *
      * @throws TransportExceptionInterface
      */
-    #[Route('/register', name: 'app_register')]
     public function register(Request $request, UserPasswordHasherInterface $userPasswordHasher, EntityManagerInterface $entityManager, MailerService $mailerService): Response
     {
         $user = new User();

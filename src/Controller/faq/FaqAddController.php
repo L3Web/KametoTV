@@ -6,8 +6,6 @@ use App\Controller\Controller;
 use App\Entity\Faq;
 use App\Form\AddFaqFormType;
 use App\Handler\FaqFormHandler;
-use Doctrine\ORM\EntityManagerInterface;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -15,7 +13,9 @@ use Symfony\Component\Routing\Annotation\Route;
 class FaqAddController extends Controller
 {
 
-    #[Route('/faq/add', name: 'app_faqAdd')]
+    /**
+     * @Route("/faq/add", name="app_faqAdd")
+     */
     public function addFaq(Request $request) : Response
     {
         $faq= new Faq();
