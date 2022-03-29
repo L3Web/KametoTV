@@ -7,11 +7,11 @@
     <table class="table table-bordered table-hover col-9 mx-auto text-center">
         <thead>
         <tr>
-            <th scope="col">Username</th>
-            <th scope="col">First Name</th>
-            <th scope="col">Last Name</th>
-            <th scope="col">Roles</th>
-            <th scope="col">Change or details</th>
+            <th scope="col">{% trans %}Username{% endtrans %}</th>
+            <th scope="col">{% trans %}First Name{% endtrans %}</th>
+            <th scope="col">{% trans %}Last Name{% endtrans %}</th>
+            <th scope="col">{% trans %}Roles{% endtrans %}</th>
+            <th scope="col">{% trans %}Change or details{% endtrans %}</th>
         </tr>
         </thead>
         <tbody>
@@ -27,9 +27,9 @@
                     </td>
                     <td>
                         <a class="btn btn-secondary text-white"
-                           href="{{ path('app_roleDetails', {"id": userList[i].id}) }}">Details</a>
+                           href="{{ path('app_roleDetails', {"id": userList[i].id}) }}">{% trans %}Details{% endtrans %}</a>
                         <a class="btn btn-secondary text-white"
-                           href="{{ path('app_roleDelete', {"id": userList[i].id}) }}">Delete</a>
+                           href="{{ path('app_roleDelete', {"id": userList[i].id}) }}">{% trans %}Delete{% endtrans %}</a>
                     </td>
                 </tr>
             {% endfor %}

@@ -14,7 +14,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class RoleChangeController extends Controller
 {
     /**
-     * @Route("/roleSubmit", name="app_roleForm")
+     * @Route("/{_locale<%app.supported_locales%>}/roleSubmit", name="app_roleForm")
      */
     public function changeRoles(Request $request, ManagerRegistry $registry): Response
     {

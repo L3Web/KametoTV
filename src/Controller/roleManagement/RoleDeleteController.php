@@ -11,7 +11,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class RoleDeleteController extends Controller
 {
     /**
-     * @Route("/roleDelete/{id<^[1-9]{1}[0-9]*$>}", name="app_roleDelete")
+     * @Route("/{_locale<%app.supported_locales%>}/roleDelete/{id<^[1-9]{1}[0-9]*$>}", name="app_roleDelete")
      */
 
     public function delete(int $id, ManagerRegistry $doctrine) : Response

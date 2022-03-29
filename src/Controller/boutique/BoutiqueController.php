@@ -13,7 +13,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class BoutiqueController extends AbstractController
 {
     /**
-     * @Route("/boutique", name="app_boutique")
+     * @Route("/{_locale<%app.supported_locales%>}/boutique", name="app_boutique")
      *
      */
 

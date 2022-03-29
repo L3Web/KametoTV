@@ -11,14 +11,14 @@ use Symfony\Component\Routing\Annotation\Route;
 class RoleManagementController extends AbstractController
 {
     /**
-     * @Route("/roleManagement/{page<^[1-9]{1}[0-9]*$>}", name="app_roleManagement")
+     * @Route("/{_locale<%app.supported_locales%>}/roleManagement/{page<^[1-9]{1}[0-9]*$>}", name="app_roleManagement")
      */
 
     public function roleManagement(int $page, ManagerRegistry $registry): Response
     {
         $user = new UserRepository($registry);
         $user = $user->find10($page);
-        return $this->render('roleManagement/roleManagement.html.twig', [
+        return $this->render('/roleManagement/roleManagement.html.twig', [
             "userList" => $user,
             "quantity" => count($user) - 1
         ]);
