@@ -31,31 +31,48 @@
 
 <body class="d-flex flex-column min-vh-100">
 <nav class="navbar navbar-fixed-top navbar-expand-md navbar-dark bg-dark text-white mb-4 pt-0 pb-0 sticky-top shadow-lg">
-    <div class="navbar-collapse d-flex">
+    <div class="navbar-collapse d-flex flex-nowrap w-100">
         <ul class="navbar-nav mx-auto justify-content-center">
-            <li class="nav-item">
+            <li class="nav-item url">
                 <a class="nav-link" aria-current="page" href="/stream">STREAM</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="/videos">VIDEOS</a>
+            <li class="nav-item url">
+                <a class="nav-link" aria-current="page" href="{{ path('app_videos') }}">VIDEOS</a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item url">
                 <a class="nav-link" aria-current="page" href="https://kgames.fr/" target="_blank">KGAMES</a>
             </li>
-            <li class="nav-item ml-5 mr-5">
+            <li class="nav-item url">
+                <a class="nav-link" aria-current="page"
+                   href="{{ path('app_boutique') }}">{% trans %}SHOP{% endtrans %}</a>
+            </li>
+            <li class="nav-item url">
                 <a class="navbar-brand mr-0" href="{{ path('app_base_home') }}">KametoTV</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="{{ path('app_boutique') }}">SHOP</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="{{ path('app_faq') }}">FAQ</a>
+            <div class="dropdown">
+                <button class="btn btn-dark dropdown-toggle" type="button" id="dropdownMenuButton"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    {% trans %}Languages{% endtrans %}
+                </button>
+                <ul class="dropdown-menu pt-0 pb-0" aria-labelledby="dropdownMenuButton">
+                    <li><a class="dropdown-item" aria-current="page"
+                           href="{{ path(app.request.attributes.get('_route'), {_locale: 'en'}) }}">{% trans %}English{% endtrans %}</a>
+                    </li>
+                    <li><a class="dropdown-item" aria-current="page"
+                           href="{{ path(app.request.attributes.get('_route'), {_locale: 'fr'}) }}">{% trans %}French{% endtrans %}</a>
+                    </li>
+                </ul>
+            </div>
             </li>
 
+            <li class="nav-item url">
+                <a class="nav-link" aria-current="page" href="{{ path('app_faq') }}">{% trans %}Q&A{% endtrans %}</a>
+            </li>
             {% if is_granted('ROLE_SUPER_ADMIN') %}
                 <li class="nav-item">
                     <div class="dropdown">
-                        <button class="btn btn-secondary btn-dark dropdown-toggle" type="button" id="dropdownMenuButton"
+                        <button class="btn btn-dark dropdown-toggle" type="button" id="dropdownMenuButton"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Admin
                         </button>
@@ -63,7 +80,6 @@
                             <li><a class="dropdown-item" aria-current="page"
                                    href="{{ path('app_roleManagement', {'page':'1'}) }}">Manage roles</a></li>
                         </ul>
-
                     </div>
                 </li>
             {% endif %}
@@ -72,12 +88,9 @@
                     <a class="nav-link" aria-current="page" href="{{ path('app_logout') }}">LOGOUT</a>
                 </li>
             {% else %}
-                <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="{{ path('app_login') }}">LOGIN</a>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="{{ path('app_register') }}">REGISTER</a>
+                <li class="nav-item url">
+                    <a class="nav-link" aria-current="page"
+                       href="{{ path('app_login') }}">{% trans %}LOGIN/REGISTER{% endtrans %}</a>
                 </li>
             {% endif %}
         </ul>

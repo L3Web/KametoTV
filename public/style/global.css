@@ -1,19 +1,18 @@
-
 li.nav-item {
-    margin-left: 5%;
-    margin-right: 5%;
+    margin-left: 3%;
+    margin-right: 3%;
     padding-top: 1%;
     padding-bottom: 1%;
 }
-
+/*
 .nav-link {
     font-size: smaller;
 }
 
 @media (max-width: 1100px) {
     li.nav-item {
-        margin-left: 3%;
-        margin-right: 3%;
+        margin-left: 1%;
+        margin-right: 1%;
     }
 }
 
@@ -21,15 +20,11 @@ li.nav-item {
     .nav-link{
         font-size: small;
     }
-    li.nav-item {
-        margin-left: 1%;
-        margin-right: 1%;
-    }
 }
-
+*/
 .active {
-    padding-right: 5%;
-    padding-left: 5%;
+    padding-right: 1%;
+    padding-left: 1%;
     border: 1px solid #9A9A9A;
     border-top: none;
     border-bottom: none;
