@@ -33,7 +33,7 @@ class ResetPasswordController extends Controller
     }
 
     /**
-     * @Route("/reset-password", name="app_forgot_password_request")
+     * @Route("/{_locale<%app.supported_locales%>}/reset-password", name="app_forgot_password_request")
      *
      * Display & process form to request a password reset.
      * @throws TransportExceptionInterface

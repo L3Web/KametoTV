@@ -17,7 +17,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class RegistrationController extends AbstractController
 {
     /**
-     * @Route("/register", name="app_register")
+     * @Route("/{_locale<%app.supported_locales%>}/register", name="app_register")
      *
      * @throws TransportExceptionInterface
      */

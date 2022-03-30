@@ -11,15 +11,15 @@
 
             {% if app.user %}
                 <div class="mb-3">
-                    You are logged in as {{ app.user.username }}, <a href="{{ path('app_logout') }}">Logout</a>
+                    {% trans %}You are logged in as{% endtrans%} {{ app.user.username }}, <a href="{{ path('app_logout') }}">Logout</a>
                 </div>
             {% endif %}
-            <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
-            <label for="inputUsername">Username</label>
+            <h1 class="h3 mb-3 font-weight-normal">{% trans %}Sign in !{% endtrans %}</h1>
+            <label for="inputUsername">{% trans %}Username{% endtrans %}</label>
             <input type="text" value="{{ last_username }}" name="username" id="inputUsername" class="form-control"
                    required
                    autofocus>
-            <label for="inputPassword">Password</label>
+            <label for="inputPassword">{% trans %}Password{% endtrans %}</label>
             <input type="password" name="password" id="inputPassword" class="form-control"
                    autocomplete="current-password"
                    required>
@@ -38,9 +38,14 @@
             #}
 
             <button class="btn btn-lg btn-primary mt-3" type="submit">
-                Sign in
+                {% trans %}Sign in{% endtrans %}
             </button>
         </form>
-        <span class="text-muted">Forgot password ? <a class="link-secondary" href="{{ path('app_forgot_password_request') }}">Reset it</a></span>
+        <div class="mt-2">
+            <span class="text-muted">{% trans %}Forgot password{% endtrans %} ? <a class="link-secondary"
+                                                                                   href="{{ path('app_forgot_password_request') }}">{% trans %}Reset it{% endtrans %}</a></span><br>
+            <span class="text-muted mt-3">{% trans %}Don't have an account yet{% endtrans %} ? <a class="link-secondary"
+                                                                                                  href="{{ path('app_register') }}">{% trans %}Join us{% endtrans %}</a></span>
+        </div>
     </div>
 {% endblock %}

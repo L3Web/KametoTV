@@ -3,7 +3,7 @@
 {% block body %}
     <div class="d-flex justify-content-center mb-5">
         <div class="container align-content-center col-5">
-            <h1 class="text-center mb-4">FAQ</h1>
+            <h1 class="text-center mb-4">{% trans %}Q&A{% endtrans %}</h1>
             <div class="accordion mt-3" id="accordionMain">
                 {% if quantity >= 0 %}
                     {% for faq in 0..quantity %}

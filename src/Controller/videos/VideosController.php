@@ -9,7 +9,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class VideosController extends AbstractController
 {
     /**
-    * @Route("/videos", name="app_videos")
+    * @Route("/{_locale<%app.supported_locales%>}/videos", name="app_videos")
     */
     public function showVideos(): Response
     {
