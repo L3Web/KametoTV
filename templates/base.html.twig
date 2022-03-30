@@ -49,7 +49,6 @@
                 <a class="navbar-brand mr-0" href="{{ path('app_base_home') }}">KametoTV</a>
             </li>
             <li class="nav-item">
-
                 <div class="dropdown">
                     <button class="btn btn-dark dropdown-toggle" type="button" id="dropdownMenuButton"
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -57,10 +56,21 @@
                     </button>
                     <ul class="dropdown-menu pt-0 pb-0" aria-labelledby="dropdownMenuButton">
                         <li><a class="dropdown-item" aria-current="page"
-                               href="{{ path(app.request.attributes.get('_route'), {_locale: 'en'}) }}">{% trans %}English{% endtrans %}</a></li>
+                               href="{{ path("app_base_home",{_locale: 'en'}) }}">{% trans %}English{% endtrans %}</a>
+                        </li>
                         <li><a class="dropdown-item" aria-current="page"
-                               href="{{ path(app.request.attributes.get('_route'), {_locale: 'fr'}) }}">{% trans %}French{% endtrans %}</a></li>
+                               href="{{ path("app_base_home",{_locale: 'fr'}) }}">{% trans %}French{% endtrans %}</a>
+                        </li>
+                        {#
+                        <li><a class="dropdown-item" aria-current="page"
+                               href="{{ path(app.request.attributes.get('_route'),{_locale: 'en'}) }}">{% trans %}English{% endtrans %}</a>
+                        </li>
+                        <li><a class="dropdown-item" aria-current="page"
+                               href="{{ path(app.request.attributes.get('_route'), {_locale: 'fr'}) }}">{% trans %}French{% endtrans %}</a>
+                        </li>
+                        #}
                     </ul>
+
                 </div>
             </li>
 
@@ -78,16 +88,18 @@
                             <li><a class="dropdown-item" aria-current="page"
                                    href="{{ path('app_roleManagement', {'page':'1'}) }}">Manage roles</a></li>
                         </ul>
+
                     </div>
                 </li>
             {% endif %}
             {% if app.user %}
                 <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="{{ path('app_logout') }}">LOGOUT</a>
+                    <a class="nav-link" aria-current="page" href="{{ path('app_logout') }}">{% trans %}LOGOUT{% endtrans %}</a>
                 </li>
             {% else %}
                 <li class="nav-item url">
-                    <a class="nav-link" aria-current="page" href="{{ path('app_login') }}">{% trans %}LOGIN/REGISTER{% endtrans %}</a>
+                    <a class="nav-link" aria-current="page"
+                       href="{{ path('app_login') }}">{% trans %}LOGIN/REGISTER{% endtrans %}</a>
                 </li>
             {% endif %}
         </ul>
