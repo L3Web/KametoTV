@@ -14,7 +14,7 @@ class FaqAddController extends Controller
 {
 
     /**
-     * @Route("/faq/add", name="app_faqAdd")
+     * @Route("/{_locale<%app.supported_locales%>}/faq/add", name="app_faqAdd")
      */
     public function addFaq(Request $request) : Response
     {

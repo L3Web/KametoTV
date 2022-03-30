@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}SHOP !{% endblock %}
+
+{% block body %}
+
+        <div>
+            <a href="{{ path('app_cart',) }}" class="btn btn-secondary float-right mr-5" role="button">Cart</a>
+        </div>
+
+
+
+        <div class="container  mt-5">
+      {% for product in ProductAll %}
+
+       <div class=" ml-5 mb-5 col-3 card d-inline-block justify-content-center " style="width: 20rem; height: 25rem;">
+         <img class="card-img-top" alt="Card image cap" src='media/{{ product.Image }}' >
+         <p class="card-text mt-2" style="text-align: center"> {{ product.productName }} -  {{ product.price }}€
+         <a href="{{ path('app_add',{'id':product.Id}) }}" class="btn btn-secondary mt-2 ml-3 " role="button">Add to Cart</a>
+            {% if is_granted('ROLE_ADMIN') %}
+               <a href="{{ path('app_prodDel', {'id': product.Id}) }}"class="btn btn-secondary mt-2 ml-3 " role="button"> Delete Product</a>
+            {% endif %}
+         </p>
+      </div>
+
+      {% endfor %}
+
+        </div>
+
+   {% if is_granted('ROLE_ADMIN') %}
+      <div class="mx-auto mb-5 mt-5">
+         <button class="btn btn-primary">
+            <a href="{{ path('app_addProd') }}" class="text-white">Add Product</a>
+         </button>
+
+      </div>
+   {% endif %}
+
+
+{% endblock %}

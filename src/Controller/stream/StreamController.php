@@ -9,7 +9,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class StreamController extends AbstractController
 {
     /**
-     * @Route("/stream", name="app_stream")
+     * @Route("/{_locale<%app.supported_locales%>}/stream", name="app_stream")
      *
      * @return Response
      */

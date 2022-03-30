@@ -6,11 +6,11 @@
     <div class="col-6 d-flex justify-content-center align-middle mx-auto my-auto border-2 shadow-lg pt-5 pb-5">
         <div class="col-6 my-auto align-content-center">
             <span>Id : {{ user.id }}</span><br>
-            <span>Username : {{ user.username }}</span><br>
-            <span>Last name : {{ user.firstName }}</span><br>
-            <span>First name : {{ user.lastName }}</span><br>
-            <span>Account creation date : {{ user.createdAt |date("d/m/y") }}</span><br>
-            <span>Current roles :
+            <span>{% trans %}Username{% endtrans %} : {{ user.username }}</span><br>
+            <span>{% trans %}Last name{% endtrans %} : {{ user.firstName }}</span><br>
+            <span>{% trans %}First name {% endtrans %}: {{ user.lastName }}</span><br>
+            <span>{% trans %}Account creation date{% endtrans %} : {{ user.createdAt |date("d/m/y") }}</span><br>
+            <span>{% trans %}Current roles{% endtrans %} :
                 {% if user.roles|length>1 %}
                     {% for i in 0..user.roles|length-2 %}
                         {{ user.roles[i] }},
@@ -28,7 +28,7 @@
                     <div class="dropdown">
                         <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownAddButton"
                                 data-toggle="dropdown" aria-expanded="false">
-                            Add roles
+                            {% trans %}Add roles{% endtrans %}
                         </button>
                         <div class="dropdown-menu pt-0 pb-0" aria-labelledby="dropdownAddButton">
                             {% for hierarchy in hierarchyList %}
@@ -47,7 +47,7 @@
                     <div class="dropdown">
                         <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownRemoveButton"
                                 data-toggle="dropdown" aria-expanded="false">
-                            Remove roles
+                            {% trans %}Remove roles{% endtrans %}
                         </button>
                         <div class="dropdown-menu pt-0 pb-0" aria-labelledby="dropdownRemoveButton">
                             {% for role in user.roles %}
@@ -67,7 +67,7 @@
                         </div>
                     </div>
                 </div>
-                <button type="submit" class="btn btn-secondary">Submit</button>
+                <button type="submit" class="btn btn-secondary">{% trans %}Submit{% endtrans %}</button>
             </form>
         </div>
     </div>

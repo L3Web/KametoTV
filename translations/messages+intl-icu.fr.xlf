@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file source-language="en" target-language="fr" datatype="plaintext" original="file.ext">
+    <header>
+      <tool tool-id="symfony" tool-name="Symfony"/>
+    </header>
+    <body>
+      <trans-unit id="pGmrTKT" resname="Page not found">
+        <source>Page not found</source>
+        <target>__Page not found</target>
+      </trans-unit>
+      <trans-unit id="j5K0KBq" resname="The requested page couldn't be located. Checkout for any URL&#10;            misspelling or">
+        <source>The requested page couldn't be located. Checkout for any URL
+            misspelling or</source>
+        <target>__The requested page couldn't be located. Checkout for any URL
+            misspelling or</target>
+      </trans-unit>
+      <trans-unit id="yBAbsaq" resname="return to the homepage">
+        <source>return to the homepage</source>
+        <target>__return to the homepage</target>
+      </trans-unit>
+      <trans-unit id="u3I07BJ" resname="Register">
+        <source>Register</source>
+        <target>Inscription</target>
+      </trans-unit>
+      <trans-unit id="HtjwdIt" resname="SHOP">
+        <source>SHOP</source>
+        <target>BOUTIQUE</target>
+      </trans-unit>
+      <trans-unit id="rkKvsb1" resname="LOGIN">
+        <source>LOGIN</source>
+        <target>CONNEXION</target>
+      </trans-unit>
+      <trans-unit id="afrJqTF" resname="REGISTER">
+        <source>REGISTER</source>
+        <target>INSCRIPTION</target>
+      </trans-unit>
+      <trans-unit id="CZ2jGw5" resname="Welcome to Kameto">
+        <source>Welcome to Kameto</source>
+        <target>Bienvenue chez Kameto</target>
+      </trans-unit>
+      <trans-unit id="DiImtSN" resname="Welcome">
+        <source>Welcome</source>
+        <target>Bienvenue</target>
+      </trans-unit>
+      <trans-unit id="qgR6mEH" resname="You signed up as">
+        <source>You signed up as</source>
+        <target>Vous vous êtes inscrit en tant que</target>
+      </trans-unit>
+      <trans-unit id="dxdGaZ_" resname="the following email">
+        <source>the following email</source>
+        <target>le mail suivant</target>
+      </trans-unit>
+      <trans-unit id="XBzmeUQ" resname="Thanks for joining us">
+        <source>Thanks for joining us</source>
+        <target>Merci pour nous avoir rejoins</target>
+      </trans-unit>
+      <trans-unit id="MYZVzqS" resname="Languages">
+        <source>Languages</source>
+        <target>Langages</target>
+      </trans-unit>
+      <trans-unit id="uhGL9.y" resname="English">
+        <source>English</source>
+        <target>Anglais</target>
+      </trans-unit>
+      <trans-unit id="dFgZn_l" resname="French">
+        <source>French</source>
+        <target>Français</target>
+      </trans-unit>
+      <trans-unit id="8P1MaOV" resname="Q&amp;A">
+        <source>Q&amp;A</source>
+        <target>FAQ</target>
+      </trans-unit>
+      <trans-unit id="OvBZ1IR" resname="LOGIN/REGISTER">
+        <source>LOGIN/REGISTER</source>
+        <target>CONNEXION/INSCRIPTION</target>
+      </trans-unit>
+      <trans-unit id="v9QCsvb" resname="Sign in">
+        <source>Sign in</source>
+        <target>Connexion</target>
+      </trans-unit>
+      <trans-unit id="u0L4zVJ" resname="Forgot password">
+        <source>Forgot password</source>
+        <target>Mot de passe oublié</target>
+      </trans-unit>
+      <trans-unit id="sBwx5eX" resname="Reset it">
+        <source>Reset it</source>
+        <target>Réinitialiser</target>
+      </trans-unit>
+      <trans-unit id="jZRIls0" resname="Don't have an account yet">
+        <source>Don't have an account yet</source>
+        <target>Pas encore de compte</target>
+      </trans-unit>
+      <trans-unit id="Lh5OGK2" resname="Join us">
+        <source>Join us</source>
+        <target>Rejoins nous</target>
+      </trans-unit>
+      <trans-unit id="yYtGtWT" resname="Sign in !">
+        <source>Sign in !</source>
+        <target>Connecte-toi !</target>
+      </trans-unit>
+      <trans-unit id="acVpEs4" resname="You are logged in as">
+        <source>You are logged in as</source>
+        <target>Tu es connecté</target>
+      </trans-unit>
+      <trans-unit id="47ienTP" resname="Username">
+        <source>Username</source>
+        <target>Nom d'utilisateur</target>
+      </trans-unit>
+      <trans-unit id="588_9PF" resname="Password">
+        <source>Password</source>
+        <target>Mot de passe</target>
+      </trans-unit>
+      <trans-unit id="ls5uYZO" resname="First Name">
+        <source>First Name</source>
+        <target>Prénom</target>
+      </trans-unit>
+      <trans-unit id="9VVjs4a" resname="Last Name">
+        <source>Last Name</source>
+        <target>Nom</target>
+      </trans-unit>
+      <trans-unit id="wlM3BVR" resname="Roles">
+        <source>Roles</source>
+        <target>Rôles</target>
+      </trans-unit>
+      <trans-unit id="PVeVsdn" resname="Change or details">
+        <source>Change or details</source>
+        <target>Changer ou détails</target>
+      </trans-unit>
+      <trans-unit id="RZid5J_" resname="Details">
+        <source>Details</source>
+        <target>Détails</target>
+      </trans-unit>
+      <trans-unit id="4tClSWj" resname="Delete">
+        <source>Delete</source>
+        <target>Supprimer</target>
+      </trans-unit>
+      <trans-unit id="28RooUt" resname="FAQ">
+        <source>FAQ</source>
+        <target>Foire aux questions</target>
+      </trans-unit>
+      <trans-unit id="NFjSqmN" resname="Add a question/answer">
+        <source>Add a question/answer</source>
+        <target>Ajouter une question</target>
+      </trans-unit>
+      <trans-unit id="e0iIBJR" resname="Last name">
+        <source>Last name</source>
+        <target>Nom</target>
+      </trans-unit>
+      <trans-unit id="cC75Ie0" resname="First name">
+        <source>First name</source>
+        <target>Prénom</target>
+      </trans-unit>
+      <trans-unit id="E5JQrbb" resname="Account creation date">
+        <source>Account creation date</source>
+        <target>Date de création du compte</target>
+      </trans-unit>
+      <trans-unit id="QPrwQ9U" resname="Current roles">
+        <source>Current roles</source>
+        <target>Rôles actuels</target>
+      </trans-unit>
+      <trans-unit id="y0AW.Hp" resname="Add roles">
+        <source>Add roles</source>
+        <target>Ajouter des rôles</target>
+      </trans-unit>
+      <trans-unit id="5nAxNOt" resname="Remove roles">
+        <source>Remove roles</source>
+        <target>Supprimer des rôles</target>
+      </trans-unit>
+      <trans-unit id="FV_BbAQ" resname="Submit">
+        <source>Submit</source>
+        <target>Soumettre</target>
+      </trans-unit>
+      <trans-unit id="LzKYxgA" resname="Video previews">
+        <source>Video previews</source>
+        <target>Aperçu des vidéos</target>
+      </trans-unit>
+      <trans-unit id="urN9Ykc" resname="See more">
+        <source>See more</source>
+        <target>Voir plus</target>
+      </trans-unit>
+      <trans-unit id="N3s3Wtz" resname="LOGOUT">
+        <source>LOGOUT</source>
+        <target>DECONNEXION</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

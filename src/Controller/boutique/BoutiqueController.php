@@ -3,7 +3,6 @@
 namespace App\Controller\boutique;
 
 use App\Repository\ProductRepository;
-use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -11,14 +10,16 @@ use Symfony\Component\Routing\Annotation\Route;
 class BoutiqueController extends AbstractController
 {
     /**
-     * @Route("/boutique", name="app_boutique")
+     * @Route("/{_locale<%app.supported_locales%>}/boutique", name="app_boutique")
      *
      */
 
-    public function showAll(ManagerRegistry $doctrine) : Response
+    public function boutique(ProductRepository $productRepository): Response
     {
-        $products = new ProductRepository($doctrine);
-        $res=$products->getAll();
-        return $this->render("boutique.html.twig", ["quantity"=>count($res)-1]);
+        $res = $productRepository->getAllProduct();
+        return $this->render('boutique/boutique.html.twig', [
+            'ProductAll' => $res,
+
+        ]);
     }
 }
