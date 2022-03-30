@@ -22,7 +22,7 @@ class BaseController extends AbstractController
     public function home(): Response
     {
         return $this->render('home.html.twig', [
-            'message' => 'home'
+            'message' => 'Home'
         ]);
     }
 }

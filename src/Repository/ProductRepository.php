@@ -20,7 +20,7 @@ class ProductRepository extends ServiceEntityRepository
         parent::__construct($registry, Product::class);
     }
 
-    public function getAll() : QueryBuilder
+    public function getAllProduct()
     {
         return $this->createQueryBuilder("p")
             ->orderBy("p.id")
@@ -28,6 +28,7 @@ class ProductRepository extends ServiceEntityRepository
             ->getQuery()
             ->getResult();
     }
+
 
     // /**
     //  * @return Product[] Returns an array of Product objects
