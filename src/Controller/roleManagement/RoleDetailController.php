@@ -3,6 +3,7 @@
 namespace App\Controller\roleManagement;
 
 use App\Entity\User;
+use App\Repository\UserRepository;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -25,9 +26,9 @@ class RoleDetailController extends AbstractController
      * @Route("/roleManagement/details/{id<^[1-9]{1}[0-9]*$>}", name="app_roleDetails")
      */
 
-    public function roleDetail(int $id, ManagerRegistry $registry): Response
+    public function roleDetail(int $id, UserRepository $userRepository): Response
     {
-        $user = $registry->getRepository(User::class)->find($id);
+        $user = $userRepository->find($id);
         if (is_null($user)) {
             throw $this->createNotFoundException("User don't exist");
         }

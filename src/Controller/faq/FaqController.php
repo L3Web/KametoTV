@@ -5,7 +5,6 @@ namespace App\Controller\faq;
 use App\Controller\Controller;
 use App\Entity\Faq;
 use App\Repository\FaqRepository;
-use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -15,9 +14,8 @@ class FaqController extends Controller
      * @Route("/faq", name="app_faq")
      */
 
-    public function faq(ManagerRegistry $doctrine) : Response
+    public function faq(FaqRepository $faqRepository) : Response
     {
-        $faqRepository = new FaqRepository($doctrine);
         $res = $faqRepository->get5Faq();
         return $this->render('faq/faq.html.twig', [
             "faqAll"=>$res,
