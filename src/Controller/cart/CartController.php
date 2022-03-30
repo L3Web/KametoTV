@@ -34,22 +34,7 @@ class CartController extends AbstractController
             $totalItem = $item['product']->getPrice() * $item['quantity'];
             $total = $total + $totalItem;
         }
-/*
-        $Cart = new Cart();
-        for ($i = 0; $i < count($cartData ); $i++) {
-            $Cart->setIdProducts($cartData [$i]);
-            $Cart->setIdUser($this->getId());
 
-            $Cart->setProduit($cartData [$i]['product']->getProduit());
-            $Cart->setQuantite($cartData [$i]['quantity']);
-
-            $Cart->setTotal($total);
-            $Cart->setUser($this->getUser());
-            $entitymanager->persist($Cart);
-            $entitymanager->flush();
-        }
-**/
-     //   var_dump($cartData);
         return $this->render('cart/cart.html.twig',[
             'items' => $cartData,
             'total' => $total

@@ -1,15 +1,22 @@
 {% extends "base.html.twig" %}
-    {% block title %}Panier !{% endblock %}
+    {% block title %}Cart !{% endblock %}
+
+    {% block stylesheets %}
+        <link rel="stylesheet" href="{{ asset('style/cart.css') }}"    type="text/css"/>
+    {% endblock %}
 
     {% block body %}
+        <div>
+            <h1>Cart</h1>
+        </div>
 
         {% if items | length > 0%}
-            <table>
+            <table class=" mt-3 table table-striped table-hover">
                 <thead>
                     <tr>
-                        <th>Produit</th>
-                        <th>Prix</th>
-                        <th>Quantité</th>
+                        <th>Product</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
                         <th>Total</th>
                         <th></th>
                     </tr>
@@ -22,16 +29,16 @@
                             <td>{{ item.quantity }}</td>
                             <td>{{  item.product.Price * item.quantity }}</td>
                             <td>
-                                <a href="{{ path('app_remove',{'id' : item.product.Id}) }}" class="btn btn-danger bnt-sm">
-                                    <i class="bi bi-trash"></i>
+                                <a href="{{ path('app_remove',{'id' : item.product.Id}) }}" class="btn btn-danger btn-sm">
+                                    remove
                                 </a>
                             </td>
                         </tr>
                     {% endfor %}
-                </tbody>
+
                 <tfoot>
                     <tr>
-                        <td colspan="3" class="text-right">Total :
+                        <td colspan="3" class="text-center">Price Total
                         </td>
                         <td>{{ total }}</td>
                         <td></td>
@@ -39,7 +46,7 @@
                 </tfoot>
             </table>
         {% else %}
-            <p>Malheureusement votre Panier est vide ...</p>
+            <p>Sorry but your Cart is empty ...</p>
         {% endif %}
 
     {% endblock  %}
