@@ -15,7 +15,11 @@ use Symfony\Component\String\Slugger\SluggerInterface;
 class ProductController extends AbstractController
 {
 
-    #[Route('/boutique/add', name: 'app_addProd')]
+    /**
+     * @Route("/{_locale<%app.supported_locales%>}/boutique/add", name="app_addProd")
+     *
+     */
+
     public function addProd(Request $request, SluggerInterface $slugger, EntityManagerInterface $entityManager): Response
     {
         $product = new Product();

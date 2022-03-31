@@ -24,7 +24,7 @@ class FaqController extends Controller
     }
 
     /**
-     * @Route("/faq/del/{id<^[1-9]{1}[0-9]*$>}", name="app_faq_del")
+     * @Route("/{_locale<%app.supported_locales%>}/faq/del/{id<^[1-9]{1}[0-9]*$>}", name="app_faq_del")
      */
 
     public function deleteFaq(Faq $faq): Response

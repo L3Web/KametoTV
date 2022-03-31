@@ -14,7 +14,7 @@ class CartController extends AbstractController
 {
 
     /**
-     * @Route("/panier", name="app_cart")
+     * @Route("/{_locale<%app.supported_locales%>}/panier", name="app_cart")
      */
     public function cart( SessionInterface $session , ProductRepository $productRepository)
     {
