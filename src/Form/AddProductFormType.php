@@ -6,6 +6,7 @@ use App\Entity\Product;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Validator\Constraints\File;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -15,12 +16,20 @@ class AddProductFormType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('product_name')
-            ->add('price')
-            ->add('product_qtt')
-            ->add(('category_id'))
+            ->add('product_name', TextType::class ,[
+                "label" => "AddProduct.name"
+            ])
+            ->add('price', TextType::class ,[
+                "label" => "AddProduct.price"
+            ])
+            ->add('product_qtt', TextType::class ,[
+                "label" => "AddProduct.productqtt"
+            ])
+            ->add('category_id', TextType::class ,[
+                "label" => "AddProduct.id"
+            ])
             ->add('image', FileType::class, [
-                'label' => 'Image (JPG file)',
+                'label' => 'Image (JPG)',
 
                 // unmapped means that this field is not associated to any entity property
                 'mapped' => false,
@@ -30,7 +39,9 @@ class AddProductFormType extends AbstractType
                 'required' => false,
 
             ])
-            ->add('ajouter', SubmitType::class);
+            ->add('Add', SubmitType::class,[
+                'label' => 'AddProduct.add'
+            ]);
         ;
     }
 
@@ -38,6 +49,7 @@ class AddProductFormType extends AbstractType
     {
         $resolver->setDefaults([
             'data_class' => Product::class,
+            'translation_domain' => 'forms'
         ]);
     }
 }

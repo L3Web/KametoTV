@@ -1,5 +1,5 @@
 {% extends "base.html.twig" %}
-    {% block title %}Cart !{% endblock %}
+    {% block title %}{% trans %}Cart {% endtrans %} !{% endblock %}
 
     {% block stylesheets %}
         <link rel="stylesheet" href="{{ asset('style/cart.css') }}" type="text/css"/>
@@ -7,15 +7,15 @@
 
     {% block body %}
         <div class="container">
-            <h1>Cart</h1>
+            <h1>{% trans %}Cart{% endtrans %}</h1>
             {% if items | length > 0 %}
                 <table class=" mt-3 table table-striped table-hover">
                     <thead>
                     <tr>
-                        <th>Product</th>
-                        <th>Price</th>
-                        <th>Quantity</th>
-                        <th>Total</th>
+                        <th>{% trans %}Product{% endtrans %}</th>
+                        <th>{% trans %}Price{% endtrans %}</th>
+                        <th>{% trans %}Quantity{% endtrans %}</th>
+                        <th>{% trans %}Total{% endtrans %}</th>
                         <th></th>
                     </tr>
                     </thead>
@@ -29,7 +29,7 @@
                             <td>
                                 <a href="{{ path('app_remove',{'id' : item.product.Id}) }}"
                                    class="btn btn-danger btn-sm">
-                                    remove
+                                    {% trans %}remove{% endtrans %}
                                 </a>
                             </td>
                         </tr>
@@ -37,7 +37,7 @@
 
                     <tfoot>
                     <tr>
-                        <td colspan="3" class="text-center">Price Total
+                        <td colspan="3" class="text-center">{% trans %}Total{% endtrans %}
                         </td>
                         <td>{{ total }}</td>
                         <td></td>
@@ -45,7 +45,7 @@
                     </tfoot>
                 </table>
             {% else %}
-                <p>Sorry but your Cart is empty ...</p>
+                <p>{% trans %}Sorry but your Cart is empty {% endtrans %}...</p>
             {% endif %}
         </div>
     {% endblock %}

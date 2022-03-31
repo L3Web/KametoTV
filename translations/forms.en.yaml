@@ -11,3 +11,11 @@ Registration:
   firstName: First name
   lastName: Last name
   register: Register
+
+AddProduct:
+  name: Product Name
+  productqtt: Produt Quantity
+  id: Category id
+  add: Add
+  price: Price
+

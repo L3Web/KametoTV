@@ -1,46 +1,48 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}SHOP !{% endblock %}
+{% block title %}{% trans %}SHOP{% endtrans %} !{% endblock %}
  {% block stylesheets %}
      <link rel="stylesheet" href="{{ asset('style/boutique.css') }}" type="text/css"/>
  {% endblock %}
 {% block body %}
 
     <div>
-        <a href="{{ path('app_cart',) }}" class="btn btn-secondary float-right mr-5" role="button">Cart</a>
+        <a href="{{ path('app_cart',) }}" class="btn btn-secondary float-right pt-2 pb-2 pl-5 pr-5 mt-3 mr-5"
+           role="button">{% trans %}Cart{% endtrans %}</a>
     </div>
 
 
 
-    <div class="container  mt-5">
-        {% for product in ProductAll %}
-
-            <div class=" ml-5 mb-5 pb-5 col-3 card d-flex d-inline-block justify-content-center">
-
-                <h3 class="card-title pt-3 text-center">{{ product.productName }}</h3>
-                <img class="card-img-pt-1" alt="Card image cap" src="{{ asset('media/'~product.Image) }}">
-                <div class="card-body">
-                    <p class="card-text mt-2 text-center">{{ product.price }}€ <br>
-                        <a href="{{ path('app_add',{'id':product.Id}) }}" class="btn btn-secondary mt-2  "
-                           role="button">Add to Cart</a>
-                        {% if is_granted('ROLE_ADMIN') %}
-                            <a href="{{ path('app_prodDel', {'id': product.Id}) }}" class="btn btn-secondary mt-2 ml-3 "
-                               role="button"> Delete Product</a>
-                        {% endif %}
-                    </p>
+    <div class="container  mt-3">
+        <div class="d-flex justify-content-center">
+            {% for product in ProductAll %}
+                <div class="card ml-4 mr-4 mb-5 pb-5 col-3 border-secondary shadow-lg">
+                    <h3 class="card-title pt-3 text-center">{{ product.productName }}</h3>
+                    <div class="h-50">
+                        <img class="card-img-pt-1 img-fluid h-100" alt="Card image cap"
+                             src="{{ asset('media/'~product.Image) }}">
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text mt-2 text-center">{{ product.price }}€ <br>
+                            <a href="{{ path('app_add',{'id':product.Id}) }}" class="btn btn-secondary mt-2  "
+                               role="button">{% trans %}Add to Cart{% endtrans %}</a>
+                            {% if is_granted('ROLE_ADMIN') %}
+                                <a href="{{ path('app_prodDel', {'id': product.Id}) }}"
+                                   class="btn btn-secondary mt-2 "
+                                   role="button"> {% trans %}Delete Product{% endtrans %}</a>
+                            {% endif %}
+                        </p>
+                    </div>
                 </div>
-            </div>
+            {% endfor %}
 
-        {% endfor %}
-
+        </div>
     </div>
 
     {% if is_granted('ROLE_ADMIN') %}
-        <div class="mx-auto mb-5 mt-5">
-            <button class="btn btn-primary">
-                <a href="{{ path('app_addProd') }}" class="text-white">Add Product</a>
-            </button>
-
+        <div class="mx-auto mb-5">
+            <a href="{{ path('app_addProd') }}"
+               class="btn btn-secondary pr-5 pl-5 pt-2 pb-2 text-white">{% trans %}Add Product{% endtrans %}</a>
         </div>
     {% endif %}
 

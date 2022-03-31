@@ -183,6 +183,67 @@
         <source>LOGOUT</source>
         <target>DECONNEXION</target>
       </trans-unit>
+      <trans-unit id="gJJU2pZ" resname="KametoTV is a streaming channel offering entertaining content mainly hosted by streamer Kameto&#10;            and his friends Kotei and Befresh.">
+        <source>KametoTV is a streaming channel offering entertaining content mainly hosted by streamer Kameto
+            and his friends Kotei and Befresh.</source>
+        <target>KametoTV est une chaine de streaming offrant un contenu divertissant principalement tenu par le streamer Kameto, Kotei et ses amis.</target>
+      </trans-unit>
+      <trans-unit id="8FflAHJ" resname="You will find on our site all our contents.">
+        <source>You will find on our site all our contents.</source>
+        <target>Vous allez trouver tout notre contenu de notre site.</target>
+      </trans-unit>
+      <trans-unit id="SkoBLwu" resname="Who we are ?">
+        <source>Who we are ?</source>
+        <target>Qui sommes-nous ?</target>
+      </trans-unit>
+      <trans-unit id="YcJzllL" resname="Add product">
+        <source>Add product</source>
+        <target>Ajouter un produit</target>
+      </trans-unit>
+      <trans-unit id="bS1ZrtR" resname="Cart">
+        <source>Cart</source>
+        <target>Panier</target>
+      </trans-unit>
+      <trans-unit id="_574lBd" resname="Product">
+        <source>Product</source>
+        <target>Produit</target>
+      </trans-unit>
+      <trans-unit id="k8kchR5" resname="Price">
+        <source>Price</source>
+        <target>Prix</target>
+      </trans-unit>
+      <trans-unit id="giurjUG" resname="Quantity">
+        <source>Quantity</source>
+        <target>Quantité</target>
+      </trans-unit>
+      <trans-unit id="ybPDgkf" resname="Total">
+        <source>Total</source>
+        <target>Total</target>
+      </trans-unit>
+      <trans-unit id="flYIq2E" resname="remove">
+        <source>remove</source>
+        <target>Supprimer</target>
+      </trans-unit>
+      <trans-unit id="yxhTJXo" resname="Sorry but your Cart is empty">
+        <source>Sorry but your Cart is empty</source>
+        <target>Désolé, votre panier est vide</target>
+      </trans-unit>
+      <trans-unit id="zXdxjJr" resname="Add to Cart">
+        <source>Add to Cart</source>
+        <target>Ajouter dans le panier</target>
+      </trans-unit>
+      <trans-unit id="COpnmCj" resname="Delete Product">
+        <source>Delete Product</source>
+        <target>Supprimer le produit</target>
+      </trans-unit>
+      <trans-unit id="HverCac" resname="Add Product">
+        <source>Add Product</source>
+        <target>Ajouter un produit</target>
+      </trans-unit>
+      <trans-unit id="TBvD0DE" resname="Brouse">
+        <source>Brouse</source>
+        <target>Chercher</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>

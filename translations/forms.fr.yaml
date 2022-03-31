@@ -11,3 +11,10 @@ Registration:
   firstName: Prénom
   lastName: Nom
   register: Inscription
+
+AddProduct:
+  name: Nom du produit
+  productqtt: Quantité du produit
+  id: Identifiant de la catégorie
+  add: Ajouter
+  price: Prix
