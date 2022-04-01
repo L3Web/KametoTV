@@ -23,7 +23,7 @@ class RoleManagementController extends AbstractController
 
     public function roleManagement(int $page): Response
     {
-        $user = $this->userRepository->find6($page);
+        $user = $this->userRepository->find5($page);
         return $this->render('roleManagement/roleManagement.html.twig', [
             "userList" => $user,
             "quantity" => count($user) - 1,
@@ -35,8 +35,8 @@ class RoleManagementController extends AbstractController
 
     public function hasNext(int $page): bool
     {
-        $user = $this->userRepository->find6Next($page);
-        return ($user!=null && count($user)==6);
+        $user = $this->userRepository->find5Next($page);
+        return ($user!=null && count($user)==5);
     }
 
     public  function hasPrevious(int $page): bool

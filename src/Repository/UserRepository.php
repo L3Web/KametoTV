@@ -22,22 +22,22 @@ class UserRepository extends ServiceEntityRepository
         parent::__construct($registry, User::class);
     }
 
-    public function find6(int $startIndex)
+    public function find5(int $startIndex)
     {
         return $this->createQueryBuilder('u')
             ->select('u.id','u.username', 'u.first_name', 'u.last_name', 'u.roles')
             ->orderBy("u.id", 'ASC')
-            ->setFirstResult(($startIndex-1)*6)
-            ->setMaxResults(6)
+            ->setFirstResult(($startIndex-1)*5)
+            ->setMaxResults(5)
             ->getQuery()
             ->getResult();
     }
 
-    public function find6Next(int $startIndex)
+    public function find5Next(int $startIndex)
     {
         return $this->createQueryBuilder('u')
-            ->setFirstResult(($startIndex-1)*6)
-            ->setMaxResults(6)
+            ->setFirstResult(($startIndex-1)*5)
+            ->setMaxResults(5)
             ->getQuery()
             ->getResult();
     }

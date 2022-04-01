@@ -1,0 +1,17 @@
+.accordion {
+    border-radius: 20%;
+}
+
+.collapse-color{
+    background: rgb(17,39,114);
+    background: linear-gradient(90deg, rgba(17,39,114,1) 0%, rgba(59,72,157,1) 45%, rgba(59,72,157,1) 52%, rgba(17,39,114,1) 100%);
+}
+
+.card {
+    border: 1px solid #a3a6b5;
+    background: rgb(17,39,114);
+    background: linear-gradient(90deg, rgba(17,39,114,1) 0%, rgba(17,35,130,1) 45%, rgba(17,35,130,1) 52%, rgba(17,39,114,1) 100%);}
+
+h5 .btn {
+    color: white;
+}

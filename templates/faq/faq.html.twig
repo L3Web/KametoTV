@@ -1,9 +1,12 @@
 {% extends "base.html.twig" %}
-{% block title %}{% trans %}FAQ{% endtrans %}{% endblock %}
+{% block title %}{% trans %}FAQ{% endtrans %}{% endblock %}{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('style/faq.css') }}" type="text/css"/>
+{% endblock %}
+
 {% block body %}
     <div class="d-flex justify-content-center mb-5 mt-4">
         <div class="container align-content-center col-5">
-            <h1 class="text-center mb-4">{% trans %}Q&A{% endtrans %}</h1>
+            <h1 class="text-center mb-4">{% trans %} Q&A {% endtrans %}</h1>
             <div class="accordion mt-3" id="accordionMain">
                 {% if quantity >= 0 %}
                     {% for faq in 0..quantity %}
@@ -17,13 +20,13 @@
                                         {{ faqAll[faq].getQuestion() }}
                                     </button>
                                     {% if is_granted('ROLE_ADMIN') %}
-                                        <a class="h6 mb-0 mt-2 float-right"
+                                        <a class="h6 mb-0 mt-2 float-right text-secondary"
                                            href="{{ path('app_faq_del', {'id': faqAll[faq].getId}) }}"> {% trans %}Delete {% endtrans %} </a>
                                     {% endif %}
                                 </h5>
                             </div>
 
-                            <div id="collapse{{ faq }}" class="collapse" aria-labelledby="heading{{ faq }}"
+                            <div id="collapse{{ faq }}" class="collapse collapse-color" aria-labelledby="heading{{ faq }}"
                                  data-parent="#accordionMain">
                                 <div class="card-body text-center">
                                     {{ faqAll[faq].getAnswer() }}
@@ -38,8 +41,8 @@
     </div>
 
     {% if is_granted('ROLE_ADMIN') %}
-        <div class="mx-auto mb-2">
-            <a href="{{ path('app_faqAdd') }}" class="btn btn-primary text-white">{% trans %}Add a question/answer{% endtrans %}</a>
+        <div class=" mx-auto mb-2 ">
+            <a href="{{ path('app_faqAdd') }}" class="btn btn-secondary">{% trans %}Add a question/answer{% endtrans %}</a>
         </div>
     {% endif %}
 

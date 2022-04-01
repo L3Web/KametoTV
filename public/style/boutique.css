@@ -5,3 +5,9 @@ body {
 
  */
 
+
+.card{
+    border: 2px solid black;
+    border-radius: 5%;
+    color: black;
+}

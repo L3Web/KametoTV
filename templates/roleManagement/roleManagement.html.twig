@@ -4,7 +4,7 @@
     {% if message is defined and message is not null %}
         <h2 class="ml-5">{{ message }}</h2>
     {% endif %}
-    <table class="table table-bordered table-hover col-9 mx-auto text-center">
+    <table class="table table-bordered table-hover col-9 mt-3 mx-auto text-center">
         <thead>
         <tr>
             <th scope="col">{% trans %}Username{% endtrans %}</th>
@@ -38,7 +38,7 @@
     </table>
     {% if (hasNext or hasPrevious) %}
         {% set routeName = 'app_roleManagement' %}
-        <nav class="mt-3 mb-3" aria-label="Page navigation example">
+        <nav class="mt-2 mb-1" aria-label="Page navigation example">
             <ul class="pagination justify-content-center">
                 {% if hasPrevious %}
                     {% set params = {"page":currentPage-1} %}

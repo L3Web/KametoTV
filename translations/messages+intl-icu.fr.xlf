@@ -177,11 +177,6 @@
         <source>LOGOUT</source>
         <target>DECONNEXION</target>
       </trans-unit>
-      <trans-unit id="gJJU2pZ" resname="KametoTV is a streaming channel offering entertaining content mainly hosted by streamer Kameto&#10;            and his friends Kotei and Befresh.">
-        <source>KametoTV is a streaming channel offering entertaining content mainly hosted by streamer Kameto
-            and his friends Kotei and Befresh.</source>
-        <target>KametoTV est une chaine de streaming offrant un contenu divertissant principalement tenu par le streamer Kameto, Kotei et ses amis.</target>
-      </trans-unit>
       <trans-unit id="8FflAHJ" resname="You will find on our site all our contents.">
         <source>You will find on our site all our contents.</source>
         <target>Vous allez trouver tout notre contenu de notre site.</target>
@@ -266,8 +261,7 @@
       <trans-unit id="WbZmhTd" resname="KametoTV is a streaming channel offering entertaining content mainly hosted by streamer Kameto&#10;                and his friends Kotei and Befresh.">
         <source>KametoTV is a streaming channel offering entertaining content mainly hosted by streamer Kameto
                 and his friends Kotei and Befresh.</source>
-        <target>__KametoTV is a streaming channel offering entertaining content mainly hosted by streamer Kameto
-                and his friends Kotei and Befresh.</target>
+        <target>KametoTV est une chaine de streaming offrant un contenu divertissant principalement tenu par le streamer Kameto, Kotei et ses amis.</target>
       </trans-unit>
     </body>
   </file>

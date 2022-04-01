@@ -1,3 +1,10 @@
+
+body {
+    background-color: #112a72;
+    color: white;
+}
+
+
 li.nav-item {
     margin-left: 3%;
     margin-right: 3%;
@@ -23,15 +30,24 @@ li.nav-item {
 }
 */
 .active {
-    padding-right: 1%;
-    padding-left: 1%;
-    border: 1px solid #9A9A9A;
+    padding-right: 2%;
+    padding-left: 2%;
+    font-weight: bold;
+    border: 1px solid #00faff;
     border-top: none;
     border-bottom: none;
     border-radius: 5%;
-    background-color: #424242;
 }
 
 .link_footer img {
     width: 30px;
+}
+
+.navbar, footer{
+    background: rgb(21,46,177);
+    background: linear-gradient(90deg, rgba(21,46,177,1) 0%, rgba(17,39,114,1) 24%, rgba(20,35,87,1) 50%, rgba(17,42,114,1) 75%, rgba(21,46,177,1) 100%);
+}
+
+.nav-item.url a {
+    color:white;
 }
