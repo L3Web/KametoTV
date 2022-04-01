@@ -3,11 +3,12 @@
 {% block title %}{% trans %}SHOP{% endtrans %} !{% endblock %}
  {% block stylesheets %}
      <link rel="stylesheet" href="{{ asset('style/boutique.css') }}" type="text/css"/>
+
  {% endblock %}
 {% block body %}
 
     <div>
-        <a href="{{ path('app_cart',) }}" class="btn btn-secondary float-right pt-2 pb-2 pl-5 pr-5 mt-3 mr-5"
+        <a href="{{ path('app_cart',) }}" class="btn btn-global float-right pt-2 pb-2 pl-5 pr-5 mt-3 mr-5"
            role="button">{% trans %}Cart{% endtrans %}</a>
     </div>
 
@@ -24,11 +25,11 @@
                     </div>
                     <div class="card-body">
                         <p class="card-text mt-2 text-center">{{ product.price }}€ <br>
-                            <a href="{{ path('app_add',{'id':product.Id}) }}" class="btn mt-2  "
+                            <a href="{{ path('app_add',{'id':product.Id}) }}" class="btn btn-global mt-3 mb-1"
                                role="button">{% trans %}Add to Cart{% endtrans %}</a>
                             {% if is_granted('ROLE_ADMIN') %}
                                 <a href="{{ path('app_prodDel', {'id': product.Id}) }}"
-                                   class="btn btn-secondary mt-2 "
+                                   class="btn btn-global mt-2"
                                    role="button"> {% trans %}Delete Product{% endtrans %}</a>
                             {% endif %}
                         </p>
@@ -42,7 +43,7 @@
     {% if is_granted('ROLE_ADMIN') %}
         <div class="mx-auto mb-5">
             <a href="{{ path('app_addProd') }}"
-               class="btn btn-secondary pr-5 pl-5 pt-2 pb-2 text-white">{% trans %}Add Product{% endtrans %}</a>
+               class="btn btn-global pr-5 pl-5 pt-2 pb-2">{% trans %}Add Product{% endtrans %}</a>
         </div>
     {% endif %}
 

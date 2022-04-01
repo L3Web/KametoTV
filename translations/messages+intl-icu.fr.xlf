@@ -258,9 +258,9 @@
         <source>We'll be up and running shortly</source>
         <target>Le site sera de retour très rapidement</target>
       </trans-unit>
-      <trans-unit id="WbZmhTd" resname="KametoTV is a streaming channel offering entertaining content mainly hosted by streamer Kameto&#10;                and his friends Kotei and Befresh.">
+      <trans-unit id="XFtltsP" resname="KametoTV is a streaming channel offering entertaining content mainly hosted by streamer Kameto&#10;                    and his friends Kotei and Befresh.">
         <source>KametoTV is a streaming channel offering entertaining content mainly hosted by streamer Kameto
-                and his friends Kotei and Befresh.</source>
+                    and his friends Kotei and Befresh.</source>
         <target>KametoTV est une chaine de streaming offrant un contenu divertissant principalement tenu par le streamer Kameto, Kotei et ses amis.</target>
       </trans-unit>
     </body>
