@@ -7,17 +7,11 @@
     <body>
       <trans-unit id="pGmrTKT" resname="Page not found">
         <source>Page not found</source>
-        <target>__Page not found</target>
-      </trans-unit>
-      <trans-unit id="j5K0KBq" resname="The requested page couldn't be located. Checkout for any URL&#10;            misspelling or">
-        <source>The requested page couldn't be located. Checkout for any URL
-            misspelling or</source>
-        <target>__The requested page couldn't be located. Checkout for any URL
-            misspelling or</target>
+        <target>Page introuvable</target>
       </trans-unit>
       <trans-unit id="yBAbsaq" resname="return to the homepage">
         <source>return to the homepage</source>
-        <target>__return to the homepage</target>
+        <target>retourner à la page d'accueil</target>
       </trans-unit>
       <trans-unit id="u3I07BJ" resname="Register">
         <source>Register</source>
@@ -243,6 +237,37 @@
       <trans-unit id="TBvD0DE" resname="Brouse">
         <source>Brouse</source>
         <target>Chercher</target>
+      </trans-unit>
+      <trans-unit id="a2IWpRN" resname="Error 404">
+        <source>Error 404</source>
+        <target>Erreur 404</target>
+      </trans-unit>
+      <trans-unit id="5I3yIxG" resname="The requested page couldn't be located. Checkout for any URL&#10;                misspelling or">
+        <source>The requested page couldn't be located. Checkout for any URL
+                misspelling or</source>
+        <target>La page requise n'a pas pu être trouvé. Veuillez vérifier l'orthographe de l'url ou</target>
+      </trans-unit>
+      <trans-unit id="GR6mSP2" resname="Error 500">
+        <source>Error 500</source>
+        <target>Erreur 500</target>
+      </trans-unit>
+      <trans-unit id="rur3ehn" resname="Server down">
+        <source>Server down</source>
+        <target>Serveur en panne</target>
+      </trans-unit>
+      <trans-unit id="bQRMsTW" resname="An error has occured and we're currently working to fix the problem">
+        <source>An error has occured and we're currently working to fix the problem</source>
+        <target>Un soucis est arrivé et nous somme actuellement en train de le réparer</target>
+      </trans-unit>
+      <trans-unit id="rmXYqIZ" resname="We'll be up and running shortly">
+        <source>We'll be up and running shortly</source>
+        <target>Le site sera de retour très rapidement</target>
+      </trans-unit>
+      <trans-unit id="WbZmhTd" resname="KametoTV is a streaming channel offering entertaining content mainly hosted by streamer Kameto&#10;                and his friends Kotei and Befresh.">
+        <source>KametoTV is a streaming channel offering entertaining content mainly hosted by streamer Kameto
+                and his friends Kotei and Befresh.</source>
+        <target>__KametoTV is a streaming channel offering entertaining content mainly hosted by streamer Kameto
+                and his friends Kotei and Befresh.</target>
       </trans-unit>
     </body>
   </file>
