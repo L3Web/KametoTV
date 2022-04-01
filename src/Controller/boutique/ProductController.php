@@ -2,17 +2,16 @@
 
 namespace App\Controller\boutique;
 
+use App\Controller\Controller;
 use App\Entity\Product;
 use App\Form\AddProductFormType;
-use Doctrine\ORM\EntityManagerInterface;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\File\Exception\FileException;
+use App\Handler\ProductFormHandler;
+use App\Services\FileUploader;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Component\String\Slugger\SluggerInterface;
 
-class ProductController extends AbstractController
+class ProductController extends Controller
 {
 
     /**
@@ -20,52 +19,26 @@ class ProductController extends AbstractController
      *
      */
 
-    public function addProd(Request $request, SluggerInterface $slugger, EntityManagerInterface $entityManager): Response
+    public function addProd(Request $request, FileUploader $fileUploader): Response
     {
         $product = new Product();
         $form = $this->createForm(AddProductFormType::class, $product);
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-
-            $imageFile = $form->get('image')->getData();
-
-            if ($imageFile) {
-                $originalFilename = pathinfo($imageFile->getClientOriginalName(), PATHINFO_FILENAME);
-                // this is needed to safely include the file name as part of the URL
-                $safeFilename = $slugger->slug($originalFilename);
-                $newFilename = $safeFilename . '-' . uniqid() . '.' . $imageFile->guessExtension();
-
-                // Move the file to the directory where brochures are stored
-                try {
-                    $imageFile->move(
-                        $this->getParameter('brochures_directory'),
-                        $newFilename
-                    );
-                } catch (FileException $e) {
-                    // ... handle exception if something happens during file upload
-                }
-
-                // updates the 'brochureFilename' property to store the PDF file name
-                // instead of its contents
-                $product->setImage($newFilename);
-
-            }
-            $entityManager->persist($product);
-            $entityManager->flush();
+        $formHandler = (new ProductFormHandler($form, $request, $product, $this->entityManager, $fileUploader))->process();
+        if ($formHandler) {
             return $this->redirectToRoute('app_boutique');
         }
-
         return $this->renderForm('boutique/addProduct.html.twig', [
             'formProduct' => $form
-            ]);
+        ]);
     }
 
-    #[Route('/boutique/{id}', name: 'app_prodDel')]
-    public function deleteFaq(Product $pro, EntityManagerInterface $entityManager): Response
+    /**
+     * @Route("/boutique/{id<^[1-9]{1}[0-9]*$>}", name="app_prodDel")
+     */
+    public function deleteProd(Product $pro): Response
     {
-        $entityManager->remove($pro);
-        $entityManager->flush();
+        $this->entityManager->remove($pro);
+        $this->entityManager->flush();
 
         return $this->redirectToRoute('app_boutique');
     }
