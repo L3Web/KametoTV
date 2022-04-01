@@ -3,7 +3,8 @@
 {% block title %}Log in!{% endblock %}
 
 {% block body %}
-    <div class="ml-5 mt-4 mb-3 col-5">
+    <div class="d-flex justify-content-center">
+    <div class="ml-5 mt-4 mb-3  col-5">
         <form method="post">
             {% if error %}
                 <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
@@ -14,7 +15,7 @@
                     {% trans %}You are logged in as{% endtrans%} {{ app.user.username }}, <a href="{{ path('app_logout') }}">Logout</a>
                 </div>
             {% endif %}
-            <h1 class="h3 mb-3 font-weight-normal">{% trans %}Sign in !{% endtrans %}</h1>
+            <h1 class="h3 mb-3 font-weight-normal text-center">{% trans %}Sign in !{% endtrans %}</h1>
             <label for="inputUsername">{% trans %}Username{% endtrans %}</label>
             <input type="text" value="{{ last_username }}" name="username" id="inputUsername" class="form-control"
                    required
@@ -37,15 +38,16 @@
             </div>
             #}
 
-            <button class="btn btn-lg btn-primary mt-3" type="submit">
+            <button class="btn btn-lg btn-primary mt-3 d-flex mx-auto" type="submit">
                 {% trans %}Sign in{% endtrans %}
             </button>
         </form>
-        <div class="mt-2">
+        <div class="mt-2 text-center">
             <span class="text-muted">{% trans %}Forgot password{% endtrans %} ? <a class="link-secondary"
                                                                                    href="{{ path('app_forgot_password_request') }}">{% trans %}Reset it{% endtrans %}</a></span><br>
             <span class="text-muted mt-3">{% trans %}Don't have an account yet{% endtrans %} ? <a class="link-secondary"
                                                                                                   href="{{ path('app_register') }}">{% trans %}Join us{% endtrans %}</a></span>
         </div>
+    </div>
     </div>
 {% endblock %}

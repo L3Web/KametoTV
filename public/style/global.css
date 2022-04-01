@@ -48,6 +48,7 @@ li.nav-item {
     background: linear-gradient(90deg, rgba(21,46,177,1) 0%, rgba(17,39,114,1) 24%, rgba(20,35,87,1) 50%, rgba(17,42,114,1) 75%, rgba(21,46,177,1) 100%);
 }
 
-.nav-item.url a {
+.nav-item a {
     color:white;
 }
+

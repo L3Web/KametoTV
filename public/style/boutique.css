@@ -11,3 +11,9 @@ body {
     border-radius: 5%;
     color: black;
 }
+
+
+.card-text .btn {
+    background-color: #818bcc;
+    color : white;
+}
