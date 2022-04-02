@@ -2,11 +2,13 @@
 {% block title %}{% trans %}Account informations{% endtrans %}{% endblock %}
 {% block body %}
     <h3 class="text-center mt-3">My account informations</h3>
-    <div class="mx-auto mt-4">
+    <div class="mx-auto mt-4" mb-3>
         <span>Id : {{ user.id }}</span><br>
         <span>{% trans %}Username{% endtrans %} : {{ user.username }}</span><br>
+        <span>{% trans %}Email{% endtrans %} : {{ user.email }}</span><br>
         <span>{% trans %}Last name{% endtrans %} : {{ user.firstName }}</span><br>
         <span>{% trans %}First name {% endtrans %}: {{ user.lastName }}</span><br>
         <span>{% trans %}Account creation date{% endtrans %} : {{ user.createdAt |date("d/m/y") }}</span><br>
+        <h4 class="mt-5"><a class="btn btn-secondary" href="{{ path('app_change_pass') }}" >Change your password</a></h4>
     </div>
 {% endblock %}

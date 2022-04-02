@@ -7,6 +7,7 @@
         <div class="col-6 my-auto align-content-center">
             <span>Id : {{ user.id }}</span><br>
             <span>{% trans %}Username{% endtrans %} : {{ user.username }}</span><br>
+            <span>{% trans %}Email{% endtrans %} : {{ user.email }}</span><br>
             <span>{% trans %}Last name{% endtrans %} : {{ user.firstName }}</span><br>
             <span>{% trans %}First name {% endtrans %}: {{ user.lastName }}</span><br>
             <span>{% trans %}Account creation date{% endtrans %} : {{ user.createdAt |date("d/m/y") }}</span><br>
