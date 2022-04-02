@@ -24,7 +24,7 @@
                     </div>
                     <div class="card-body">
                         <p class="card-text mt-2 text-center">{{ product.price }}€ <br>
-                            <a href="{{ path('app_add',{'id':product.Id}) }}" class="btn mt-2  "
+                            <a href="{{ path('app_cart_add',{'id':product.Id}) }}" class="btn mt-2  "
                                role="button">{% trans %}Add to Cart{% endtrans %}</a>
                             {% if is_granted('ROLE_ADMIN') %}
                                 <a href="{{ path('app_prodDel', {'id': product.Id}) }}"

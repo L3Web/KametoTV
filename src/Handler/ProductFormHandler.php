@@ -3,7 +3,7 @@
 namespace App\Handler;
 
 use App\Entity\Product;
-use App\Services\FileUploader;
+use App\Services\FileUploaderService;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Form\Form;
 use Symfony\Component\HttpFoundation\Request;
@@ -14,9 +14,9 @@ class ProductFormHandler
     private Request $request;
     private Product $product;
     private EntityManagerInterface $entityManager;
-    private FileUploader $fileUploader;
+    private FileUploaderService $fileUploader;
 
-    public function __construct(Form $form, Request $request, Product $product, EntityManagerInterface $entityManager, FileUploader $fileUploader)
+    public function __construct(Form $form, Request $request, Product $product, EntityManagerInterface $entityManager, FileUploaderService $fileUploader)
     {
         $this->form = $form;
         $this->request = $request;

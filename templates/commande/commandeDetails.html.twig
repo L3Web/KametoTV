@@ -1,0 +1,38 @@
+{% extends "base.html.twig" %}
+{% block title %}{% trans %}Order{% endtrans %}{% endblock %}
+{% block body %}
+
+    <div class="mt-3 mb-3">
+        <a class="ml-5 btn btn-secondary" href="{{ path('app_commande') }}">Back</a>
+        <h3 class="text-center">Order {{ commande.id }}</h3>
+        <div class="d-flex justify-content-center">
+            <table class="table table-bordered table-hover col-9 mt-3 mx-auto text-center">
+                <thead>
+                <tr>
+                    <th scope="col">{% trans %}Articles{% endtrans %}</th>
+                    <th scope="col">{% trans %}Quantity{% endtrans %}</th>
+                    <th scope="col">{% trans %}Price{% endtrans %}</th>
+                    <th scope="col">{% trans %}Total{% endtrans %}</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for article in products %}
+                    <tr>
+                        <th scope="row">{{ article["product"].productName }}</th>
+                        <td>{{ article["quantity"] }}</td>
+                        <td>{{ article["product"].price }}</td>
+                        <td>{{ article["product"].price * article["quantity"] }}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+                <tfoot>
+                <tr>
+                    <td colspan="3" class="text-center">{% trans %}Total{% endtrans %}
+                    </td>
+                    <td>{{ commande.total }}</td>
+                </tr>
+                </tfoot>
+            </table>
+        </div>
+    </div>
+{% endblock %}

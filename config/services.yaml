@@ -22,7 +22,7 @@ services:
             - '../src/Entity/'
             - '../src/Kernel.php'
             - '../src/Tests/'
-    App\Services\FileUploader:
+    App\Services\FileUploaderService:
         arguments:
             $targetDirectory: '%brochures_directory%'
     # add more service definitions when explicit configuration is needed

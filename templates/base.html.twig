@@ -42,7 +42,8 @@
                 <a class="nav-link" aria-current="page" href="https://kgames.fr/" target="_blank">KGAMES</a>
             </li>
             <li class="nav-item url">
-                <a class="nav-link" aria-current="page" href="{{ path('app_boutique') }}">{% trans %}SHOP{% endtrans %}</a>
+                <a class="nav-link" aria-current="page"
+                   href="{{ path('app_boutique') }}">{% trans %}SHOP{% endtrans %}</a>
             </li>
             <li class="nav-item url">
                 <a class="navbar-brand mr-0" href="{{ path('app_base_home') }}">KametoTV</a>
@@ -93,7 +94,22 @@
             {% endif %}
             {% if app.user %}
                 <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="{{ path('app_logout') }}">{% trans %}LOGOUT{% endtrans %}</a>
+                    <div class="dropdown">
+                        <button class="btn dropdown-toggle text-white" type="button" id="dropUserMenuButton"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            My account
+                        </button>
+                        <ul class="dropdown-menu pt-0 pb-0" aria-labelledby="dropdownUserButton">
+                            <li>
+                                <a class="dropdown-item" aria-current="page"
+                                   href="{{ path('app_commande') }}">{% trans %}Order history{% endtrans %}</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" aria-current="page"
+                                   href="{{ path('app_logout') }}">{% trans %}LOGOUT{% endtrans %}</a>
+                            </li>
+                        </ul>
+                    </div>
                 </li>
             {% else %}
                 <li class="nav-item url">

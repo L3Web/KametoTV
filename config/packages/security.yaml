@@ -41,6 +41,7 @@ security:
         - { path : ^/(en|fr)/faq/add, roles: ROLE_ADMIN }
         - { path : ^/(en|fr)/roleManagement, roles : ROLE_SUPER_ADMIN}
         - { path : ^/(en|fr)/boutique/add, roles : ROLE_ADMIN}
+        - { path : ^/(en|fr)/commande, roles : ROLE_USER}
     access_denied_url : /login
     role_hierarchy:
         ROLE_MANAGER: ['ROLE_USER']

@@ -6,7 +6,7 @@ use App\Controller\Controller;
 use App\Entity\Product;
 use App\Form\AddProductFormType;
 use App\Handler\ProductFormHandler;
-use App\Services\FileUploader;
+use App\Services\FileUploaderService;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -19,7 +19,7 @@ class ProductController extends Controller
      *
      */
 
-    public function addProd(Request $request, FileUploader $fileUploader): Response
+    public function addProd(Request $request, FileUploaderService $fileUploader): Response
     {
         $product = new Product();
         $form = $this->createForm(AddProductFormType::class, $product);

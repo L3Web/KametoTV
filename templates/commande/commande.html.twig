@@ -1,0 +1,36 @@
+{% extends "base.html.twig" %}
+{% block title %}{% trans %}Order history{% endtrans %}{% endblock %}
+{% block body %}
+    <div class="mt-3 mb-3">
+        {% if commandeList| length == null %}
+            <h2 class="ml-3">{% trans %}Sorry, you have never ordered !{% endtrans %}</h2>
+            <a href="{{ path('app_boutique') }}">Order now !</a>
+        {% else %}
+            <h3 class="text-center">{% trans %}Order history{% endtrans %}</h3>
+            <table class="table table-bordered table-hover col-9 mt-3 mx-auto text-center">
+                <thead>
+                <tr>
+                    <th scope="col">{% trans %}Order id{% endtrans %}</th>
+                    <th scope="col">{% trans %}Articles{% endtrans %}</th>
+                    <th scope="col">{% trans %}Total prices{% endtrans %}</th>
+                    <th scope="col">{% trans %}Date{% endtrans %}</th>
+                    <th scope="col">{% trans %}Details{% endtrans %}</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for commande in commandeList %}
+                <tr>
+                    <th scope="row">{{ commande.id }}</th>
+                    <td>{{ commande.articles | length }}</td>
+                    <td>{{ commande.total }}</td>
+                    <td>{{ commande.date |date("d/m/y") }}</td>
+                    <td><a class="btn btn-secondary"
+                           href="{{ path('app_commande_details', {'id': commande.id}) }}">Details</a>
+                    </td>
+                </tr>
+                </tbody>
+                {% endfor %}
+            </table>
+        {% endif %}
+    </div>
+{% endblock %}

@@ -6,6 +6,7 @@
     {% endblock %}
 
     {% block body %}
+        <a class="ml-2 mt-2 col-1 btn btn-secondary float-left" href="{{ path('app_boutique') }}">Back</a>
         <div class="container mt-2">
             <h1>{% trans %}Cart{% endtrans %}</h1>
             {% if items | length > 0 %}
@@ -27,7 +28,7 @@
                             <td>{{ item.quantity }}</td>
                             <td>{{ item.product.Price * item.quantity }}</td>
                             <td>
-                                <a href="{{ path('app_remove',{'id' : item.product.Id}) }}"
+                                <a href="{{ path('app_cart_remove',{'id' : item.product.Id}) }}"
                                    class="btn btn-danger btn-sm">
                                     {% trans %}remove{% endtrans %}
                                 </a>
@@ -44,6 +45,7 @@
                     </tr>
                     </tfoot>
                 </table>
+                <div class="mt-3"><a href="{{ path("app_commander") }}">Commander</a></div>
             {% else %}
                 <p>{% trans %}Sorry but your Cart is empty {% endtrans %}...</p>
             {% endif %}
