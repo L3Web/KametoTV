@@ -5,6 +5,7 @@ body {
 }
 
 
+
 li.nav-item {
     margin-left: 3%;
     margin-right: 3%;
@@ -64,4 +65,13 @@ li.nav-item {
 
 .dropdown-menu{
     border: 0;
+}
+
+.navbar{
+    border-bottom: 1px solid #3289D4;
+}
+
+.footer-bar{
+    border-top: 1px solid #3289D4;
+
 }
