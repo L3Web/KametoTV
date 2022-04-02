@@ -16,22 +16,20 @@ class CommandeController extends Controller
 {
 
     private UserRepository $userRepository;
-    private int $userId;
 
-    public function __construct(EntityManagerInterface $entityManager, UserInterface $user, UserRepository $userRepository)
+    public function __construct(EntityManagerInterface $entityManager, UserRepository $userRepository)
     {
         parent::__construct($entityManager);
-        $this->userId = $user->getId();
         $this->userRepository = $userRepository;
     }
 
     /**
-     * @Route("/{_locale<%app.supported_locales%>}/commande", name="app_commande")
+     * @Route("/{_locale<%app.supported_locales%>}/account/commande", name="app_commande")
      */
 
-    public function Commande(): Response
+    public function Commande(UserInterface $user): Response
     {
-        $user = $this->userRepository->findOneBy(array("id" => $this->userId));
+        $user = $this->userRepository->findOneBy(array("id" => $user->getId()));
         $commandeList = $user->getCommande();
 
         return $this->render("commande/commande.html.twig", [
@@ -40,16 +38,15 @@ class CommandeController extends Controller
     }
 
     /**
-     * @Route("/{_locale<%app.supported_locales%>}/commande/details/{id<^[1-9]{1}[0-9]*$>}", name="app_commande_details")
+     * @Route("/{_locale<%app.supported_locales%>}/account/commande/details/{id<^[1-9]{1}[0-9]*$>}", name="app_commande_details")
      */
-    public function details(int $id, CommandeRepository $commandeRepository, ProductRepository $productRepository)
+    public function details(int $id, CommandeRepository $commandeRepository, UserInterface $user, ProductRepository $productRepository)
     {
-        $user = $this->userRepository->findOneBy(array("id" => $this->userId));
+        $user = $this->userRepository->findOneBy(array("id" => $user->getId()));
         $commande = $commandeRepository->findOneBy(array("id" => $id));
         if ($commande->getIdUser() !== $user) {
             return $this->redirectToRoute("app_commande");
         }
-
         return $this->render("commande/commandeDetails.html.twig", [
             "commande" => $commande,
             "products" => $this->sortCommandeArray($commande, $productRepository)

@@ -35,12 +35,13 @@ class CartController extends Controller
     {
         $cart = $this->session->get('panier');
         $cartData = [];
-
-        foreach ($cart as $id => $quantity) {
-            $cartData [] = [
-                'product' => $this->productRepository->find($id),
-                'quantity' => $quantity
-            ];
+        if ($cart !== null) {
+            foreach ($cart as $id => $quantity) {
+                $cartData [] = [
+                    'product' => $this->productRepository->find($id),
+                    'quantity' => $quantity
+                ];
+            }
         }
         $total = $this->session->get("total");
 
@@ -102,6 +103,9 @@ class CartController extends Controller
 
         $this->entityManager->persist($commande);
         $this->entityManager->flush();
+
+        $this->session->set("panier", []);
+        $this->session->set("total", 0);
 
         return $this->redirectToRoute('app_base_home');
     }
