@@ -53,3 +53,15 @@ li.nav-item {
 }
 
 
+.btn-global {
+    background-color: #3b52c8;
+    color: white;
+}
+
+.dropdown-item{
+    background-color: #112772;
+}
+
+.dropdown-menu{
+    border: 0;
+}
