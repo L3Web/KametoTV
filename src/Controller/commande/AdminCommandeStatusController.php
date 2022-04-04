@@ -25,7 +25,6 @@ class AdminCommandeStatusController extends Controller
     public function Commande(): Response
     {
         $commandeList = $this->commandeRepository->findBy(array("status" => 0));
-
         return $this->render("commande/adminCommande.html.twig", [
             "commandeList" => $commandeList
         ]);

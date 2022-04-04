@@ -9,6 +9,7 @@
             <table class="table table-bordered table-hover col-9 mt-3 mx-auto text-center">
                 <thead>
                 <tr>
+                    <th scope="col">{% trans %}Username{% endtrans %}</th>
                     <th scope="col">{% trans %}Order id{% endtrans %}</th>
                     <th scope="col">{% trans %}Articles{% endtrans %}</th>
                     <th scope="col">{% trans %}Total prices{% endtrans %}</th>
@@ -20,12 +21,16 @@
                 <tbody>
                 {% for commande in commandeList %}
                 <tr>
-                    <th scope="row">{{ commande.id }}</th>
+                    <th scope="row">{{ commande.idUser.username }}</th>
+                    <th>{{ commande.id }}</th>
                     <td>{{ commande.articles | length }}</td>
                     <td>{{ commande.total }}</td>
                     <td>{{ commande.date |date("d/m/y") }}</td>
-                    <td><a class="btn btn-global" href="{{ path('app_commande_validate', {'status':2, 'id': commande.id}) }}">{% trans %}Accept{% endtrans %}</a>
-                        <a class="btn btn-global" href="{{ path('app_commande_validate', {'status':1, 'id': commande.id}) }}">{% trans %}Refuse{% endtrans %}</a></td>
+                    <td><a class="btn btn-global"
+                           href="{{ path('app_commande_validate', {'status':2, 'id': commande.id}) }}">{% trans %}Accept{% endtrans %}</a>
+                        <a class="btn btn-global"
+                           href="{{ path('app_commande_validate', {'status':1, 'id': commande.id}) }}">{% trans %}Refuse{% endtrans %}</a>
+                    </td>
                     <td><a class="btn btn-global"
                            href="{{ path('app_commande_details', {'id': commande.id}) }}">Details</a>
                     </td>

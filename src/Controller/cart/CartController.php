@@ -76,13 +76,13 @@ class CartController extends Controller
     public function remove(int $id)
     {
         $cart = $this->session->get('panier');
+        $product = $this->productRepository->findOneBy(array("id" => $id));
 
         if (!empty($cart[$id])) {
+            $this->changePrice("-", $product->getPrice() * $cart[$id]);
             unset($cart[$id]);
         }
         $this->session->set('panier', $cart);
-        $product = $this->productRepository->findOneBy(array("id" => $id));
-        $this->changePrice("-", $product->getPrice());
 
         return $this->redirectToRoute("app_cart");
     }
