@@ -52,14 +52,6 @@ class RegistrationFormType extends AbstractType
             ->add('last_name', TextType::class, [
                 "label" => "Registration.lastName"
             ])
-            ->add('admin', CheckboxType::class, [
-                'mapped' => false,
-                'required' => false
-            ])
-            ->add('super_admin', CheckboxType::class, [
-                'mapped' => false,
-                'required' => false
-            ])
             ->add('register', SubmitType::class, [
                 "label" => "Registration.register"
             ]);

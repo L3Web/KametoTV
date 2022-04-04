@@ -44,13 +44,6 @@ class RegistrationFormHandler
                     $this->form->get('plainPassword')->getData()
                 )
             );
-            //to be deleted after test
-            if ($this->form['admin']->getData() === true) {
-                $this->user->addRole('ROLE_ADMIN');
-            }
-            if($this->form["super_admin"]->getData() === true) {
-                $this->user->addRole('ROLE_SUPER_ADMIN');
-            }
 
             $this->entityManager->persist($this->user);
             $this->entityManager->flush();

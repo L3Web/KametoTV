@@ -20,7 +20,7 @@ class UserFixtures extends Fixture
     {
         $faker = Faker\Factory::create('fr_FR');
 
-        for($nbUsers = 1; $nbUsers <= 30; $nbUsers++) {
+        for($nbUsers = 1; $nbUsers <= 15; $nbUsers++) {
             $user = new User();
             $user->setEmail($faker->email);
             $user->setRoles(['ROLE_USER']);
