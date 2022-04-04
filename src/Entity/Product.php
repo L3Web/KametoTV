@@ -39,6 +39,9 @@ class Product
     #[ORM\Column(type: 'string', length: 255)]
     private $image;
 
+    #[ORM\Column(type: 'string', length: 255)]
+    private $product_desc;
+
     #[ORM\PrePersist]
     public function setCreatedAtValue(): void
     {
@@ -143,6 +146,18 @@ class Product
     public function setImage(string $image): self
     {
         $this->image = $image;
+
+        return $this;
+    }
+
+    public function getProductDesc(): ?string
+    {
+        return $this->product_desc;
+    }
+
+    public function setProductDesc(string $product_desc): self
+    {
+        $this->product_desc = $product_desc;
 
         return $this;
     }
