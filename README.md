@@ -22,6 +22,7 @@ Le projet a été crée à l'aide de :
 
 * Symfony version : 6.0
 * Bootstrap version : 4.4.1
+* Twig : 6.0
 
 ## Installation <a name="installation"></a>
 
@@ -37,7 +38,7 @@ Cloner le projet et lancer les commandes suivantes dans l'ordre indiqué :
 
 Le site est disponible en 2 langues.
 
-Il existe un système d'inscription, connexion et mot de passe oublié avec des mais (implémenter avec Symfony Mailer)
+Il existe un système d'inscription, connexion et mot de passe oublié avec des mails (implémenter avec Symfony Mailer)
 
 L'utilisateur admin possède des droits de gestions de catalogue et de la faq.
 
