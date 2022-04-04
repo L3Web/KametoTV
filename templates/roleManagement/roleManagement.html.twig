@@ -6,7 +6,7 @@
     {% if message is defined and message is not null %}
         <h2 class="ml-5">{{ message }}</h2>
     {% endif %}
-    <table class="table table-bordered table-hover col-9 mt-3 mx-auto text-center">
+    <table class="table table-bordered table-hover col-9 mt-3 mx-auto text-center shadow-lg">
         <thead>
         <tr>
             <th scope="col">{% trans %}Username{% endtrans %}</th>
@@ -52,8 +52,8 @@
                                              href="{{ url(routeName, params) }}">{{ currentPage-1 }}</a>
                     </li>
                 {% else %}
-                    <li class="page-item disabled">
-                        <a class="page-link" href="#">Previous</a>
+                    <li class="page-item btn-disabled disabled">
+                        <a class="page-link " href="#">Previous</a>
                     </li>
                 {% endif %}
                 <li class="page-item"><a class="page-link"

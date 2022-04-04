@@ -9,3 +9,20 @@
     margin-bottom: 3%;
 }
 
+.btn-lg{
+    background-color: #3b52c8;
+    color: white;
+}
+
+
+.register-form{
+    padding-left: 15%;
+    padding-right: 15%;
+}
+
+#registration_form_register{
+    margin-left: 0;
+    padding-right: 0%;
+    padding-left: 0%;
+
+}
