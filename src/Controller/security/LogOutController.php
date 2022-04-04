@@ -9,7 +9,7 @@ class LogOutController extends AbstractController
 {
 
     /**
-     * @Route("/logout", name="app_logout")
+     * @Route("/{_locale<%app.supported_locales%>}/logout", name="app_logout")
      */
     public function logout(): void
     {

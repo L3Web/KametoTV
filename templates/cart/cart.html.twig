@@ -45,7 +45,11 @@
                     </tr>
                     </tfoot>
                 </table>
-                <div class="mt-3"><a href="{{ path("app_commander") }}">Commander</a></div>
+                {% if app.user %}
+                    <div class="mt-3"><a href="{{ path("app_commander") }}">Commander</a></div>
+                {% else %}
+                    <div class="mt-3"><a href="{{ path("app_login") }}">Commander</a></div>
+                {% endif %}
             {% else %}
                 <p>{% trans %}Sorry but your Cart is empty {% endtrans %}...</p>
             {% endif %}

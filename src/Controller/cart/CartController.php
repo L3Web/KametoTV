@@ -76,20 +76,20 @@ class CartController extends Controller
     public function remove(int $id)
     {
         $cart = $this->session->get('panier');
+        $product = $this->productRepository->findOneBy(array("id" => $id));
 
         if (!empty($cart[$id])) {
+            $this->changePrice("-", $product->getPrice() * $cart[$id]);
             unset($cart[$id]);
         }
         $this->session->set('panier', $cart);
-        $product = $this->productRepository->findOneBy(array("id" => $id));
-        $this->changePrice("-", $product->getPrice());
 
         return $this->redirectToRoute("app_cart");
     }
 
 
     /**
-     * @Route("/commander", name="app_commander")
+     * @Route("/account/commander", name="app_commander")
      *
      */
     public function commander(UserRepository $userRepository, UserInterface $user): Response
@@ -100,6 +100,7 @@ class CartController extends Controller
         $commande->setDate(new \DateTimeImmutable("now"));
         $commande->setTotal($this->session->get("total"));
         $commande->setIdUser($userRepository->findOneBy(array("id" => $user->getId())));
+        $commande->setStatus(0);
 
         $this->entityManager->persist($commande);
         $this->entityManager->flush();

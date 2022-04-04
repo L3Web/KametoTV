@@ -26,6 +26,8 @@ class Commande
     #[ORM\JoinColumn(nullable: false)]
     private ?user $idUser;
 
+    #[ORM\Column(type: 'smallint')]
+    private ?int $status;
 
     public function getId(): ?int
     {
@@ -76,6 +78,18 @@ class Commande
     public function setIdUser(?user $IdUser): self
     {
         $this->idUser = $IdUser;
+
+        return $this;
+    }
+
+    public function getStatus(): ?int
+    {
+        return $this->status;
+    }
+
+    public function setStatus(int $status): self
+    {
+        $this->status = $status;
 
         return $this;
     }
