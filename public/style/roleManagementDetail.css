@@ -2,3 +2,20 @@ span {
     padding-top: 15%;
     padding-bottom: 15%;
 }
+
+.role-dropdown-item{
+    background-color: #3b52c8;
+    color: white;
+    padding-left: 20%;
+}
+
+.role-details{
+    background: rgb(24,36,131);
+    background: linear-gradient(90deg, rgba(24,36,131,1) 0%, rgba(25,37,139,1) 30%, rgba(25,37,139,1) 70%, rgba(24,36,131,1) 100%);
+
+}
+
+span .account-details{
+    margin-left: 8%;
+}
+

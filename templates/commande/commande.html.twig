@@ -3,8 +3,8 @@
 {% block body %}
     <div class="mt-3 mb-3">
         {% if commandeList| length == null %}
-            <h2 class="ml-3">{% trans %}Sorry, you have never ordered !{% endtrans %}</h2>
-            <a href="{{ path('app_boutique') }}">Order now !</a>
+            <h2 class="ml-3 text-center">{% trans %}Sorry, you have never ordered !{% endtrans %}</h2>
+            <a class="text-white d-flex justify-content-center mt-5" href="{{ path('app_boutique') }}">Order now !</a>
         {% else %}
             <h3 class="text-center">{% trans %}Order history{% endtrans %}</h3>
             <table class="table table-bordered table-hover col-9 mt-3 mx-auto text-center">
@@ -36,7 +36,7 @@
                             {% trans %}To be processed{% endtrans %}
                         {% endif %}
                     </td>
-                    <td><a class="btn btn-secondary"
+                    <td><a class="btn btn-global"
                            href="{{ path('app_commande_details', {'id': commande.id}) }}">Details</a>
                     </td>
                 </tr>

@@ -1,8 +1,11 @@
 {% extends "base.html.twig" %}
 {% block title %}Add{% endblock %}
+ {% block stylesheets %}
+     <link rel="stylesheet" href="{{ asset('style/form.css') }}" type="text/css"/>
+ {% endblock %}
 {% block body %}
-    <div class="ml-5 mb-3 col-5">
-        <h1>{% trans %}Add product{% endtrans %}</h1>
+    <div class="add-product shadow-lg pr-5 pl-5 mt-3 mb-3 mx-auto justify-content-center">
+        <h1 class="text-center mb-3">{% trans %}Add product{% endtrans %}</h1>
         {{ form(formProduct) }}
     </div>
 {% endblock %}

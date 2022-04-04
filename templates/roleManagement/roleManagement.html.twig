@@ -1,5 +1,7 @@
 {% extends "base.html.twig" %}
 {% block title %}Role management{% endblock %}
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('style/roleManagement.css') }}" type="text/css"/> {% endblock %}
 {% block body %}
     {% if message is defined and message is not null %}
         <h2 class="ml-5">{{ message }}</h2>
@@ -26,9 +28,9 @@
                         {% endfor %}
                     </td>
                     <td>
-                        <a class="btn btn-secondary text-white"
+                        <a class="btn btn-global text-white mr-2
                            href="{{ path('app_roleDetails', {"id": userList[i].id}) }}">{% trans %}Details{% endtrans %}</a>
-                        <a class="btn btn-secondary text-white"
+                        <a class="btn btn-global text-white ml-2"
                            href="{{ path('app_roleDelete', {"id": userList[i].id}) }}">{% trans %}Delete{% endtrans %}</a>
                     </td>
                 </tr>
@@ -39,7 +41,7 @@
     {% if (hasNext or hasPrevious) %}
         {% set routeName = 'app_roleManagement' %}
         <nav class="mt-2 mb-1" aria-label="Page navigation example">
-            <ul class="pagination justify-content-center">
+            <ul class="pagination  justify-content-center">
                 {% if hasPrevious %}
                     {% set params = {"page":currentPage-1} %}
                     <li class="page-item">

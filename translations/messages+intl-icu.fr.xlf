@@ -119,7 +119,7 @@
       </trans-unit>
       <trans-unit id="PVeVsdn" resname="Change or details">
         <source>Change or details</source>
-        <target>Changer ou détails</target>
+        <target>Détails ou supprimer</target>
       </trans-unit>
       <trans-unit id="RZid5J_" resname="Details">
         <source>Details</source>

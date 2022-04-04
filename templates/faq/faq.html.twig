@@ -20,7 +20,7 @@
                                         {{ faqAll[faq].getQuestion() }}
                                     </button>
                                     {% if is_granted('ROLE_ADMIN') %}
-                                        <a class="h6 mb-0 mt-2 float-right text-secondary"
+                                        <a class="h6 mb-0 mt-2 float-right text-white"
                                            href="{{ path('app_faq_del', {'id': faqAll[faq].getId}) }}"> {% trans %}Delete {% endtrans %} </a>
                                     {% endif %}
                                 </h5>
@@ -41,8 +41,8 @@
     </div>
 
     {% if is_granted('ROLE_ADMIN') %}
-        <div class=" mx-auto mb-2 ">
-            <a href="{{ path('app_faqAdd') }}" class="btn btn-secondary">{% trans %}Add a question/answer{% endtrans %}</a>
+        <div class=" mx-auto mb-5    ">
+            <a href="{{ path('app_faqAdd') }}" class="btn btn-global">{% trans %}Add a question/answer{% endtrans %}</a>
         </div>
     {% endif %}
 

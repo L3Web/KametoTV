@@ -3,7 +3,7 @@
 {% block stylesheets %}
     <link rel="stylesheet" href="{{ asset('style/roleManagementDetail.css') }}" type="text/css"/> {% endblock %}
 {% block body %}
-    <div class="col-6 d-flex justify-content-center align-middle mx-auto my-auto border-2 shadow-lg pt-5 pb-5">
+    <div class="role-details col-6 d-flex justify-content-center align-middle mx-auto my-auto border-2 shadow-lg pt-5 pb-5">
         <div class="col-6 my-auto align-content-center">
             <span>Id : {{ user.id }}</span><br>
             <span>{% trans %}Username{% endtrans %} : {{ user.username }}</span><br>
@@ -27,13 +27,13 @@
                 <input type="hidden" name="id" value={{ user.id }}>
                 <div id="addRoles" class="form-group dropdown roleManagement">
                     <div class="dropdown">
-                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownAddButton"
+                        <button class="btn btn-global dropdown-toggle mt-2 ml-5" type="button" id="dropdownAddButton"
                                 data-toggle="dropdown" aria-expanded="false">
                             {% trans %}Add roles{% endtrans %}
                         </button>
                         <div class="dropdown-menu pt-0 pb-0" aria-labelledby="dropdownAddButton">
                             {% for hierarchy in hierarchyList %}
-                                <div class="dropdown-item form-check">
+                                <div class="role-dropdown-item rounded form-check">
                                     <input class="form-check-input" name="add[]" type="checkbox"
                                            value={{ hierarchy }} id={{ hierarchy }}>
                                     <label class="form-check-label" for={{ hierarchy }}>
@@ -46,13 +46,13 @@
                 </div>
                 <div id="removeRoles" class="form-group roleManagement">
                     <div class="dropdown">
-                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownRemoveButton"
+                        <button class="btn btn-global dropdown-toggle ml-5" type="button" id="dropdownRemoveButton"
                                 data-toggle="dropdown" aria-expanded="false">
                             {% trans %}Remove roles{% endtrans %}
                         </button>
                         <div class="dropdown-menu pt-0 pb-0" aria-labelledby="dropdownRemoveButton">
                             {% for role in user.roles %}
-                                <div class="dropdown-item form-check">
+                                <div class="role-dropdown-item rounded form-check">
                                     {% if (role=="ROLE_USER") or (role=="ROLE_SUPER_ADMIN") %}
                                         <input class="form-check-input" name="remove[]" type="checkbox"
                                                value={{ role }} id={{ role }} disabled>
@@ -60,7 +60,7 @@
                                         <input class="form-check-input" name="remove[]" type="checkbox"
                                                value={{ role }} id={{ role }}>
                                     {% endif %}
-                                    <label class="form-check-label" for={{ role }}>
+                                    <label class="form-check-label text-white" for={{ role }}>
                                         {{ role }}
                                     </label>
                                 </div>
@@ -68,7 +68,7 @@
                         </div>
                     </div>
                 </div>
-                <button type="submit" class="btn btn-secondary">{% trans %}Submit{% endtrans %}</button>
+                <button type="submit" class="btn btn-global ml-5">{% trans %}Submit{% endtrans %}</button>
             </form>
         </div>
     </div>
