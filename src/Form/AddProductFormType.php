@@ -29,8 +29,8 @@ class AddProductFormType extends AbstractType
             ])
             ->add('category_id', ChoiceType::class ,[
                 'choices' => [
-                    'Vetement' => 1,
-                    'Autre' => 2,
+                    'AddProduct.category.clothes' => 1,
+                    'AddProduct.category.other' => 2,
                 ],
             ])
             ->add('product_desc', TextType::class ,[

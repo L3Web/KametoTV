@@ -18,6 +18,9 @@ AddProduct:
   id: Category id
   add: Add
   price: Price
+  category:
+    clothes: Clothes
+    other: Others
 
 ChangeValidPassword:
   oldPassword : Old password

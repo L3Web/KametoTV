@@ -395,6 +395,26 @@
         <source>Order now !</source>
         <target>Commande maintenant !</target>
       </trans-unit>
+      <trans-unit id="ycxNS7K" resname="Product informations">
+        <source>Product informations</source>
+        <target>Informations sur le produit</target>
+      </trans-unit>
+      <trans-unit id="04x0oEc" resname="Quantity Available">
+        <source>Quantity Available</source>
+        <target>Quantité disponible</target>
+      </trans-unit>
+      <trans-unit id="KSwG8AR" resname="Category">
+        <source>Category</source>
+        <target>Catégorie</target>
+      </trans-unit>
+      <trans-unit id="69rZukx" resname="Others">
+        <source>Others</source>
+        <target>Autres</target>
+      </trans-unit>
+      <trans-unit id="K6YsK2n" resname="Clothes">
+        <source>Clothes</source>
+        <target>Vetements</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>

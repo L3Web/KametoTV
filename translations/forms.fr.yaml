@@ -18,6 +18,9 @@ AddProduct:
   id: Identifiant de la catégorie
   add: Ajouter
   price: Prix
+  category:
+    clothes: Vetements
+    other: Autres
 
 ChangeValidPassword:
   oldPassword: Ancien mot de passe
