@@ -4,7 +4,9 @@ namespace App\Form;
 
 use App\Entity\Product;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
+use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -25,8 +27,14 @@ class AddProductFormType extends AbstractType
             ->add('product_qtt', TextType::class ,[
                 "label" => "AddProduct.productqtt"
             ])
-            ->add('category_id', TextType::class ,[
-                "label" => "AddProduct.id"
+            ->add('category_id', ChoiceType::class ,[
+                'choices' => [
+                    'Vetement' => 1,
+                    'Autre' => 2,
+                ],
+            ])
+            ->add('product_desc', TextType::class ,[
+                "label" => "Description"
             ])
             ->add('image', FileType::class, [
                 'label' => 'Image (JPG)',
