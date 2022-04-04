@@ -38,17 +38,15 @@ security:
     access_control:
         # - { path: ^/admin, roles: ROLE_ADMIN }
         # - { path: ^/profile, roles: ROLE_USER }
+        - { path: ^/(en|fr)/account, roles: ROLE_USER }
+        - { path: ^/(en|fr)/boutique/add, roles: ROLE_ADMIN }
         - { path : ^/(en|fr)/faq/add, roles: ROLE_ADMIN }
-        - { path : ^/(en|fr)/roleManagement, roles : ROLE_SUPER_ADMIN}
-        - { path : ^/(en|fr)/boutique/add, roles : ROLE_ADMIN}
-        - { path : ^/(en|fr)/account, roles : ROLE_USER}
-        - { path : ^/(en|fr)/commander, roles : ROLE_USER}
+        - { path : ^/(en|fr)/admin/roleManagement, roles : ROLE_SUPER_ADMIN}
+        - { path : ^/(en|fr)/admin, roles : ROLE_ADMIN}
     access_denied_url : /login
     role_hierarchy:
-        ROLE_MANAGER: ['ROLE_USER']
-        ROLE_TESTERS: ['ROLE_USER']
-        ROLE_ADMIN: ['ROLE_MANAGER']
-        ROLE_SUPER_ADMIN: ['ROLE_ADMIN', 'ROLE_TESTERS']
+        ROLE_ADMIN: ['ROLE_USER']
+        ROLE_SUPER_ADMIN: ['ROLE_ADMIN']
 
 when@test:
     security:

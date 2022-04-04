@@ -89,7 +89,7 @@ class CartController extends Controller
 
 
     /**
-     * @Route("/commander", name="app_commander")
+     * @Route("/account/commander", name="app_commander")
      *
      */
     public function commander(UserRepository $userRepository, UserInterface $user): Response
@@ -100,6 +100,7 @@ class CartController extends Controller
         $commande->setDate(new \DateTimeImmutable("now"));
         $commande->setTotal($this->session->get("total"));
         $commande->setIdUser($userRepository->findOneBy(array("id" => $user->getId())));
+        $commande->setStatus(0);
 
         $this->entityManager->persist($commande);
         $this->entityManager->flush();
