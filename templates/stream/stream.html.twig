@@ -3,7 +3,18 @@
 
 
 
+    <h1 class="text-center">Watch Kameto's stream here</h1>
+    <div class="d-flex justify-content-center mt-3 mb-5" id="twitch-embed"></div>
 
+    <script src="https://embed.twitch.tv/embed/v1.js"></script>
+
+    <script type="text/javascript">
+        new Twitch.Embed("twitch-embed", {
+            width: 854,
+            height: 480,
+            channel: "kamet0",
+        });
+    </script>
 
 
 
