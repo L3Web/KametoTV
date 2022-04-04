@@ -18,3 +18,7 @@ AddProduct:
   id: Identifiant de la catégorie
   add: Ajouter
   price: Prix
+
+ChangeValidPassword:
+  oldPassword: Ancien mot de passe
+  submit : Changer

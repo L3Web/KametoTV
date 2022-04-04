@@ -265,7 +265,7 @@
       </trans-unit>
       <trans-unit id="QEGoILw" resname="Order List">
         <source>Order List</source>
-        <target>List de commande</target>
+        <target>Liste de commande</target>
       </trans-unit>
       <trans-unit id="tkbI0lg" resname="Manage roles">
         <source>Manage roles</source>
@@ -390,6 +390,10 @@
       <trans-unit id="tTGBpNh" resname="My account">
         <source>My account</source>
         <target>Mon compte</target>
+      </trans-unit>
+      <trans-unit id="jx2diTA" resname="Order now !">
+        <source>Order now !</source>
+        <target>Commande maintenant !</target>
       </trans-unit>
     </body>
   </file>

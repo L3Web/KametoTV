@@ -3,8 +3,8 @@
 {% block body %}
 
     <div class="mt-3 mb-3">
-        <a class="ml-5 btn btn-global" href="{{ path('app_commande') }}">Back</a>
-        <h3 class="text-center">Order {{ commande.id }}</h3>
+        <a class="ml-5 btn btn-global" href="{{ path('app_commande') }}">{% trans %}Back{% endtrans %}</a>
+        <h3 class="text-center">{% trans %}Order{% endtrans%} {{ commande.id }}</h3>
         <div class="d-flex justify-content-center">
             <table class="table table-bordered table-hover col-9 mt-3 mx-auto text-center">
                 <thead>

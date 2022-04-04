@@ -19,3 +19,6 @@ AddProduct:
   add: Add
   price: Price
 
+ChangeValidPassword:
+  oldPassword : Old password
+  submit : Change

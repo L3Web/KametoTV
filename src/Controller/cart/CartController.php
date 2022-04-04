@@ -53,7 +53,7 @@ class CartController extends Controller
     }
 
     /**
-     * @Route("/panier/add/{id<^[1-9]{1}[0-9]*$>}", name="app_cart_add")
+     * @Route("/{_locale<%app.supported_locales%>}/panier/add/{id<^[1-9]{1}[0-9]*$>}", name="app_cart_add")
      */
     public function add(int $id)
     {
@@ -72,7 +72,7 @@ class CartController extends Controller
     }
 
     /**
-     * @Route("/panier/remove/{id<^[1-9]{1}[0-9]*$>}", name="app_cart_remove")
+     * @Route("/{_locale<%app.supported_locales%>}/panier/remove/{id<^[1-9]{1}[0-9]*$>}", name="app_cart_remove")
      */
     public function remove(int $id)
     {
@@ -90,7 +90,7 @@ class CartController extends Controller
 
 
     /**
-     * @Route("/account/commander", name="app_commander")
+     * @Route("/{_locale<%app.supported_locales%>}/account/commander", name="app_commander")
      *
      */
     public function commander(UserRepository $userRepository, UserInterface $user): Response
