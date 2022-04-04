@@ -5,6 +5,7 @@ namespace App\Controller\cart;
 
 use App\Controller\Controller;
 use App\Entity\Commande;
+use App\Entity\User;
 use App\Repository\ProductRepository;
 use App\Repository\UserRepository;
 use Doctrine\ORM\EntityManagerInterface;
@@ -95,16 +96,7 @@ class CartController extends Controller
     public function commander(UserRepository $userRepository, UserInterface $user): Response
     {
         $cart = $this->session->get("panier");
-        $commande = new Commande();
-        $commande->setArticles($cart);
-        $commande->setDate(new \DateTimeImmutable("now"));
-        $commande->setTotal($this->session->get("total"));
-        $commande->setIdUser($userRepository->findOneBy(array("id" => $user->getId())));
-        $commande->setStatus(0);
-
-        $this->entityManager->persist($commande);
-        $this->entityManager->flush();
-
+        $this->setCommande($cart, $this->session->get("total"), ($userRepository->findOneBy(array("id" => $user->getId()))));
         $this->session->set("panier", []);
         $this->session->set("total", 0);
 
@@ -119,5 +111,18 @@ class CartController extends Controller
         } else {
             $this->session->set('total', $this->session->get("total") - $value);
         }
+    }
+
+    private function setCommande(array $products, int $total, User $user): void
+    {
+        $commande = new Commande();
+        $commande->setArticles($products);
+        $commande->setDate(new \DateTimeImmutable("now"));
+        $commande->setTotal($total);
+        $commande->setIdUser($user);
+        $commande->setStatus(0);
+
+        $this->entityManager->persist($commande);
+        $this->entityManager->flush();
     }
 }
