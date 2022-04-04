@@ -19,8 +19,10 @@
                 <div class="card ml-4 mr-4 mb-5 col-3 pb-5 shadow-lg">
                     <h3 class="card-title pt-3 text-center">{{ product.productName }}</h3>
                     <div class="h-50">
+                        <a href="{{ path('app_product_informations',{'id':product.Id}) }}">
                         <img class="card-img-pt-1 img-fluid h-100" alt="Card image cap"
                              src="{{ asset('media/'~product.Image) }}">
+                        </a>
                     </div>
                     <div class="card-body">
                         <p class="card-text mt-2 text-center">{{ product.price }}€ <br>

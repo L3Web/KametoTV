@@ -21,4 +21,5 @@ class accountInformationController extends Controller
             "user" => $user
         ]);
     }
+
 }

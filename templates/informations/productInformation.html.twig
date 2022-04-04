@@ -1,0 +1,26 @@
+{% extends "base.html.twig" %}
+{% block title %}{% trans %}Product informations{% endtrans %}{% endblock %}
+{%  block stylesheets %}
+<link rel="stylesheet" href="{{ asset('style/roleManagementDetail.css') }}" type="text/css"/> {% endblock %}
+{% block body %}
+    <div class=" mx-auto shadow-lg pt-5 pb-5 pl-5 pr-5 sticky">
+        <h3 class="text-center mt-3">{% trans %}Product informations{% endtrans %}</h3>
+        <div class="mx-auto mt-4 mb-3">
+            <p class="mx-auto"> {{ product.productName }}</p>
+            <p>{% trans %} Price {% endtrans %}: {{ product.price }}€</p>
+
+            <p>{% trans %}Quantity Available {% endtrans %}: {{ product.productQtt }}</p>
+            <p>{% trans %}Category {% endtrans %}:
+                {% if product.categoryId is same as(2)  %}
+                    {% trans %}Others{% endtrans %}
+                {% endif %}
+                    {% trans %}Clothes{% endtrans %}
+                </p>
+            <p> {{ product.productDesc }}</p>
+
+
+
+
+        </div>
+    </div>
+{% endblock %}
