@@ -33,7 +33,7 @@ class ProductController extends Controller
     }
 
     /**
-     * @Route("/boutique/{id<^[1-9]{1}[0-9]*$>}", name="app_prodDel")
+     * @Route("/{_locale<%app.supported_locales%>}/boutique/{id<^[1-9]{1}[0-9]*$>}", name="app_prodDel")
      */
     public function deleteProd(Product $pro): Response
     {
