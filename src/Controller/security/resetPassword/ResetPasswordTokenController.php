@@ -16,7 +16,7 @@ class ResetPasswordTokenController extends ResetPasswordController
     use ResetPasswordControllerTrait;
 
     /**
-     * @Route("/reset/{token}", name="app_reset_password")
+     * @Route("/{_locale<%app.supported_locales%>}/reset/{token}", name="app_reset_password")
      *
      * Validates and process the reset URL that the user clicked in their email.
      */

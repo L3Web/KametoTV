@@ -11,7 +11,7 @@ class ResetPasswordCheckEmailController extends ResetPasswordController
 {
     use ResetPasswordControllerTrait;
     /**
-     * @Route("/check-email", name="app_check_email")
+     * @Route("/{_locale<%app.supported_locales%>}/check-email", name="app_check_email")
      *
      * Confirmation page after a user has requested a password reset.
      */
