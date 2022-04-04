@@ -14,8 +14,10 @@
                 {% if product.categoryId is same as(2)  %}
                     {% trans %}Others{% endtrans %}
                 {% endif %}
+                {% if product.categoryId is same as(1)  %}
                     {% trans %}Clothes{% endtrans %}
-                </p>
+                {% endif %}
+            </p>
             <p> {{ product.productDesc }}</p>
         </div>
     </div>
