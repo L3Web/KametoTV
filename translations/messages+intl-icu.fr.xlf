@@ -263,6 +263,134 @@
                     and his friends Kotei and Befresh.</source>
         <target>KametoTV est une chaine de streaming offrant un contenu divertissant principalement tenu par le streamer Kameto, Kotei et ses amis.</target>
       </trans-unit>
+      <trans-unit id="QEGoILw" resname="Order List">
+        <source>Order List</source>
+        <target>List de commande</target>
+      </trans-unit>
+      <trans-unit id="tkbI0lg" resname="Manage roles">
+        <source>Manage roles</source>
+        <target>Gestion de rôles</target>
+      </trans-unit>
+      <trans-unit id="QSvguc1" resname="Informations">
+        <source>Informations</source>
+        <target>Informations</target>
+      </trans-unit>
+      <trans-unit id="ko9P5Sm" resname="Order history">
+        <source>Order history</source>
+        <target>Historique de commande</target>
+      </trans-unit>
+      <trans-unit id="dpAPG.0" resname="Back">
+        <source>Back</source>
+        <target>Retour</target>
+      </trans-unit>
+      <trans-unit id="ula2xa9" resname="No order to check !">
+        <source>No order to check !</source>
+        <target>Pas de commande à valider !</target>
+      </trans-unit>
+      <trans-unit id="sK.fPfO" resname="Order list">
+        <source>Order list</source>
+        <target>Liste de commande</target>
+      </trans-unit>
+      <trans-unit id="oj2ISuc" resname="Order id">
+        <source>Order id</source>
+        <target>Id de commande</target>
+      </trans-unit>
+      <trans-unit id="sUrHikb" resname="Articles">
+        <source>Articles</source>
+        <target>Articles</target>
+      </trans-unit>
+      <trans-unit id="3pVA.4l" resname="Total prices">
+        <source>Total prices</source>
+        <target>Total</target>
+      </trans-unit>
+      <trans-unit id="mcQKtAW" resname="Date">
+        <source>Date</source>
+        <target>Date</target>
+      </trans-unit>
+      <trans-unit id="kg5BPH1" resname="Status">
+        <source>Status</source>
+        <target>Etat</target>
+      </trans-unit>
+      <trans-unit id="iXE7nJw" resname="Accept">
+        <source>Accept</source>
+        <target>Accepter</target>
+      </trans-unit>
+      <trans-unit id="JjE0m.9" resname="Refuse">
+        <source>Refuse</source>
+        <target>Refuser</target>
+      </trans-unit>
+      <trans-unit id="YcT4Hm0" resname="Sorry, you have never ordered !">
+        <source>Sorry, you have never ordered !</source>
+        <target>Désolé, vous n'avez jamais commandé !</target>
+      </trans-unit>
+      <trans-unit id="ZrhzVDr" resname="Refused">
+        <source>Refused</source>
+        <target>Refusé</target>
+      </trans-unit>
+      <trans-unit id="WQFQlp2" resname="To be processed">
+        <source>To be processed</source>
+        <target>En cours de traitement</target>
+      </trans-unit>
+      <trans-unit id="a_CQgly" resname="Order">
+        <source>Order</source>
+        <target>Commande</target>
+      </trans-unit>
+      <trans-unit id="GF_NsyJ" resname="Hello">
+        <source>Hello</source>
+        <target>Bonjour</target>
+      </trans-unit>
+      <trans-unit id="0pX4gBs" resname="You have successfully reset your password">
+        <source>You have successfully reset your password</source>
+        <target>Vous avez réinitialisé votre mot de passe avec succès</target>
+      </trans-unit>
+      <trans-unit id="xppAFkl" resname="Have a nice day">
+        <source>Have a nice day</source>
+        <target>Je vous souhaite une bonne journée</target>
+      </trans-unit>
+      <trans-unit id="jcvvFTa" resname="Account informations">
+        <source>Account informations</source>
+        <target>Information sur le compte</target>
+      </trans-unit>
+      <trans-unit id="Jy9Lngf" resname="My account informations">
+        <source>My account informations</source>
+        <target>Les informations sur mon compte</target>
+      </trans-unit>
+      <trans-unit id="lpzL089" resname="Email">
+        <source>Email</source>
+        <target>Email</target>
+      </trans-unit>
+      <trans-unit id="imodqOy" resname="Change your password">
+        <source>Change your password</source>
+        <target>Change ton mot de passe</target>
+      </trans-unit>
+      <trans-unit id="3.Yjkci" resname="Change your password here">
+        <source>Change your password here</source>
+        <target>Change ton mot de passe ici</target>
+      </trans-unit>
+      <trans-unit id="yKeA0.P" resname="Log in!">
+        <source>Log in!</source>
+        <target>Connecte toi!</target>
+      </trans-unit>
+      <trans-unit id="0Aqua3_" resname="Shop">
+        <source>Shop</source>
+        <target>Boutique</target>
+      </trans-unit>
+      <trans-unit id="0FJ_Sz1" resname="Logout">
+        <source>Logout</source>
+        <target>Deconnexion</target>
+      </trans-unit>
+      <trans-unit id="8FkDbX3" resname="Login/Register">
+        <source>Login/Register</source>
+        <target>Connexion/Inscription</target>
+      </trans-unit>
+      <trans-unit id="n9coxmy" resname="Add">
+        <source>Add</source>
+        <target>Ajouter</target>
+      </trans-unit>
+      <trans-unit id="tTGBpNh" resname="My account">
+        <source>My account</source>
+        <target>Mon compte</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>

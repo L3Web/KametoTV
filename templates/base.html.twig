@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>{% block title %} {% trans %}Welcome to Kameto{% endtrans %} !{% endblock %}</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
           integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn"
@@ -43,7 +44,7 @@
             </li>
             <li class="nav-item url">
                 <a class="nav-link" aria-current="page"
-                   href="{{ path('app_boutique') }}">{% trans %}SHOP{% endtrans %}</a>
+                   href="{{ path('app_boutique') }}">{% trans %}Shop{% endtrans %}</a>
             </li>
             <li class="nav-item url">
                 <a class="navbar-brand mr-0" href="{{ path('app_base_home') }}">KametoTV</a>
@@ -85,7 +86,7 @@
                             Admin
                         </button>
                         <ul class="dropdown-menu pt-0 pb-0" aria-labelledby="dropdownMenuButton">
-                            <li><a class="dropdown-item" aria-current="page"
+                            <li><a class="dropdown-item border-bottom" aria-current="page"
                                    href="{{ path('app_commande_admin') }}">{% trans %}Order List{% endtrans %}</a></li>
 
                             {% if is_granted('ROLE_SUPER_ADMIN') %}
@@ -102,9 +103,9 @@
                     <div class="dropdown">
                         <button class="btn dropdown-toggle text-white" type="button" id="dropUserMenuButton"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            My account
+                            {% trans %}My account{% endtrans %}
                         </button>
-                        <ul class="dropdown-menu pt-0 pb-0" aria-labelledby="dropdownUserButton">
+                        <ul class="dropdown-menu dropdown-menu-right pt-0 pb-0" aria-labelledby="dropdownUserButton">
                             <li>
                                 <a class="dropdown-item" aria-current="page"
                                    href="{{ path('app_informations') }}">{% trans %}Informations{% endtrans %}</a>
@@ -115,7 +116,7 @@
                             </li>
                             <li>
                                 <a class="dropdown-item" aria-current="page"
-                                   href="{{ path('app_logout') }}">{% trans %}LOGOUT{% endtrans %}</a>
+                                   href="{{ path('app_logout') }}">{% trans %}Logout{% endtrans %}</a>
                             </li>
                         </ul>
                     </div>
@@ -123,7 +124,7 @@
             {% else %}
                 <li class="nav-item url">
                     <a class="nav-link" aria-current="page"
-                       href="{{ path('app_login') }}">{% trans %}LOGIN/REGISTER{% endtrans %}</a>
+                       href="{{ path('app_login') }}">{% trans %}Login/Register{% endtrans %}</a>
                 </li>
             {% endif %}
         </ul>
