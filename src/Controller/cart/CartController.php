@@ -68,8 +68,28 @@ class CartController extends Controller
         $product = $this->productRepository->findOneBy(array("id" => $id));
         $this->changePrice("+", $product->getPrice());
 
-        return $this->redirectToRoute('app_boutique');
+
+        return $this->redirectToRoute('app_cart');
     }
+
+    /**
+     * @Route("/{_locale<%app.supported_locales%>}/panier/minus/{id<^[1-9]{1}[0-9]*$>}", name="app_cart_minus")
+     */
+    public function minus(int $id)
+    {
+        $cart = $this->session->get('panier');
+
+        $cart[$id]--;
+        echo "test";
+
+        $this->session->set('panier', $cart);
+        $product = $this->productRepository->findOneBy(array("id" => $id));
+        $this->changePrice("-", $product->getPrice());
+
+
+        return $this->redirectToRoute('app_cart');
+    }
+
 
     /**
      * @Route("/{_locale<%app.supported_locales%>}/panier/remove/{id<^[1-9]{1}[0-9]*$>}", name="app_cart_remove")

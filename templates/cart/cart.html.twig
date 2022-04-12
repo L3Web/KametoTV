@@ -25,7 +25,19 @@
                         <tr>
                             <td>{{ item.product.ProductName }}</td>
                             <td>{{ item.product.Price }}</td>
-                            <td>{{ item.quantity }}</td>
+                            <td>
+                                <div class="btn-group" role="group" aria-label="Basic example">
+                                {% if item.quantity is same as (1) %}
+                                    <button type="button" class="btn btn-global btn-sm"><a href="{{ path('app_cart_remove',{'id':item.product.Id}) }}">-</a></button>
+                                {% else %}
+                                    <button type="button" class="btn btn-global btn-sm"><a href="{{ path('app_cart_minus',{'id':item.product.Id}) }}">-</a></button>
+                                {% endif %}
+                                    <button  class="btn btn-global btn-sm">{{ item.quantity }}</button>
+                                    <button type="button" class="btn btn-global btn-sm "><a href="{{ path('app_cart_add',{'id':item.product.Id}) }}">+</a></button>
+                                </div>
+
+
+                            </td>
                             <td>{{ item.product.Price * item.quantity }}</td>
                             <td>
                                 <a href="{{ path('app_cart_remove',{'id' : item.product.Id}) }}"
