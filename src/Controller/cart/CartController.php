@@ -80,7 +80,6 @@ class CartController extends Controller
         $cart = $this->session->get('panier');
 
         $cart[$id]--;
-        echo "test";
 
         $this->session->set('panier', $cart);
         $product = $this->productRepository->findOneBy(array("id" => $id));
