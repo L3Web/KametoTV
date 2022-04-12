@@ -28,6 +28,24 @@ class ProductRepository extends ServiceEntityRepository
             ->getQuery()
             ->getResult();
     }
+    public function getClothesProduct()
+    {
+        return $this->createQueryBuilder("p")
+            ->orderBy("p.id")
+            ->where("p.category_id =1")
+            ->setMaxResults(10)
+            ->getQuery()
+            ->getResult();
+    }
+    public function getOthersProduct()
+    {
+        return $this->createQueryBuilder("p")
+            ->orderBy("p.id")
+            ->where("p.category_id =2")
+            ->setMaxResults(10)
+            ->getQuery()
+            ->getResult();
+    }
 
 
 

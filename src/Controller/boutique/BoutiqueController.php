@@ -22,4 +22,32 @@ class BoutiqueController extends AbstractController
 
         ]);
     }
+
+    /**
+     * @Route("/{_locale<%app.supported_locales%>}/boutique/clothes", name="app_boutiqueC")
+     *
+     */
+
+    public function boutiqueC(ProductRepository $productRepository): Response
+    {
+        $res = $productRepository->getClothesProduct();
+        return $this->render('boutique/boutique.html.twig', [
+            'ProductAll' => $res,
+
+        ]);
+    }
+
+    /**
+     * @Route("/{_locale<%app.supported_locales%>}/boutique/others", name="app_boutiqueO")
+     *
+     */
+
+    public function boutiqueO(ProductRepository $productRepository): Response
+    {
+        $res = $productRepository->getOthersProduct();
+        return $this->render('boutique/boutique.html.twig', [
+            'ProductAll' => $res,
+
+        ]);
+    }
 }

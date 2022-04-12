@@ -6,10 +6,25 @@
  {% endblock %}
 {% block body %}
 
+
+
+    <div class="dropdown">
+        <button class="btn btn-global float-left pt-2 pb-2 pl-5 pr-5 mt-3 ml-5 dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            {% trans %}Filter{% endtrans %}
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" href="{{ path('app_boutique') }}">{% trans %}All{% endtrans %}</a>
+            <a class="dropdown-item" href="{{ path('app_boutiqueC') }}">{% trans %}Clothes{% endtrans %}</a>
+            <a class="dropdown-item" href="{{ path('app_boutiqueO') }}">{% trans %}Others{% endtrans %}</a>
+        </div>
+
+
     <div>
         <a href="{{ path('app_cart',) }}" class="btn btn-global float-right pt-2 pb-2 pl-5 pr-5 mt-3 mr-5"
            role="button">{% trans %}Cart{% endtrans %}</a>
     </div>
+    </div>
+
 
 
 
