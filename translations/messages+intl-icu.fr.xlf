@@ -415,6 +415,15 @@
         <source>Clothes</source>
         <target>Vetements</target>
       </trans-unit>
+      <trans-unit id="K6YsK2p" resname="All">
+        <source>All</source>
+        <target>Tout</target>
+      </trans-unit>
+      <trans-unit id="K6YsK2o" resname="Filter">
+          <source>Filter</source>
+          <target>Filtre</target>
+      </trans-unit>
+
     </body>
   </file>
 </xliff>
