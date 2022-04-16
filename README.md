@@ -23,6 +23,7 @@ Le projet a été crée à l'aide de :
 * Symfony version : 6.0
 * Bootstrap version : 4.4.1
 * Twig : 6.0
+* MySQL : 5.1.1
 
 ## Installation <a name="installation"></a>
 
@@ -34,6 +35,22 @@ Cloner le projet et lancer les commandes suivantes dans l'ordre indiqué :
 
     php bin/console doctrine:fixtures:load
 
+**Comptes tests**
+
+Pour tester les fonctionnalités des comptes super admin et admin,
+nous avons crée d'avance un compte avec pour données de connexion :
+
+    Super Admin :
+        username : SuperAdmin
+        password : azerty
+
+    Admin : 
+        username : Admin
+        password : azerty
+
+Vous pouvez aussi crée un compte vous même via la page register et vous donnez le rôle Admin.
+
+NB : Il n'est pas possible de données le rôle Super Admin via la page de gestion des rôles.
 ## Fonctionnalités <a name="fonctionnalites"></a>
 
 Le site est disponible en 2 langues.
@@ -53,6 +70,9 @@ A l'aide des API Google et Twitch, il est possible de visionner les dernières v
 
 Tableau de gestion GitHub Project : https://github.com/L3Web/KametoTV/projects/2
 
+Base de données sous format SQL :
+
+Diagramme de la base : 
 ## Créateurs <a name="credits"></a>
 
 Etudiants en L3 MIAGE :

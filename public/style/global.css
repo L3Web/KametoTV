@@ -1,10 +1,11 @@
-
 body {
     background-color: #112a72;
     color: white;
 }
 
-
+iframe {
+    border: 0 !important;
+}
 
 li.nav-item {
     margin-left: 3%;
@@ -12,24 +13,7 @@ li.nav-item {
     padding-top: 1%;
     padding-bottom: 1%;
 }
-/*
-.nav-link {
-    font-size: smaller;
-}
 
-@media (max-width: 1100px) {
-    li.nav-item {
-        margin-left: 1%;
-        margin-right: 1%;
-    }
-}
-
-@media (max-width: 900px) {
-    .nav-link{
-        font-size: small;
-    }
-}
-*/
 .active {
     padding-right: 2%;
     padding-left: 2%;
@@ -50,7 +34,7 @@ li.nav-item {
 }
 
 .nav-item a, th, td {
-    color:white; !important;
+    color:white !important;
 }
 
 
@@ -62,6 +46,11 @@ li.nav-item {
 .dropdown-item{
     background-color: #112772;
 }
+
+.dropdown-item:hover {
+    background-color: #3b52c8;
+}
+
 
 .dropdown-menu{
     border: 0;

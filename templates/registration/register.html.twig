@@ -9,13 +9,13 @@
         <h1 class="mt-2 row mb-3 justify-content-center">{% trans %}Register{% endtrans %}</h1>
         <div class="row d-flex justify-content-center">
 
-            <div class="col-5   ml-4">
+            <div class="col-5 ml-4">
                 {{ form_start(formRegister) }}
                 {{ form_row(formRegister.username) }}
                 {{ form_row(formRegister.first_name) }}
                 {{ form_row(formRegister.last_name) }}
             </div>
-            <div class="col-5  flex-nowrap mr-4">
+            <div class="col-5 flex-nowrap mr-4">
                 {{ form_row(formRegister.email) }}
                 {{ form_row(formRegister.plainPassword) }}
             </div>
@@ -24,7 +24,5 @@
             {{ form_row(formRegister.register,{'attr': {'class': 'btn-lg mt-3'}}) }}
         </div>
         {{ form_end(formRegister) }}
-
-
     </div>
 {% endblock %}

@@ -1,22 +1,9 @@
-/*
-body {
-    background-color: #C1BBB3;
-}
+    .card{
+        border: 2px solid black;
+        border-radius: 5%;
+        color: black;
+    }
 
- */
-
-
-.card{
-    border: 2px solid black;
-    border-radius: 5%;
-    color: black;
-}
-
-/*
-    .card-text .btn {
-    background-color: #4467f1;
-    color : white;
-}
-
-
- */
+    .dropdown-item {
+        color: white;
+    }

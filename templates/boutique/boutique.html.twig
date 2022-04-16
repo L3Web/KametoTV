@@ -9,20 +9,22 @@
 
 
     <div class="dropdown">
-        <button class="btn btn-global float-left pt-2 pb-2 pl-5 pr-5 mt-3 ml-5 dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <button class="btn btn-global float-left pt-2 pb-2 pl-5 pr-5 mt-3 ml-5 dropdown-toggle" type="button"
+                id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             {% trans %}Filter{% endtrans %}
         </button>
-        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <a class="dropdown-item" href="{{ path('app_boutique') }}">{% trans %}All{% endtrans %}</a>
-            <a class="dropdown-item" href="{{ path('app_boutiqueC') }}">{% trans %}Clothes{% endtrans %}</a>
+        <div class="dropdown-menu pt-0 pb-0" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item border-bottom" href="{{ path('app_boutique') }}">{% trans %}All{% endtrans %}</a>
+            <a class="dropdown-item border-bottom"
+               href="{{ path('app_boutiqueC') }}">{% trans %}Clothes{% endtrans %}</a>
             <a class="dropdown-item" href="{{ path('app_boutiqueO') }}">{% trans %}Others{% endtrans %}</a>
         </div>
 
 
-    <div>
-        <a href="{{ path('app_cart',) }}" class="btn btn-global float-right pt-2 pb-2 pl-5 pr-5 mt-3 mr-5"
-           role="button">{% trans %}Cart{% endtrans %}</a>
-    </div>
+        <div>
+            <a href="{{ path('app_cart',) }}" class="btn btn-global float-right pt-2 pb-2 pl-5 pr-5 mt-3 mr-5"
+               role="button">{% trans %}Cart{% endtrans %}</a>
+        </div>
     </div>
 
 
@@ -35,8 +37,8 @@
                     <h3 class="card-title pt-3 text-center">{{ product.productName }}</h3>
                     <div class="h-50">
                         <a href="{{ path('app_product_informations',{'id':product.Id}) }}">
-                        <img class="card-img pt-1 img-fluid h-100" alt="Card image cap"
-                             src="{{ asset('media/'~product.Image) }}">
+                            <img class="card-img pt-1 img-fluid h-100" alt="Card image cap"
+                                 src="{{ asset('media/'~product.Image) }}">
                         </a>
                     </div>
                     <div class="card-body">
@@ -65,17 +67,19 @@
 
     <nav class="mt-2 mb-1" aria-label="Page navigation example">
         <ul class="pagination  justify-content-center">
-    <li class="page-item">
-        <a class="page-link"
-           href="#">Previous</a>
-    </li>
+            <li class="page-item">
+                <a class="page-link"
+                   href="#">Previous</a>
+            </li>
 
-    <li class="page-item"><a class="page-link"
-                             href="#">1</a>
-    </li>
-    <li class="page-item disabled">
-        <a class="page-link" href="#">Next</a>
-    </li>
+            <li class="page-item"><a class="page-link"
+                                     href="#">1</a>
+            </li>
+            <li class="page-item disabled">
+                <a class="page-link" href="#">Next</a>
+            </li>
+
         </ul>
+    </nav>
 
 {% endblock %}
