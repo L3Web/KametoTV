@@ -9,7 +9,7 @@ Site web permettant d'avoir les dernières nouveautés du youtuber Kameto.
 * [Installation](#installation)
 * [Fonctionnalités](#fonctionnalites)
 * [Liens externes](#externes)
-* [Créateurs](#credits)
+* [Développeurs](#credits)
 
 ## Introduction <a name="introduction"></a>
 
@@ -37,8 +37,8 @@ Cloner le projet, crée une base ded données nommé kameto et lancer les comman
 
 **Comptes tests**
 
-Pour tester les fonctionnalités des comptes super admin et admin,
-nous avons crée d'avance un compte avec pour données de connexion :
+Pour tester les fonctionnalités des comptes super admin et admin, nous avons crée d'avance un compte avec pour données
+de connexion :
 
     Super Admin :
         username : SuperAdmin
@@ -50,19 +50,21 @@ nous avons crée d'avance un compte avec pour données de connexion :
 
 Vous pouvez aussi crée un compte vous même via la page register et vous donnez le rôle Admin.
 
-NB : Il n'est pas possible de données le rôle Super Admin via la page de gestion des rôles.
+NB : Le rôle Super Admin est unique, il n'est pas possible de l'attribuer à un autre utilisateur via la page de gestion des rôles.
+
 ## Fonctionnalités <a name="fonctionnalites"></a>
 
 Le site est disponible en 2 langues.
 
 Il existe un système d'inscription, connexion et mot de passe oublié avec des mails (implémenter avec Symfony Mailer)
 
-L'utilisateur admin possède des droits de gestions de catalogue et de la faq.
+L'utilisateur admin possède des droits de gestions de catalogue et de la faq. Il peut aussi valider les commandes des
+autres utilisateurs
 
 L'utilisateur super admin peut gerer les autres utilisateurs
 
 Les autres utilisateurs peuvent obtenir des informations sur les goodies de Kameto et ensuite les placer dans leurs
-paniers afin de commander. Il est ausis possible de visualiser ses commandes passés.
+paniers afin de commander. Il est aussi possible de visualiser ses commandes passés.
 
 A l'aide des API Google et Twitch, il est possible de visionner les dernières vidéos de Youtube et stream de Twitch
 
@@ -70,15 +72,15 @@ A l'aide des API Google et Twitch, il est possible de visionner les dernières v
 
 Tableau de gestion GitHub Project : https://github.com/L3Web/KametoTV/projects/2
 
-Base de données sous format SQL :
+Base de données sous format SQL : https://drive.google.com/file/d/1E_ZKHnVtUw7aVwy7LzepBGcKxgHc0B0j/view?usp=sharing
 
-Diagramme de la base : 
-## Créateurs <a name="credits"></a>
+Diagramme de la base : https://drive.google.com/file/d/13zHpYuYtqA9ZR3kzVm6G43lyu-uZfEhK/view?usp=sharing
+
+## Développeurs <a name="credits"></a>
 
 Etudiants en L3 MIAGE :
 
-
-* Elodie : Product Owner
-* Mehdi
-* Florent
-* Alix
+* Elodie WAN - Product Owner
+* Mehdi CHEBBAH
+* Florent ZHENG
+* Alix LIN
