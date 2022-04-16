@@ -27,7 +27,7 @@ Le projet a été crée à l'aide de :
 
 ## Installation <a name="installation"></a>
 
-Cloner le projet et lancer les commandes suivantes dans l'ordre indiqué :
+Cloner le projet, crée une base ded données nommé kameto et lancer les commandes suivantes dans l'ordre indiqué :
 
     composer install
 
